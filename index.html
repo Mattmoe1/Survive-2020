@@ -2,19 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 1(Adventure Game)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    
     <!-- CSS link-->
     <link rel="stylesheet" href="styles.css">
-    <!-- Bootstrap link -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Bulma link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <!--Stylesheet Font-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Favicon (shortcut icon)-->
     <link rel="icon" href="" sizes="16x16" type="image">
+    <link rel="stylesheet" href="style.css" />
 
+    <title>Survive 2020</title>
 </head>
 <body>
+    <header>Fight to Survive 2020</header>
+    <div class="container">
+
+        <!-- This is where the gamescreen will dynamically begin -->
+
+        <!-- The following are samples of how the page will look -->
+        <div id="timer">Time Left: <span id="time-left"></span></div> <!-- Needs styling to place at top right corner -->
+
+        <!-- Each of these next screens should NOT remain in index.html, but should be dynamically generated in JS-->
+        <!-- Remain here until styling is complete, please -->
+        <div class="start-screen hide">
+            <h3>Choose your avatar!</h3>
+            <button id="avatar-btn">Click for avatar</button>
+            <div id="show-avatar">
+                <img id="avatar">
+                <!-- This is where the avatar will be previewed -->
+            </div>
+            <button id="start-btn">Start</button> <!-- This button should be dynamically generated in JS, after at least 1 on-click event of the avatar-btn (that way, there is an avatar chosen before the game can begin -->
+        </div>
+
+        <div class="bad-ending hide">
+            <h1>You freaked out/ran out of time/were infected!</h1> <!-- Dynamically change text? Need <span> if yes -->
+            <!-- If we add stats to show, they should appear in a separate div here -->
+            <button id="restart-btn"></button> <!-- Taken to start screen -->
+            <button id="try-again-btn"></button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+        </div>
+
+        <div class="good-ending hide">
+            <h1>You freaked out/ran out of time/were infected!</h1> <!-- Dynamically change text? Need <span> if yes -->
+            <!-- If we add stats to show, they should appear in a separate div here -->
+            <button id="restart-btn"></button> <!-- Taken to start screen -->
+            <button id="try-again-btn"></button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+        </div>
+
+        <div class="choice-screen hide">
+            <h1>Here is some kind of prompt...</h1>
+            <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
+            <div class="choices">
+                <button class="good-choice" id="first-choice">Here is a dialogue option or an action option</button>
+                <button class="neutral-choice" id="second-choice">Here is a dialogue option or an action option</button>
+                <button class="neutral-choice" id="third-choice">Here is a dialogue option or an action option</button>
+                <button class="bad-choice" id="fourth-choice">Here is a dialogue option or an action option</button>
+            </div>
+        </div>
+
+        
+    </div>
     
 
 <script type="text/javascript" src="script.js"></script>
