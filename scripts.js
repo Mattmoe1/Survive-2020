@@ -25,8 +25,8 @@ start-btn.addEventListener('click', function () {
 }
 // Insult generator (work in progress)
 function wrongAnswer(response)
-var url = "https://evilinsult.com/generate_insult.php?lang=en&type=json"
+var apiURL = "https://evilinsult.com/generate_insult.php?lang=en&type=json"
 
-//robot API Avatar
+//Name Generator API
 
-//music API
+//music API (maybe 8bit?)
