@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
     <title>Pandemic Panic - Survive 2020</title>
+
     <!-- CSS link-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" 
+          href="style.css">
     <!-- Bulma link -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" 
+          href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <!--Stylesheet Font-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" 
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Favicon (shortcut icon)-->
-    <link rel="icon" href="images/covid_icon.png" sizes="16x16" type="image">
+    <link rel="icon" 
+          href="images/covid_icon.png" 
+          sizes="16x16" 
+          type="image">
 
     <title>Pandamic Panic - Survive 2020</title>
+
 </head>
+
 <style>
     #slide1 {
         float: right;
     }
 </style>
+
 <body>
-    
 
     <div class="container" id="main">
 
@@ -31,7 +42,9 @@
         <nav class="level">
             <div class="level-item has-text-centered">
                 <div>
-                    <p>Panic Meter: <progess class="progress is-danger" value="0" max="5"></progess></p>
+                    <p>Panic Meter: <progess class="progress is-danger" 
+                                             value="0" 
+                                             max="5"></progess></p>
                 </div>
             </div>
 
@@ -47,19 +60,24 @@
                 <p>Time Left: <span id="timer">120</span></p>
             </div>
         </nav>
-        
 
         <!-- Each of these next screens should NOT remain in index.html, but should be dynamically generated in JS-->
         <!-- Remain here until styling is complete, please -->
-        <div class="container hide has-text-centered" id="start-screen">
+        <div class="container hide has-text-centered" 
+             id="start-screen">
+
             <h1 class="title">Can you survive a day in 2020?</h1>
-            <p>Complete tasks and try to avoid infection as you go about your day in the year 2020. Take care to make good choices, because dangerous choices can lead to infection and affect your time.</p>
+
+            <p>Complete tasks and try to avoid infection as you go about your day in the year 2020. 
+               Take care to make good choices, because dangerous choices can lead to infection and affect your time.</p>
+
             <div class="card">
                 <div class="card-image">
                     <figure class="image">
                         <img src="" alt="" id="avatar">
                     </figure>
                 </div>
+
                 <div class="card-footer">
                     <button id="avatar-btn">Click to Generate an Avatar</button>
                 </div>
@@ -79,7 +97,7 @@
             <h1>You didn't die! Yay!</h1> <!-- Dynamically change text? Need <span> if yes -->
             <!-- If we add stats to show, they should appear in a separate div here -->
             <button id="restart-btn">Restart</button> <!-- Taken to start screen -->
-         </div>
+        </div>
 
         <div class="choice-screen hide has-text-centered">
             <h1>Here is some kind of prompt...</h1>
@@ -92,51 +110,50 @@
             </div>
             <button class="prev-btn">Prev</button>
         </div>
-
-        
+    </br>
         
         <!-- 1st slide -->
 <!-- INSERT -->
-       
-<H1>
-    <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
-    "L"
+<div>  
+    <H1>
+        <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
+        "L"
+    </br>
+        -- You awaken to a perfectly timed news report stating that the governer has 
+        issued stay at home orders due to an outbreak of COVID-19. 'This'll blow over fast,' 
+        you think to yourself confidently. 'This is not expected to blow over anytime soon.'
+        The news anchor chimes in like a total showoff. It would appear that it is up to you 
+        to survive this pandemic... But how?...
+    </br>
+    </br>
+        (QUESTION)
+        "How do you respond to this news?"
+    </br>
+    </br>    
+        
+        [FUNCTION : START TIMER]
+    </br>
+    </br>    
+        [SLIDE 1 RESPONSES]
+        1A. Stay Home and wait for things to die down
+        /respond GO TO SLIDE [GAME OVER : YOU WIN]
+        <button id="btn1A">Restart</button>
+    </br>
+    </br>    
+        1B. Go to the store to pick up supplies
+        /respond GO TO [SLIDE 2]
+        <button id="btn1B">Restart</button>
+    </br>
+    </br>
+        1C. Freak Out GO TO [GAME OVER : FREAKOUT]
+        /respond GO TO SLIDE [GAME OVER : YOU LOSE]
+        <button id="btn1C">Restart</button>
+    </H1>
+
 </br>
-    -- You awaken to a perfectly timed news report stating that the governer has 
-    issued stay at home orders due to an outbreak of COVID-19. 'This'll blow over fast,' 
-    you think to yourself confidently. 'This is not expected to blow over anytime soon.'
-    The news anchor chimes in like a total showoff. It would appear that it is up to you 
-    to survive this pandemic... But how?...
-</br>
-</br>
-    (QUESTION)
-    "How do you respond to this news?"
-</br>
-</br>    
+
+</div>
     
-    [FUNCTION : START TIMER]
-</br>
-</br>    
-    [SLIDE 1 RESPONSES]
-    1A. Stay Home and wait for things to die down
-    /respond GO TO SLIDE [GAME OVER : YOU WIN]
-    <button id="btn1A">Restart</button>
-</br>
-</br>    
-    1B. Go to the store to pick up supplies
-    /respond GO TO [SLIDE 2]
-    <button id="btn1B">Restart</button>
-</br>
-</br>
-    1C. Freak Out GO TO [GAME OVER : FREAKOUT]
-    /respond GO TO SLIDE [GAME OVER : YOU LOSE]
-    <button id="btn1C">Restart</button>
-</H1>
-
-
-    </div>
-    
-
 <script type="text/javascript" src="scripts.js"></script>
 </body>
 </html>
