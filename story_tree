@@ -1,3 +1,73 @@
+ asdfasdfasdf   aasdfasdf
+Slides and table of contents 
+    1. Exposition / react (1)
+    2.  Leave house / transport (2)
+    3. Chose bus (2B)
+    4. Bus response scream (2Ba)
+    5. Bus response space (2Bb)
+    6. Store arrive 1st item choice (3)
+    7. 2nd item choice (4)
+    8. last item arrival react (5)
+    9. confront choice (6)
+    10. success confront (6.win)
+    11. checkout line choices (7)
+    12. go home choices (8)
+    13. home arrived (9)
+    14. GAME OVER : LOSE
+    15. GAME OVER : WIN
+    16. GAME OVER : FREAK OUT
+
+Slides necessary items:
+    1. Exposition / react (1)
+        text : question
+        3 multiple choice
+        FUNCTION 2A: 50% lose / win
+        FUNCTION choices click = change appropriate text
+
+    2.  Leave house / transport (2)
+        text : question
+        3 multiple choice
+        FUNCTION choices click = change appropriate text
+
+    3. Chose bus (2B)
+        text : question
+        3 multiple choice
+        FUNCTION choices click = change appropriate text
+
+    4. Bus response scream (2Ba)
+        text
+        FUNCTION 2Ba: 50% lose / win
+        FUNCTION proceed button 
+
+    5. Bus response space (2Bb)
+        text
+        FUNCTION 2Ba: 50% lose / win
+        FUNCTION proceed button 
+    6. Store arrive 1st item choice (3)
+        
+    7. 2nd item choice (4)
+
+    8. last item arrival react (5)
+    
+    9. confront choice (6)
+    
+    10. success confront (6.win)
+    
+    11. checkout line choices (7)
+    
+    12. go home choices (8)
+    
+    13. home arrived (9)
+    
+    14. GAME OVER : LOSE
+    
+    15. GAME OVER : WIN
+    
+    16. GAME OVER : FREAK OUT
+
+
+
+
 test 1 2 3
 
 [SLIDE 1]
