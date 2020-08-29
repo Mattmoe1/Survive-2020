@@ -1,5 +1,6 @@
 let timeLeft = 120
 const timeLeftDisplay = document.querySelector('#timer')
+console.log(timeLeftDisplay);
 var button1 = document.getElementById('first-choice')
 var button2 = document.getElementById('second-choice')
 var button3 = document.getElementById('third-choice')
@@ -22,7 +23,8 @@ start-btn.addEventListener('click', function () {
         timeLeftDisplay.innerHTML = timeLeft
         timeLeft -= 1
     }, 1000)
-}
+    
+} 
 // Insult generator (work in progress)
 function wrongAnswer(response) {
     var insultURL = "https://evilinsult.com/generate_insult.php?lang=en&type=json"
