@@ -7,10 +7,11 @@ var button4 = document.getElementById('fourth-choice')
 var restartBtn = document.getElementById('restart-btn')
 var againBtn = document.getElementById('try-again-btn')
 var avatarBtn = document.getElementById('avatar-btn')
+var startBtn = document.getElementById('start-btn')
 
 
 //Countdown/Timer functions
-start-btn.addEventListener('click', function () {
+startBtn.addEventListener('click', function () {
     startGame();
     countDown();
  })
