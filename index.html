@@ -16,56 +16,81 @@
     <title>Survive 2020</title>
 </head>
 <body>
-    <header>Fight to Survive 2020</header>
-    <div class="container">
+    
+
+    <div class="container" id="main">
 
         <!-- This is where the gamescreen will dynamically begin -->
 
         <!-- The following are samples of how the page will look -->
-        <div id="timer">Time Left: <span id="time-left"></span></div> <!-- Needs styling to place at top right corner -->
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <p>Panic Meter: <progess class="progress is-danger" value="0" max="5"></progess></p>
+                </div>
+            </div>
+
+            <div class="level-item has-text-centered">
+                <div>
+                    <img src="" alt="insert quick header/logo here" style="height: 30px;">
+                </div>
+            </div>
+            
+            <div class="level-item has-text-centered" id="timer">
+                <p>Time Left: <span id="time-left"></span></p>
+            </div>
+        </nav>
+        
 
         <!-- Each of these next screens should NOT remain in index.html, but should be dynamically generated in JS-->
         <!-- Remain here until styling is complete, please -->
-        <div class="start-screen hide">
-            <h3>Choose your avatar!</h3>
-            <button id="avatar-btn">Click for avatar</button>
-            <div id="show-avatar">
-                <img id="avatar">
-                <!-- This is where the avatar will be previewed -->
+        <div class="container hide has-text-centered" id="start-screen">
+            <h1 class="title">Can you survive a day in 2020?</h1>
+            <p>Complete tasks and try to avoid infection as you go about your day in the year 2020. Take care to make good choices, because dangerous choices can lead to infection and affect your time.</p>
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image">
+                        <img src="" alt="" id="avatar">
+                    </figure>
+                </div>
+                <div class="card-footer">
+                    <button id="avatar-btn">Click to Generate an Avatar</button>
+                </div>
             </div>
+            
             <button id="start-btn">Start</button> <!-- This button should be dynamically generated in JS, after at least 1 on-click event of the avatar-btn (that way, there is an avatar chosen before the game can begin -->
         </div>
 
-        <div class="bad-ending hide">
+        <div class="bad-ending hide has-text-centered">
             <h1>You freaked out/ran out of time/were infected!</h1> <!-- Dynamically change text? Need <span> if yes -->
             <!-- If we add stats to show, they should appear in a separate div here -->
-            <button id="restart-btn"></button> <!-- Taken to start screen -->
-            <button id="try-again-btn"></button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+            <button id="restart-btn">Restart</button> <!-- Taken to start screen -->
+            <button id="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
         </div>
 
-        <div class="good-ending hide">
-            <h1>You freaked out/ran out of time/were infected!</h1> <!-- Dynamically change text? Need <span> if yes -->
+        <div class="good-ending hide has-text-centered">
+            <h1>You didn't die! Yay!</h1> <!-- Dynamically change text? Need <span> if yes -->
             <!-- If we add stats to show, they should appear in a separate div here -->
-            <button id="restart-btn"></button> <!-- Taken to start screen -->
-            <button id="try-again-btn"></button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
-        </div>
+            <button id="restart-btn">Restart</button> <!-- Taken to start screen -->
+         </div>
 
-        <div class="choice-screen hide">
+        <div class="choice-screen hide has-text-centered">
             <h1>Here is some kind of prompt...</h1>
             <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
             <div class="choices">
-                <button class="good-choice" id="first-choice">Here is a dialogue option or an action option</button>
-                <button class="neutral-choice" id="second-choice">Here is a dialogue option or an action option</button>
-                <button class="neutral-choice" id="third-choice">Here is a dialogue option or an action option</button>
-                <button class="bad-choice" id="fourth-choice">Here is a dialogue option or an action option</button>
+                <button class="choice-btn good-choice" id="first-choice">Here is a dialogue option or an action option</button>
+                <button class="choice-btnneutral-choice" id="second-choice">Here is a dialogue option or an action option</button>
+                <button class="choice-btnneutral-choice" id="third-choice">Here is a dialogue option or an action option</button>
+                <button class="choice-btn bad-choice" id="fourth-choice">Here is a dialogue option or an action option</button>
             </div>
+            <button class="prev-btn">Prev</button>
         </div>
 
         
     </div>
     
 
-<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="scripts.js"></script>
 </body>
 </html>
 
