@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  asdfasdfasdf   aasdfasdf
 Slides and table of contents 
     1. Exposition / react (1)
@@ -70,12 +71,17 @@ Slides necessary items:
 
 test 1 2 3
 
+=======
+>>>>>>> ddc7e2d47396577d8265d75deb1d391a6040719a
 [SLIDE 1]
 [START BUTTON]
 
 (EXPOSITION)
-"Lorem ipsum..."
-premise: 2020 Pandemic is here, country is shutting down, supplies are sparce, nothing is certain...etc
+Premise: 2020 Pandemic is here, country is shutting down, supplies are 
+sparce, nothing is certain...etc
+
+Narrative: "You awaken to a perfectly timed news report stating that the governer has 
+issued stay at home orders due to an outbreak of COVID-19."
 
 (QUESTION)
 "How do you respond to this news?"
