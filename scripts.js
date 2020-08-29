@@ -10,7 +10,7 @@ var avatarBtn = document.getElementById('avatar-btn')
 
 
 //Countdown/Timer functions
-startButton.addEventListener('click', function () {
+start-btn.addEventListener('click', function () {
     startGame();
     countDown();
  })
@@ -23,3 +23,10 @@ startButton.addEventListener('click', function () {
         timeLeft -= 1
     }, 1000)
 }
+// Insult generator (work in progress)
+function wrongAnswer(response)
+var url = "https://evilinsult.com/generate_insult.php?lang=en&type=json"
+
+//robot API Avatar
+
+//music API
