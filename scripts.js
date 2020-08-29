@@ -24,9 +24,23 @@ start-btn.addEventListener('click', function () {
     }, 1000)
 }
 // Insult generator (work in progress)
-function wrongAnswer(response)
-var apiURL = "https://evilinsult.com/generate_insult.php?lang=en&type=json"
+function wrongAnswer(response) {
+    var insultURL = "https://evilinsult.com/generate_insult.php?lang=en&type=json"
+}
+
 
 //Name Generator API
+function insertName(response) {
+    var nameURL = ""
+}
+
 
 //music API (maybe 8bit?)
+function normalSpeed (response) {
+    var songURL = "" 
+}
+
+function fastSpeed (response) {
+    var songURL = ""
+}
+
