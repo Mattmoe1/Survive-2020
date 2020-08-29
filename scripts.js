@@ -8,13 +8,17 @@ var button4 = document.getElementById('fourth-choice')
 var restartBtn = document.getElementById('restart-btn')
 var againBtn = document.getElementById('try-again-btn')
 var avatarBtn = document.getElementById('avatar-btn')
+const startBtn = document.getElementById('start-btn')
 
 
 //Countdown/Timer functions
-start-btn.addEventListener('click', function () {
-    startGame();
+document.addEventListener('DOMContentLoaded', () => {
+const startButton = document.getElementById("start-btn");
+
+startBtn.addEventListener('click', function () {
     countDown();
  })
+})
  function countDown() {
     setInterval(function () {
         if (timeLeft <= 0) {
@@ -23,8 +27,7 @@ start-btn.addEventListener('click', function () {
         timeLeftDisplay.innerHTML = timeLeft
         timeLeft -= 1
     }, 1000)
-    
-} 
+
 // Insult generator (work in progress)
 function wrongAnswer(response) {
     var insultURL = "https://evilinsult.com/generate_insult.php?lang=en&type=json"
