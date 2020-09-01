@@ -1,0 +1,812 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 1(Adventure Game) - Survive 2020</title>
+    <!-- CSS link-->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Bulma link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <!--Stylesheet Font-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Favicon (shortcut icon)-->
+    <link rel="icon" href="images/covid_icon.png" sizes="16x16" type="image">
+
+    <title>Survive 2020!</title>
+</head>
+<style>
+    #slide1 {
+        text-align: relative;
+        margin-left: 5%;
+        margin-right: 5%;
+        float: right;
+    }
+    .title {
+        margin-right: 20%;
+        margin-left: 20%;
+    }
+    .prompt {
+        text-align: right;
+    }
+    h1 {
+        text-align:left
+    }
+
+    .restart-btn {
+        float:left;
+        display: flex;
+    }
+    .try-again-btn {
+        float: left;
+    }
+    .question {
+        text-align: center;
+    }
+    #avatar {
+        display: none;
+    }
+</style>
+<body>
+    
+
+    <div class="container" id="main">
+
+        <!-- This is where the gamescreen will dynamically begin -->
+
+        <!-- The following are samples of how the page will look -->
+    <nav class="level">
+        <div class="level-item has-text-centered">
+            <div>
+                <p>Panic Meter: <progess class="progress is-danger" value="0" max="5"></progess></p>
+            </div>
+        </div>
+        "L"
+        premise: 2020 Pandemic is here, country is shutting down, supplies are sparce, nothing is certain...etc
+        <div class="level-item has-text-centered">
+            <div>
+                
+            </div>
+        </div>
+        
+        <div class="level-item has-text-centered" id="timer">
+            <p>Time Left: <span id="time-left"></span></p>
+        </div>
+    </nav>
+
+
+    <!-- Each of these next screens should NOT remain in index.html, but should be dynamically generated in JS-->
+    <!-- Remain here until styling is complete, please -->
+    <div class="container hide has-text-centered" id="start-screen">
+        <h1 class="title">Can you survive a day in 2020?</h1>
+        <p>Complete tasks and try to avoid infection as you go about your day in the year 2020. Take care to make good choices, because dangerous choices can lead to infection and affect your time.</p>
+        <div class="card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="" alt="" id="avatar">
+                </figure>
+            </div>
+            <div class="card-footer">
+                <button id="avatar-btn">Click to Generate an Avatar</button>
+            </div>
+        </div>
+        
+        <button id="start-btn">Start</button> <!-- This button should be dynamically generated in JS, after at least 1 on-click event of the avatar-btn (that way, there is an avatar chosen before the game can begin -->
+    </div>
+    <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
+        
+
+    <div class="bad-ending hide has-text-centered">
+        <div class="prompt">
+            <h1> You wake up.  You're groggy, as though you had a vivid dream but you can't quite remember what it was about.You grab your phone and begin flipping through the news.  The first article blares in all caps "BREAKING NEWS!" followed by: "This just in! The COVID-19 virus has just been officially declared a pandemic by the United States.  People are advised to stay home.  Do not panic.  Wash your hands thoroughly and maintain a minimum of 6ft distance from others.  People are advised to avoid crowded public areas due to risk of infection.  Again, do not panic."</h1>
+        </div> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </br>
+        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+    </div>
+
+    <div class="good-ending hide has-text-centered">
+        <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+    </br>
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </div>
+    <div class="choice-screen hide has-text-centered">
+        <h1></h1>
+        <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
+        <div class="choices">
+            <div class="question">What are you going to do?</div>
+            <button class="choice-btn good-choice" id="first-choice">Freak the F*^& out</button>
+            <button class="choice-btnneutral-choice" id="second-choice">Stay home</button>
+            <button class="choice-btnneutral-choice" id="third-choice">Get supplies at the store</button>
+        </div>
+    </br>
+        <button class="prev-btn">Prev</button>
+    </div>
+
+    <div class="container hide has-text-centered" id="slide-2">
+        <h1 class="title">The Mission</h1>
+            <div class="card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="" alt="" id="avatar">
+                </figure>
+            </div>
+            <div class="card-footer">
+                        </div>
+        </div>
+        
+        </div>
+    <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
+        
+
+    <div class="bad-ending hide has-text-centered">
+        <div class="prompt">
+            <h1> You leave the house.  The General Mega Market Super Store is a 5 minute drive, a 10 minute bus ride, or a 15 minute walk</h1>
+        </div> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </br>
+        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+    </div>
+
+    <div class="good-ending hide has-text-centered">
+        <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+    </br>
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </div>
+    <div class="choice-screen hide has-text-centered">
+        <h1></h1>
+        <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
+        <div class="choices">
+            <h1></h1>
+            <div class="question">What are you going to do?</div>
+            <button class="choice-btn good-choice" id="first-choice">Drive there</button>
+                <!-- 50% game over, 50% proceed to "at the store" -->
+            <button class="choice-btnneutral-choice" id="second-choice">Take the bus</button>
+            <button class="choice-btnneutral-choice" id="third-choice">Go by foot</button>
+        </div>
+    </br>
+        <button class="prev-btn">Prev</button>
+    </div>
+        
+    <div class="container hide has-text-centered" id="slide-2B">
+        <h1 class="title">The Bus</h1>
+            <div class="card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="" alt="" id="avatar">
+                </figure>
+            </div>
+            <div class="card-footer">
+                        </div>
+        </div>
+        
+        </div>
+    <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
+        
+
+    <div class="bad-ending hide has-text-centered">
+        <div class="prompt">
+            <h1> You get on the bus, it's mostly empty.  It comes to a stop.  A large gorup of people are about to get on the bus with you.</h1>
+        </div> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </br>
+        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+    </div>
+
+    <div class="good-ending hide has-text-centered">
+        <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+    </br>
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </div>
+    <div class="choice-screen hide has-text-centered">
+        <h1></h1>
+        <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
+        <div class="choices">
+            <h1></h1>
+            <div class="question">What are you going to do?</div>
+            <button class="choice-btn good-choice" id="first-choice">Start screaming hysterically</button>
+                <!-- go to slide-2BA -->
+            <button class="choice-btnneutral-choice" id="second-choice">Let them on, maintain distance</button>
+                <!-- go to slide-2BB -->
+            <button class="choice-btnneutral-choice" id="third-choice">Let them on, do nothing</button>
+                <!-- go to slide 3 | add INFECTED status -->
+        </div>
+    </br>
+        <button class="prev-btn">Prev</button>
+    </div>
+
+
+    <div class="container hide has-text-centered" id="slide-2BA">
+        <h1 class="title">Scream hysterically</h1>
+            <div class="card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="" alt="" id="avatar">
+                </figure>
+            </div>
+            <div class="card-footer">
+                        </div>
+        </div>
+        
+        </div>
+    <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
+        
+
+    <div class="bad-ending hide has-text-centered">
+        <div class="prompt">
+            <h1> You scream hysterically at the people [insert evil insult generator?] at the bus stop. They turn and run away terrified more than ever.  You are now alone in the bus</h1>
+        </div> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </br>
+        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+    </div>
+
+    <div class="good-ending hide has-text-centered">
+        <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+    </br>
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </div>
+    <div class="choice-screen hide has-text-centered">
+        <h1></h1>
+        <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
+    </br>
+        <button class="next-btn">Next</button>
+        <button class="prev-btn">Prev</button>
+    </div>
+            
+
+    <div class="container hide has-text-centered" id="slide-2BB">
+        <h1 class="title">Maintain distance on the bus</h1>
+            <div class="card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="" alt="" id="avatar">
+                </figure>
+            </div>
+            <div class="card-footer">
+                        </div>
+        </div>
+        
+        </div>
+    <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
+        
+
+    <div class="bad-ending hide has-text-centered">
+        <div class="prompt">
+            <h1> You do what you can to keep space from the people clamoring onto the bus.  You are pushed into the corner, terrified people all around you.</h1>
+        </div> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </br>
+        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+    </div>
+
+    <div class="good-ending hide has-text-centered">
+        <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+    </br>
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </div>
+    <div class="choice-screen hide has-text-centered">
+        <h1></h1>
+        <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
+    </br>
+        <button class="next-btn">Next</button>
+        <button class="prev-btn">Prev</button>
+    </div>
+
+
+    <div class="container hide has-text-centered" id="slide-3">
+        <h1 class="title">Arrived at the store</h1>
+            <div class="card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="" alt="" id="avatar">
+                </figure>
+            </div>
+            <div class="card-footer">
+                        </div>
+        </div>
+        
+        </div>
+    <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
+        
+
+    <div class="bad-ending hide has-text-centered">
+        <div class="prompt">
+            <h1> You make it to the store safe and sound.  You hurry inside.  The panic has already begun.  You think of the three most important items for surviving the apocalypse and decide to head towards the most essential first</h1>
+        </div> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </br>
+        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+    </div>
+
+    <div class="good-ending hide has-text-centered">
+        <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+    </br>
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </div>
+    <div class="choice-screen hide has-text-centered">
+        <h1></h1>
+        <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
+        <div class="choices">
+            <h1></h1>
+            <div class="question">Which item to you grab first?</div>
+            <button class="choice-btn good-choice" id="first-choice">Water</button>
+            <button class="choice-btnneutral-choice" id="second-choice">Toilet Paper</button>
+            <button class="choice-btnneutral-choice" id="third-choice">Hand Sanitizer</button>
+            <!-- Proceed to slide-4 -->
+        </div>
+    </br>
+        <button class="prev-btn">Prev</button>
+    </div>
+
+    <div class="container hide has-text-centered" id="slide-4">
+        <h1 class="title">Grab 2nd item</h1>
+            <div class="card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="" alt="" id="avatar">
+                </figure>
+            </div>
+            <div class="card-footer">
+                        </div>
+        </div>
+        
+        </div>
+    <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
+        
+
+    <div class="bad-ending hide has-text-centered">
+        <div class="prompt">
+            <h1> You have gathered your first item.  Now you go to the next most important item:</h1>
+        </div> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </br>
+        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+    </div>
+
+    <div class="good-ending hide has-text-centered">
+        <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+    </br>
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </div>
+    <div class="choice-screen hide has-text-centered">
+        <h1></h1>
+        <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
+        <div class="choices">
+            <h1></h1>
+            <div class="question">What item do you grab next?</div>
+            <button class="choice-btn good-choice" id="first-choice">Water/Hand Sanitizer</button>
+            <button class="choice-btnneutral-choice" id="second-choice">Toilet Paper/Hand Sanitizer</button>
+            <!-- exclude last choice from slide-3 -->
+            <!-- <button class="choice-btnneutral-choice" id="third-choice">Go by foot</button> -->
+            <!-- move on to slide 5 -->
+        </div>
+    </br>
+        <button class="prev-btn">Prev</button>
+    </div>
+
+    <div class="container hide has-text-centered" id="slide-5">
+        <h1 class="title">Final Item</h1>
+            <div class="card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="" alt="" id="avatar">
+                </figure>
+            </div>
+            <div class="card-footer">
+                        </div>
+        </div>
+        
+        </div>
+    <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
+        
+
+    <div class="bad-ending hide has-text-centered">
+        <div class="prompt">
+            <h1> You grabbed your first two items. You arrive to the location of your final item.  You behold a remaining case of 
+                [FUNCTION : SET THIS TO USER'S FINAL ITEM].  
+                A person rushes past you and grabs it.  You need that [3rd item]</h1>
+        </div> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </br>
+        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+    </div>
+
+    <div class="good-ending hide has-text-centered">
+        <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+    </br>
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </div>
+    <div class="choice-screen hide has-text-centered">
+        <h1></h1>
+        <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
+        <div class="choices">
+            <h1></h1>
+            <div class="question">What are you going to do?</div>
+            <button class="choice-btn good-choice" id="first-choice">Attack him, take the item</button>
+                <!-- go to GAME OVER: LOSE -->
+            <button class="choice-btnneutral-choice" id="second-choice">Speak with him</button>
+                <!-- go to slide 6 -->
+            <button class="choice-btnneutral-choice" id="third-choice">Walk away, head to the checkout</button>
+                <!-- go to slide 7 -->
+        </div>
+    </br>
+        <button class="prev-btn">Prev</button>
+    </div>
+    <div class="container hide has-text-centered" id="slide-6">
+        <h1 class="title">Retrieve the package</h1>
+            <div class="card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="" alt="" id="avatar">
+                </figure>
+            </div>
+            <div class="card-footer">
+                    </div>
+        </div>
+        
+        </div>
+    <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
+        
+
+    <div class="bad-ending hide has-text-centered">
+        <div class="prompt">
+            <h1> You walk up to this theif and tap him on the shoulder.  He turns arund and faces you</h1>
+        </div> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </br>
+        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+    </div>
+
+    <div class="good-ending hide has-text-centered">
+        <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+    </br>
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+    </div>
+    <div class="choice-screen hide has-text-centered">
+        <h1></h1>
+        <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
+        <div class="choices">
+            <h1></h1>
+            <div class="question">What are you going to do?</div>
+            <button class="choice-btn good-choice" id="first-choice">Insult him</button>
+                <!-- evil insult generator.  50% fail, must repeat, 50% success go to slide-6.win -->
+            <button class="choice-btnneutral-choice" id="second-choice">Cough violently at him</button>
+               <!-- 50% fail, must repeat, 50% success go to slide-6.win -->
+            <button class="choice-btnneutral-choice" id="third-choice">Beg him desperately</button>
+                <!-- 50% fail, must repeat, 50% success go to slide-6.win -->
+
+        </div>
+    </br>
+        <button class="prev-btn">Prev</button>
+    </div>
+        
+    <div class="container hide has-text-centered" id="slide-6.win">
+        <h1 class="title">Item retrieved</h1>
+            <div class="card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="" alt="" id="avatar">
+                </figure>
+            </div>
+            <div class="card-footer">
+                    </div>
+        </div>
+        
+        </div>
+    <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
+        
+
+    <div class="bad-ending hide has-text-centered">
+        <div class="prompt">
+            <h1> He is bewildered, disgusted, and terrified of you. He drops the item, runs away, and doesn't look back</h1>
+        </div> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </br>
+        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+    </div>
+
+    <div class="good-ending hide has-text-centered">
+        <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+    </br>
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+    </div>
+    <div class="choice-screen hide has-text-centered">
+        <h1></h1>
+        <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
+    </br>
+        <button class="next-btn">Next</button>
+        <button class="prev-btn">Prev</button>
+    </div>
+
+
+    <div class="container hide has-text-centered" id="slide-7">
+        <h1 class="title">Checkout</h1>
+            <div class="card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="" alt="" id="avatar">
+                </figure>
+            </div>
+            <div class="card-footer">
+                        </div>
+        </div>
+        
+        </div>
+    <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
+        
+
+    <div class="bad-ending hide has-text-centered">
+        <div class="prompt">
+            <h1> You take your items and go to the checkout line. You uncomfortably stand in line until you finally get to the end.  The cashier sneezes three times in a row ending it with a long sniffel.  'Allergies,' she says.  Your items have been scanned and are ready to go. </h1>
+        </div> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </br>
+        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+    </div>
+
+    <div class="good-ending hide has-text-centered">
+        <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+    </br>
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </div>
+    <div class="choice-screen hide has-text-centered">
+        <h1></h1>
+        <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
+        <div class="choices">
+            <h1></h1>
+            <div class="question">What are you going to do?</div>
+            <button class="choice-btn good-choice" id="first-choice">Steal the items, run for it</button>
+                <!-- GAME OVER : LOSE -->
+            <button class="choice-btnneutral-choice" id="second-choice">Risk it, pay for the items</button>
+                <!-- Go to slide 8 but INFECTED -->
+            <button class="choice-btnneutral-choice" id="third-choice">Don't risk it, go home empty handed</button>
+                <!-- Go to slide 8-->
+        </div>
+    </br>
+        <button class="prev-btn">Prev</button>
+    </div>
+        
+
+    <div class="container hide has-text-centered" id="slide-8">
+        <h1 class="title">Return home</h1>
+            <div class="card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="" alt="" id="avatar">
+                </figure>
+            </div>
+            <div class="card-footer">
+                        </div>
+        </div>
+        
+        </div>
+    <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
+        
+
+    <div class="bad-ending hide has-text-centered">
+        <div class="prompt">
+            <h1> You exit the store.  You just want to go home.  Every breath you've taken today makes you fear for your life.</h1>
+        </div> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </br>
+        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+    </div>
+
+    <div class="good-ending hide has-text-centered">
+        <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+    </br>
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </div>
+    <div class="choice-screen hide has-text-centered">
+        <h1></h1>
+        <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
+        <div class="choices">
+            <h1></h1>
+            <div class="question">How are you going to get home?</div>
+            <button class="choice-btn good-choice" id="first-choice">Drive there</button>
+            <!-- option only available if you drove initially --> <!-- go to slide 9-->
+            <button class="choice-btnneutral-choice" id="second-choice">Take the bus</button>
+            <!-- go to slide 9 but INFECTED -->
+            <button class="choice-btnneutral-choice" id="third-choice">Go by foot</button>
+            <!-- go to slide 9-->
+        </div>
+    </br>
+        <button class="prev-btn">Prev</button>
+    </div>
+
+
+    <div class="container hide has-text-centered" id="slide-9">
+        <h1 class="title">Home at last</h1>
+            <div class="card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="" alt="" id="avatar">
+                </figure>
+            </div>
+            <div class="card-footer">
+                        </div>
+        </div>
+        
+        </div>
+    <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
+        
+
+    <div class="bad-ending hide has-text-centered">
+        <div class="prompt">
+            <h1> You made it back home.  You aren't sure if you've even accomplished anything.  You sit down on the couch and let out a sigh of relief</h1>
+        </div> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </br>
+        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+    </div>
+
+    <div class="good-ending hide has-text-centered">
+        <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+    </br>
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </div>
+    <div class="choice-screen hide has-text-centered">
+        <h1></h1>
+        <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
+        <div class="choices">
+            <h1></h1>
+            <div class="question">How did you do?</div>
+            <!-- if infected go to GAME OVER : LOSE -->
+            <!-- if not infected go to GAME OVER : WIN -->
+          </div>
+    </br>
+      <button class="next-btn">Next</button>
+        <button class="prev-btn">Prev</button>
+    </div>
+
+    <div class="container hide has-text-centered" id="ggLose">
+        <h1 class="title">GAME OVER : LOSE</h1>
+            <div class="card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="" alt="" id="avatar">
+                </figure>
+            </div>
+            <div class="card-footer">
+                        </div>
+        </div>
+        
+        </div>
+    <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
+        
+
+    <div class="bad-ending hide has-text-centered">
+        <div class="prompt">
+            <h1> You have made poor choices today. Things have not gone as you'd hoped and your future looks grim as a result. Fortunately this was all a dream.  Perhaps you'll make better decisions when you wake up</h1>
+        </div> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </br>
+        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+    </div>
+
+    <div class="good-ending hide has-text-centered">
+        <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+    </br>
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </div>
+    <div class="choice-screen hide has-text-centered">
+        <h1></h1>
+        <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
+
+    </br>
+        <button class="prev-btn">Prev</button>
+    </div>
+
+    <div class="container hide has-text-centered" id="ggWin">
+        <h1 class="title">GAME OVER : YOU WIN</h1>
+            <div class="card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="" alt="" id="avatar">
+                </figure>
+            </div>
+            <div class="card-footer">
+                        </div>
+        </div>
+        
+        </div>
+    <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
+        
+
+    <div class="bad-ending hide has-text-centered">
+        <div class="prompt">
+            <h1> You made it!  Your choices have lead you down the correct path.  You continue to stay safe.  You wash your hands frequently and for 20 seconds.  You maintain 6 feet social distancing from others.  You wear a mask which covers your mouth and nose when you're out in public.  The future is uncertain, but with good decision making like this you feel you at least have a chance to make it through to the other side of this apocalypse.  Stay safe out there.</h1>
+        </div> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </br>
+        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+    </div>
+
+    <div class="good-ending hide has-text-centered">
+        <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+    </br>
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </div>
+    <div class="choice-screen hide has-text-centered">
+        <h1></h1>
+        <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
+    </br>
+        <button class="prev-btn">Prev</button>
+    </div>
+
+    <div class="container hide has-text-centered" id="ggWin">
+        <h1 class="title">GAME OVER : FREAK OUT</h1>
+            <div class="card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="" alt="" id="avatar">
+                </figure>
+            </div>
+            <div class="card-footer">
+                        </div>
+        </div>
+        
+        </div>
+    <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
+        
+
+    <div class="bad-ending hide has-text-centered">
+        <div class="prompt">
+            <h1> I CAN'T TAKE IT!  THIS IS TOO MUCH!  TOO MUCH!  I'VE GOT TO GET OUT OF HERE!  CAN'T BREATHE!  UNCLEAN!  EVERYONE... EVERYTHING... IS UNCLEAN!  AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH!</h1>
+            <p>You've finally lost it. You tear off your clothes and dose yourself in hand sanitizer.  You turn towards the forest and run in, screaming incoherently, never to be seen again.  </p>
+        </div> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </br>
+        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
+    </div>
+
+    <div class="good-ending hide has-text-centered">
+        <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
+        <!-- If we add stats to show, they should appear in a separate div here -->
+    </br>
+        <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
+        </div>
+    <div class="choice-screen hide has-text-centered">
+        <h1></h1>
+        <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
+    </br>
+        <button class="prev-btn">Prev</button>
+    </div>
+    <!-- main container close div -->
+</div>
+
+<script type="text/javascript" src="scripts.js"></script>
+</body>
+</html>
