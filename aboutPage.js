@@ -13,10 +13,6 @@ function errorfield(field){
 	$(field).addClass('formgroup-error');
 	console.log(field);	
 }
-
-$("#waterform").submit(function() {
-	var stopsubmit = false;
-
 if($('#name').val() == "") {
 	errorfield('#name-form');
 	stopsubmit=true;
@@ -26,6 +22,4 @@ if($('#email').val() == "") {
 	stopsubmit=true;
 }
   if(stopsubmit) return false;
-});
-		
 });
