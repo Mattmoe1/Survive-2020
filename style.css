@@ -1,0 +1,16 @@
+#title {
+    text-align: center;
+    background: transparent;
+}
+
+p {
+    color: darkred;
+}
+
+h1, p, #title {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button:hover{
+    opacity: .5;
+}
