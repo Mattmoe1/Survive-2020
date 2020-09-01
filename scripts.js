@@ -14,7 +14,11 @@ var avatarBtn = document.getElementById('avatar-btn')
 const startBtn = document.getElementById('start-btn')
 const musicFast = document.querySelector('fast-music')
 const musicNormal = document.querySelector('normal-music')
+const musicNor;
 
+function startGame () {
+    musicNor = new sound("");
+}
 
 
 //Countdown/Timer functions
