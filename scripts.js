@@ -27,7 +27,7 @@ startBtn.addEventListener('click', function () {
         timeLeftDisplay.innerHTML = timeLeft
         timeLeft -= 1
     }, 1000)
-
+ }
 // Insult generator (work in progress)
 function wrongAnswer(response) {
     var insultURL = "https://evilinsult.com/generate_insult.php?lang=en&type=json"
