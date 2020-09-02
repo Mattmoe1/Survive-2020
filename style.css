@@ -3,9 +3,6 @@
     background: transparent;
 }
 
-p {
-    color: darkred;
-}
 
 h1, p, #title {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -13,4 +10,12 @@ h1, p, #title {
 
 button:hover{
     opacity: .5;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
 }

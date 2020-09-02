@@ -49,11 +49,11 @@
 
 <body>
     <!-- The following are samples of how the page will look -->
-
-    <section class="hero is-danger is-fullheight" id="main">
+<!-- This is a cool page to have as a title page, but is not necessary :()
+    <section class="hero is-danger is-fullheight" id="main"> -->
         <!-- This is where the gamescreen will begin on load -->
         <!-- Make is so that on a reload, goes to either #main or lattest save -->
-        <div class="hero-head">
+<!--       <div class="hero-head">
             <header class="navbar">
                 <div class="container">
                     <div class="navbar-brand">
@@ -107,7 +107,9 @@
                 </div>
             </nav>
         </div>      
-    </section>
+    </section> 
+-->
+
 
     <!-- When not on #main, pages will include the .navbar and .game-progess bar. The actual "screen" section will be dymanically generated. -->
     <!-- if click reset, brings you back to slide 1 -->
@@ -237,9 +239,9 @@
                     <div class="media-content">
                         <div class="content">
                             <div class="choices">
-                                <button class="button choice-btn bad-choice" id="first-choice" style="display: block;">Freak the f*** out!</button>
-                                <button class="button choice-btn good-choice" id="second-choice" style="display: block;">Stay home</button>
-                                <button class="button choice-btn neutral-choice" id="third-choice" style="display: block;">Get supplies from store</button>
+                                <button class="button choice-btn" id="0-slide-freak" style="display: block;">Freak the f*** out!</button>
+                                <button class="button choice-btn" id="0-slide-autowin" style="display: block;">Stay home</button>
+                                <button class="button choice-btn" id="0-slide-next" style="display: block;">Get supplies from store</button>
                             </div>                        
                         </div>
                     </div>
@@ -248,7 +250,7 @@
             <br>
             <div class="level">
                 <div class="level-item has-text-centered">
-                    <button class="button" id="next-btn">Next</button>
+                    <button class="button restart-btn">Restart</button>
                 </div> 
             </div>
         </div>
@@ -284,9 +286,9 @@
                     <div class="media-content">
                         <div class="content">
                             <div class="choices">
-                                <button class="button choice-btn" id="first-choice" style="display: block;">Take the bus</button>
-                                <button class="button choice-btn" id="second-choice" style="display: block;">Drive there</button>
-                                <button class="button choice-btn" id="third-choice" style="display: block;">Go by foot</button>
+                                <button class="button choice-btn" id="1-slide-bus" style="display: block;">Take the bus</button>
+                                <button class="button choice-btn" id="1-slide-drive" style="display: block;">Drive there</button>
+                                <button class="button choice-btn" id="1-slide-walk" style="display: block;">Go by foot</button>
                             </div>                        
                         </div>
                     </div>
@@ -295,7 +297,7 @@
             <br>
             <div class="level">
                 <div class="level-item has-text-centered">
-                    <button class="button" id="next-btn">Next</button>
+                    <button class="button restart-btn">Restart</button>
                 </div> 
             </div>
         </div>
@@ -331,9 +333,9 @@
                     <div class="media-content">
                         <div class="content">
                             <div class="choices">
-                                <button class="button choice-btn" id="first-choice" style="display: block;">Start screaming hysterically</button>
-                                <button class="button choice-btn" id="second-choice" style="display: block;">Move yourself to maintain social distancing</button>
-                                <button class="button choice-btn" id="third-choice" style="display: block;">Eh, it's fine. Do nothing</button>
+                                <button class="button choice-btn" id="1-a-slide-scream" style="display: block;">Start screaming hysterically</button>
+                                <button class="button choice-btn" id="1-a-slide-distance" style="display: block;">Move yourself to maintain social distancing</button>
+                                <button class="button choice-btn" id="1-a-slide-toss" style="display: block;">Eh, it's fine. Do nothing</button>
                             </div>                        
                         </div>
                     </div>
@@ -342,13 +344,13 @@
             <br>
             <div class="level">
                 <div class="level-item has-text-centered">
-                    <button class="button" id="next-btn">Next</button>
+                    <button class="button restart-btn">Restart</button>
                 </div> 
             </div>
         </div>
     </section>
 
-    <section class="section next-screen hide" id="1-a-a-slide"> <!-- From bus slide, first choice -->
+    <section class="section next-screen hide" id="1-a-a-slide"> <!-- From bus slide, scream -->
         <div class="container">
             <div class="tile is-ancestor">
                 <div class="tile is-parent">
@@ -370,12 +372,12 @@
         <br>
         <div class="level">
             <div class="level-item has-text-centered">
-                <button class="button" id="next-btn">Next</button>
+                <button class="button next-btn" id="1-a-a-slide-next">Next</button>
             </div> 
         </div>
     </section>
 
-    <section class="section next-screen hide" id="1-a-b-slide"> <!-- From bus slide, second choice -->
+    <section class="section next-screen hide" id="1-a-b-slide"> <!-- From bus slide, distance -->
         <div class="container">
             <div class="tile is-ancestor">
                 <div class="tile is-parent">
@@ -396,7 +398,7 @@
         <br>
         <div class="level">
             <div class="level-item has-text-centered">
-                <button class="button" id="next-btn">Next</button>
+                <button class="button next-btn" id="1-a-b-slide-next">Next</button>
             </div> 
         </div>
     </section>
@@ -430,10 +432,10 @@
                     </figure>
                     <div class="media-content">
                         <div class="content">
-                            <div class="choices">
-                                <button class="button choice-btn list-btn" id="water-item" style="display: block;">Water</button>
-                                <button class="button choice-btn list-btn" id="tp-item" style="display: block;">Toilet Paper</button>
-                                <button class="button choice-btn list-butn" id="sanitizer-item" style="display: block;">Hand Sanitizer</button>
+                            <div class="list" id="grab-first">
+                                <button class="button choice-btn list-btn" id="2-slide-water" data-item="water" style="display: block;">Water</button>
+                                <button class="button choice-btn list-btn" id="2-slide-tp" data-item="tp" style="display: block;">Toilet Paper</button>
+                                <button class="button choice-btn list-btn" id="2-slide-sanitizer" data-item="sanitizer" style="display: block;">Hand Sanitizer</button>
                             </div>                        
                         </div>
                     </div>
@@ -442,7 +444,7 @@
             <br>
             <div class="level">
                 <div class="level-item has-text-centered">
-                    <button class="button" id="next-btn">Next</button>
+                    <button class="button restart-btn">Restart</button>
                 </div> 
             </div>
         </div>
@@ -477,9 +479,9 @@
                     </figure>
                     <div class="media-content">
                         <div class="content">
-                            <div class="choices">
-                                <button class="button choice-btn list-btn" style="display: block;"><span id="first-remaining-item">Water/TP/Hand Sanitizer</span></button>
-                                <button class="button choice-btn list-btn" style="display: block;"><span id="second-remaining-item">Water/TP/Hand Sanitizer</span></button>
+                            <div class="list" id="grab-second">
+                                <button class="button choice-btn list-btn" id="3-slide-first" style="display: block;"><span id="first-remaining-item">Water/TP/Hand Sanitizer</span></button>
+                                <button class="button choice-btn list-btn" id="3-slide-second" style="display: block;"><span id="second-remaining-item">Water/TP/Hand Sanitizer</span></button>
                             </div>                        
                         </div>
                     </div>
@@ -488,7 +490,7 @@
             <br>
             <div class="level">
                 <div class="level-item has-text-centered">
-                    <button class="button" id="next-btn">Next</button>
+                    <button class="button restart-btn">Restart</button>
                 </div> 
             </div>
         </div>
@@ -523,9 +525,9 @@
                     </figure>
                     <div class="media-content">
                         <div class="content">
-                            <div class="choices">
-                                <button class="button choice-btn list-btn" style="display: block;">Approach the man, affronted </button>
-                                <button class="button choice-btn list-btn" style="display: block;">Walk away and head to checkout</button>
+                            <div class="4-slide-choices">
+                                <button class="button choice-btn list-btn" id="4-slide-approach" style="display: block;">Approach the man, affronted </button>
+                                <button class="button choice-btn list-btn" id="4-slide-away" style="display: block;">Walk away and head to checkout</button>
                             </div>                        
                         </div>
                     </div>
@@ -534,7 +536,7 @@
             <br>
             <div class="level">
                 <div class="level-item has-text-centered">
-                    <button class="button" id="next-btn">Next</button>
+                    <button class="button restart-btn">Restart</button>
                 </div> 
             </div>
         </div>
@@ -569,10 +571,10 @@
                     </figure>
                     <div class="media-content">
                         <div class="content">
-                            <div class="choices">
-                                <button class="button choice-btn list-btn" id="insult-btn" style="display: block;">Insult them, viciously</button>
-                                <button class="button choice-btn list-btn" style="display: block;">Cough on them, violently</button>
-                                <button class="button choice-btn list-btn" style="display: block;">Beg them, desperately</button>
+                            <div class="4-a-slide-choices">
+                                <button class="button choice-btn list-btn" id="4-a-slide-insult" style="display: block;">Insult them, viciously</button>
+                                <button class="button choice-btn list-btn" id="4-a-slide-cough" style="display: block;">Cough on them, violently</button>
+                                <button class="button choice-btn list-btn" id="4-a-slide-beg" style="display: block;">Beg them, desperately</button>
                             </div>                        
                         </div>
                     </div>
@@ -581,7 +583,7 @@
             <br>
             <div class="level">
                 <div class="level-item has-text-centered">
-                    <button class="button" id="next-btn">Next</button>
+                    <button class="button restart-btn">Restart</button>
                 </div> 
             </div>
         </div>
@@ -600,7 +602,7 @@
                     </div>
                     <div class="tile is-child box" id="scenario-description">
                         <p class="title has-text-centered">You did it!</p>
-                        <p>The thief is bewilded, disgusted, and terrified of you. He drops the <span id="final-item">FINAL ITEM</span>, runs away, and does not look back.</p>
+                        <p>The thief is bewildered, disgusted, and terrified of you. He drops the <span id="final-item">FINAL ITEM</span>, runs away, and does not look back.</p>
                     </div>
                 </div>
             </div>
@@ -608,7 +610,7 @@
         <br>
         <div class="level">
             <div class="level-item has-text-centered">
-                <button class="button" id="next-btn">Next</button>
+                <button class="button" id="4-a-a-slide-next">Next</button>
             </div> 
         </div>
     </section>
@@ -642,10 +644,10 @@
                     </figure>
                     <div class="media-content">
                         <div class="content">
-                            <div class="choices">
-                                <button class="button choice-btn list-btn" style="display: block;">Nope! Steal the items and run for it.</button>
-                                <button class="button choice-btn list-btn" style="display: block;">You're polite. Stand in queue, checkout, and pay for your items.</button>
-                                <button class="button choice-btn list-btn" style="display: block;">It's too much of a risk. Sigh and go home empty-handed.</button>
+                            <div class="5-slide-choices">
+                                <button class="button choice-btn" id="5-slide-steal" style="display: block;">Nope! Steal the items and run for it.</button>
+                                <button class="button choice-btn" id="5-slide-stay" style="display: block;">You're polite. Stand in queue, checkout, and pay for your items.</button>
+                                <button class="button choice-btn" id="5-slide-leave" style="display: block;">It's too much of a risk. Sigh and go home empty-handed.</button>
                             </div>                        
                         </div>
                     </div>
@@ -654,7 +656,7 @@
             <br>
             <div class="level">
                 <div class="level-item has-text-centered">
-                    <button class="button" id="next-btn">Next</button>
+                    <button class="button restart-btn">Restart</button>
                 </div> 
             </div>
         </div>
@@ -689,7 +691,7 @@
                     </figure>
                     <div class="media-content">
                         <div class="content">
-                            <div class="choices">
+                            <div class="6-slide-choices">
                                 <button class="button choice-btn list-btn" style="display: block;">Drive home</button>
                                 <button class="button choice-btn list-btn" style="display: block;">Take the bus</button>
                                 <button class="button choice-btn list-btn" style="display: block;">Walk home</button>
@@ -701,7 +703,7 @@
             <br>
             <div class="level">
                 <div class="level-item has-text-centered">
-                    <button class="button" id="next-btn">Next</button>
+                    <button class="button restart-btn">Restart</button>
                 </div> 
             </div>
         </div>
@@ -730,7 +732,7 @@
         <br>
         <div class="level">
             <div class="level-item has-text-centered">
-                <button class="button" id="next-btn">Next</button>
+                <button class="button" id="7-slide-next">Next</button>
             </div> 
         </div>
     </section>
@@ -761,7 +763,7 @@
         <br>
         <div class="level">
             <div class="level-item has-text-centered">
-                <button class="button" id="restart-btn">Restart</button>
+                <button class="button restart-btn">Restart</button>
             </div>
             <div class="level-item has-text-centered">
                 <button class="button" id="next-btn">Next</button>
@@ -797,7 +799,7 @@
         <br>
         <div class="level">
             <div class="level-item has-text-centered">
-                <button class="button" id="restart-btn">Restart</button>
+                <button class="button restart-btn">Restart</button>
             </div>
             <div class="level-item has-text-centered">
                 <button class="button" id="next-btn">Next</button>
@@ -831,7 +833,7 @@
         <br>
         <div class="level">
             <div class="level-item has-text-centered">
-                <button class="button" id="restart-btn">Restart</button>
+                <button class="button restart-btn">Restart</button>
             </div>
             <div class="level-item has-text-centered">
                 <button class="button" id="next-btn">Next</button>
@@ -847,13 +849,178 @@
         var infected = false; 
         var effectiveInsult = false;
 
-        $("#restart-btn").on("click", function (event) { // Do this for tutoring!
+        $("#start-btn").on("click", function(event) {
             event.preventDefault();
-            });
+
+            // Add in function to start timer
+            // Function to keep track of panic
+
+            $("#start-screen").removeClass("show");
+            $("#start-screen").addClass("hide");
+            $("#0-slide").removeClass("hide");
+            $("#0-slide").addClass("show");
+
+        });
+
+        $(".choices").on("click", function(event) {
+            if (event.target.id === "0-slide-next") {
+                // Function to check panic score and if at certain point - autoloss
+                $("#0-slide").removeClass("show");
+                $("#0-slide").addClass("hide");
+                $("#1-slide").removeClass("hide");
+                $("#1-slide").addClass("show");
+            } else if (event.target.id === "0-slide-autowin") {
+                $("#0-slide").removeClass("show");
+                $("#0-slide").addClass("hide");
+                $("#game-over-win").removeClass("hide");
+                $("#game-over-win").addClass("show");
+            } else if (event.target.id === "0-slide-freak") {
+                $("#0-slide").removeClass("show");
+                $("#0-slide").addClass("hide");
+                $("#game-over-freakout").removeClass("hide");
+                $("#game-over-freakout").addClass("show");
+            } else if (event.target.id === "1-slide-bus") {
+                $("#1-slide").removeClass("show");
+                $("#1-slide").addClass("hide");
+                $("#1-a-slide").removeClass("hide");
+                $("#1-a-slide").addClass("show");
+            } else if (event.target.id === "1-a-slide-scream") {
+                $("#1-a-slide").removeClass("show");
+                $("#1-a-slide").addClass("hide");
+                $("#1-a-a-slide").removeClass("hide");
+                $("#1-a-a-slide").addClass("show");
+            } else if (event.target.id === "1-a-slide-distance") {
+                $("#1-a-slide").removeClass("show");
+                $("#1-a-slide").addClass("hide");
+                $("#1-a-b-slide").removeClass("hide");
+                $("#1-a-b-slide").addClass("show");
+            } else if (event.target.id === "1-a-slide-toss") {
+                $("#1-a-slide").removeClass("show");
+                $("#1-a-slide").addClass("hide");
+                $("2-slide").removeClass("hide");
+                $("#2-slide").addClass("show");
+                coinTossInfection(); // Toss to see if become infected
+            } else if (event.target.id === "1-slide-drive" || "1-slide-walk") {
+                $("#1-slide").removeClass("show");
+                $("#1-slide").addClass("hide");
+                $("#2-slide").removeClass("hide");
+                $("#2-slide").addClass("show");
+            } 
+        });
+
+        $(".next-btn").on("click", function(event) {
+            if (event.target.id === "1-a-a-slide-next") {
+                $("#1-a-a-slide").removeClass("show");
+                $("#1-a-a-slide").addClass("hide");
+                $("#2-slide").removeClass("hide");
+                $("#2-slide").addClass("show");
+            } else if (event.target.id === "1-a-b-slide-next") {
+                $("#1-a-b-slide").removeClass("show");
+                $("#1-a-b-slide").addClass("hide");
+                $("#2-slide").removeClass("hide");
+                $("#2-slide").addClass("show");
+            } 
+        });
+
+        $("#grab-first").on("click", function(event) {
+            if (event.target.id === "2-slide-water" || "2-slide-tp" || "2-slide-sanitizer") {
+                $("#2-slide").removeClass("show");
+                $("#2-slide").addClass("hide");
+                $("#3-slide").removeClass("hide");
+                $("#3-slide").addClass("show");
+                // Function to grab data-item
+            }
+        });
+
+        $("#grab-second").on("click", function(event) {
+            if (event.target.id === "3-slide-first" || "3-slide-second") {
+                $("#3-slide").removeClass("show");
+                $("#3-slide").addClass("hide");
+                $("#4-slide").removeClass("hide");
+                $("#4-slide").addClass("show");
+                // Function to grab data-item
+            }
+        });
+
+        $(".4-slide-choices").on("click", function(event) {
+            if (event.target.id === "4-slide-approach") {
+                $("#4-slide").removeClass("show");
+                $("#4-slide").addClass("hide");
+                $("#4-a-slide").removeClass("hide");
+                $("#4-a-slide").addClass("show");
+            } else if (event.target.id === "4-slide-away") {
+                $("#4-slide").removeClass("show");
+                $("#4-slide").addClass("hide");
+                $("#5-slide").removeClass("hide");
+                $("#5-slide").addClass("show");
+            } 
+        });
+
+        $(".4-a-slide-choices").on("click", function(event) {
+            if (event.target.id === "4-a-slide-insult" || "4-a-slide-cough" || "4-a-slide-beg") {
+                // Function depending on what needs to occur per button. Split up if necessary.
+                $("#4-a-slide").removeClass("show");
+                $("#4-a-slide").addClass("hide");
+                $("#4-a-a-slide").removeClass("hide");
+                $("#4-a-a-slide").addClass("show");
+            }
+        });
+
+        $("#4-a-a-slide-next").on("click", function(event) {
+            $("#4-a-a-slide").removeClass("show");
+            $("#4-a-a-slide").addClass("hide");
+            $("#5-slide").removeClass("hide");
+            $("#5-slide").addClass("show");
+        });
+
+        $(".5-slide-choices").on("click", function(event) {
+            if (event.target.id === "5-slide-steal" || "5-slide-stay" || "5-slide-leave") {
+                $("#5-slide").removeClass("show");
+                $("#5-slide").addClass("hide");
+                $("#6-slide").removeClass("hide");
+                $("#6-slide").addClass("show");
+            }
+        });
+
+        $(".6-slide-choices").on("click", function(event) {
+            if (event.target.id === "6-slide-drive" || "6-slide-bus" || "6-slide-walk") {
+                $("#6-slide").removeClass("show");
+                $("#6-slide").addClass("hide");
+                $("#7-slide").removeClass("hide");
+                $("#7-slide").addClass("show");
+            }
+        });
+
+        $("#7-slide-next").on("click", function(event) {
+            // Depending on stats, will go to different game over pages; if statements
+        });
+
+        
+        $(".restart-btn").on("click", function(event) { // Do this for tutoring!
+            event.preventDefault();
+            var allSlidesSansStart = $("#0-slide, #1-slide, #1-a-slide, #1-a-a-slide, #1-a-b-slide, #2-slide, #3-slide, #4-slide, #4-a-slide, #4-a-a-slide, #5-slide, #6-slide, #7-slide, #game-over-loss, #game-over-win, #game-over-freakout");
+            allSlidesSansStart.removeClass("show");
+            if (allSlidesSansStart.classList === "hide") { // This might have to be done for each!
+                return;
+            } else {
+                allSlidesSansStart.addClass("hide");
+                $("#start-screen").removeClass("hide");
+                $("#start-screen").addClass("show");
+            }
+            }); 
 
         // function generateInsult() {}; 
-        $("#insult-btn").on("click", function() {
-            
+        $("#insult-btn").on("click", function() { // NOT WORKING WTFFFFFFF
+            // no API Key necessary for EvilInsult API
+            var insultQueryURL = "https://evilinsult.com/generate_insult.php?lang=en&type=json";
+
+            $.ajax({
+                url: insultQueryURL,
+                method: "GET"
+            })
+            .then(function(response) {
+                console.log("This is the insult response:", response);
+            })
         });
 
         function coinTossInfection() {
