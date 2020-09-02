@@ -14,11 +14,6 @@ var avatarBtn = document.getElementById('avatar-btn')
 const startBtn = document.getElementById('start-btn')
 const musicFast = document.querySelector('fast-music')
 const musicNormal = document.querySelector('normal-music')
-const musicNor;
-
-function startGame () {
-    musicNor = new sound("");
-}
 
 
 //Countdown/Timer functions
@@ -28,6 +23,7 @@ const startButton = document.getElementById("start-btn");
 startBtn.addEventListener('click', function () {
     countDown();
     countUp();
+    normalSpeed();
  })
 })
  //timer going down (work in progress)
@@ -50,6 +46,22 @@ startBtn.addEventListener('click', function () {
         panicAmount += 1
     }, 1000)
  }
+ // Restart Button (work in progress)
+document.addEventListener('DOMContentLoaded', () => {
+    const restartBtn = document.getElementById("restart-btn");
+
+restartBtn.addEventListener('click', function (){
+    restartClock();
+    })
+})
+ function restartClock() {
+     setInterval(function (){
+         if (restartBtn)
+         clearInterval(timeLeft = 120)
+         if (restartBtn)
+         clearInterval(panicAmount = 0)
+     })
+ }
 // Insult generator (work in progress)
 function wrongAnswer(response) {
     var insultURL = "https://evilinsult.com/generate_insult.php?lang=en&type=json"
@@ -62,9 +74,9 @@ function insertName(response) {
 }
 
 
-//music API (maybe 8bit?)
+//music API (maybe 8bit?)(hard to find music api that will play music in background maybe just use YouTube?)
 function normalSpeed (response) {
-    var songURL = "" 
+    var songURL ="https://www.youtube.com/embed/qZIpEia9K5k"
 }
 
 function fastSpeed (response) {
