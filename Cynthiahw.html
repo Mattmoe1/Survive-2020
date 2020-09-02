@@ -1009,13 +1009,40 @@
             }
             }); 
 
-        // function generateInsult() {}; 
-        $("#insult-btn").on("click", function() { // NOT WORKING WTFFFFFFF
+        function generateInsult() {
+            var corsAnywhereURL = "https://cors-anywhere.herokuapp.com/";
+            var insultQueryURL = "https://evilinsult.com/generate_insult.php?lang=engit";
+
+            $.ajax({
+                url: corsAnywhereURL + insultQueryURL,
+                method: "GET"
+            })
+            .then(function(response) {
+                console.log(response);
+            })
+        };
+
+        generateInsult();
+
+        function coinTossInfection() {
+            if (infected === true) {
+                return;
+            };
+
+            if (Math.random() < 0.5) {
+                infected = false;
+            } else {
+                intected = true;
+            };
+        }; 
+    })
+        /*$("#insult-btn").on("click", function() { // NOT WORKING WTFFFFFFF
             // no API Key necessary for EvilInsult API
+            var corsAnywhereURL = "https://cors-anywhere.herokuapp.com/";
             var insultQueryURL = "https://evilinsult.com/generate_insult.php?lang=en&type=json";
 
             $.ajax({
-                url: insultQueryURL,
+                url: corsAnywhere + insultQueryURL,
                 method: "GET"
             })
             .then(function(response) {
@@ -1034,7 +1061,7 @@
                 intected = true;
             };
         };
-    })
+    }) */
     </script>
 </body>
 </html>
