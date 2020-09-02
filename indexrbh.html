@@ -46,11 +46,25 @@
     #avatar {
         display: none;
     }
+    #pure {
+        block-size: 50px;
+        background-color: black;
+        color: chartreuse;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    #restart {
+        block-size: 50px;
+        background-color: black;
+        color: hotpink;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
 </style>
 <body>
-    
 
-    <div class="container" id="main">
+    <button id="pure" onclick="FrankBR()">GO TO THE BATHROOM</button>
+    <button id="restart" onclick="window.location.reload()">RESTART THE GAME</button>
+    <div class="totalcontainer" id="main">
 
         <!-- This is where the gamescreen will dynamically begin -->
 
@@ -87,8 +101,7 @@
                 </figure>
             </div>
             <div class="card-footer">
-                <button id="avatar-btn">Click to Generate an Avatar</button>
-            </div>
+             </div>
         </div>
         
         <button id="start-btn">Start</button> <!-- This button should be dynamically generated in JS, after at least 1 on-click event of the avatar-btn (that way, there is an avatar chosen before the game can begin -->
@@ -103,8 +116,7 @@
         <!-- If we add stats to show, they should appear in a separate div here -->
         <button class="restart-btn">Restart</button> <!-- Taken to start screen -->
         </br>
-        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
-    </div>
+        </div>
 
     <div class="good-ending hide has-text-centered">
         <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
@@ -118,8 +130,8 @@
         <div class="choices">
             <div class="question">What are you going to do?</div>
             <button class="choice-btn good-choice" id="first-choice">Freak the F*^& out</button>
-            <button class="choice-btnneutral-choice" id="second-choice">Stay home</button>
-            <button class="choice-btnneutral-choice" id="third-choice">Get supplies at the store</button>
+            <button class="choice-btnneutral-choice" id="stayHome" onclick="StayHome()">Stay home</button>
+            <button class="choice-btnneutral-choice" id="getSupplies" onclick="GetSupplies()">Get supplies at the store</button>
         </div>
     </br>
         <button class="prev-btn">Prev</button>
@@ -742,7 +754,7 @@
     <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
         
 
-    <div class="bad-ending hide has-text-centered">
+    <div class="bad-ending hide has-text-centered" id="winner">
         <div class="prompt">
             <h1> You made it!  Your choices have lead you down the correct path.  You continue to stay safe.  You wash your hands frequently and for 20 seconds.  You maintain 6 feet social distancing from others.  You wear a mask which covers your mouth and nose when you're out in public.  The future is uncertain, but with good decision making like this you feel you at least have a chance to make it through to the other side of this apocalypse.  Stay safe out there.</h1>
         </div> <!-- Dynamically change text? Need <span> if yes -->
@@ -765,7 +777,7 @@
         <button class="prev-btn">Prev</button>
     </div>
 
-    <div class="container hide has-text-centered" id="ggWin">
+    <div class="container hide has-text-centered" id="ggfreakout">
         <h1 class="title">GAME OVER : FREAK OUT</h1>
             <div class="card">
             <div class="card-image">
@@ -781,7 +793,7 @@
     <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
         
 
-    <div class="bad-ending hide has-text-centered">
+    <div class="bad-ending hide has-text-centered" id="freakout">
         <div class="prompt">
             <h1> I CAN'T TAKE IT!  THIS IS TOO MUCH!  TOO MUCH!  I'VE GOT TO GET OUT OF HERE!  CAN'T BREATHE!  UNCLEAN!  EVERYONE... EVERYTHING... IS UNCLEAN!  AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH!</h1>
             <p>You've finally lost it. You tear off your clothes and dose yourself in hand sanitizer.  You turn towards the forest and run in, screaming incoherently, never to be seen again.  </p>
@@ -807,6 +819,6 @@
     <!-- main container close div -->
 </div>
 
-<script type="text/javascript" src="scripts.js"></script>
+<script type="text/javascript" src="scriptrbh.js"></script>
 </body>
 </html>
