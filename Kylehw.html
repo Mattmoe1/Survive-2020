@@ -39,7 +39,7 @@
 </style>
 <body>
     <!-- GOALS -->
-    <!-- IF CLICK FREAK OUT CHANGES TEXT TO FREA OUT PAGE TEXT -->
+    <!-- IF CLICK FREAK OUT CHANGES TEXT TO FREAK OUT PAGE TEXT -->
     <!-- IF CLICK WIN CHANGES TEXT TO WIN PAGE TEXT -->
     <!-- IF CLICK GET SUPPLIES TAKES YOU TO SLIDE 2 -->
 
@@ -94,6 +94,8 @@
         <!-- If we add stats to show, they should appear in a separate div here -->
 
         </br>
+        <button onclick>Next</button>
+        <a href="#" class="next">Next &raquo;</a>
       </div>
 
     <div class="good-ending hide has-text-centered">
@@ -101,14 +103,22 @@
         <!-- If we add stats to show, they should appear in a separate div here -->
     </br>
 
-        </div>
+    </div>
+    
     <div class="choice-screen hide has-text-centered">
-        <h1></h1>
         <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
         <div class="choices">
             <div class="question">What are you going to do?</div>
-            <button class="choice-btn good-choice" id="first-choice">Freak the F*^& out</button>
-            <button class="choice-btnneutral-choice" id="second-choice">Stay home</button>
+         </br>
+
+            <a href = "freakout.html">
+                <button class="choice-btn good-choice" id="first-choice">Freak the F*^& out</button>
+            </a>
+            
+            <a href = "win.html">
+                <button class="choice-btnneutral-choice" id="second-choice">Stay home</button>
+            </a>
+            
             <button class="choice-btnneutral-choice" id="third-choice">Get supplies at the store</button>
         </div>
     </br>
@@ -161,35 +171,16 @@
 
     </div>
         
-    <div class="container hide has-text-centered" id="ggWin">
-        <h1 class="title">GAME OVER : YOU WIN</h1>
-            <div class="card">
-            <div class="card-image">
-                <figure class="image">
-                    <img src="" alt="" id="avatar">
-                </figure>
-            </div>
-            <div class="card-footer">
-                        </div>
-        </div>
-        
         </div>
     <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
         
-
-    <div class="bad-ending hide has-text-centered">
-        <div class="prompt">
-            <h1> You made it!  Your choices have lead you down the correct path.  You continue to stay safe.  You wash your hands frequently and for 20 seconds.  You maintain 6 feet social distancing from others.  You wear a mask which covers your mouth and nose when you're out in public.  The future is uncertain, but with good decision making like this you feel you at least have a chance to make it through to the other side of this apocalypse.  Stay safe out there.</h1>
-        </div> <!-- Dynamically change text? Need <span> if yes -->
-  
-        </br>
-          </div>
 
     <div class="good-ending hide has-text-centered">
         <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
         <!-- If we add stats to show, they should appear in a separate div here -->
     </br>
           </div>
+
     <div class="choice-screen hide has-text-centered">
         <h1></h1>
         <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
@@ -197,31 +188,6 @@
         <button class="prev-btn">Prev</button>
     </div>
 
-    <div class="container hide has-text-centered" id="ggWin">
-        <h1 class="title">GAME OVER : FREAK OUT</h1>
-            <div class="card">
-            <div class="card-image">
-                <figure class="image">
-                    <img src="" alt="" id="avatar">
-                </figure>
-            </div>
-            <div class="card-footer">
-                        </div>
-        </div>
-        
-        </div>
-    <img src="https://foreignpolicy.com/wp-content/uploads/2020/04/zombie-coronavirus-shaun-of-the-dead-rogue-pictures-1.jpg?w=800&h=533&quality=90" id="slide1" style="width:20%;height:20%">
-        
-
-    <div class="bad-ending hide has-text-centered">
-        <div class="prompt">
-            <h1> I CAN'T TAKE IT!  THIS IS TOO MUCH!  TOO MUCH!  I'VE GOT TO GET OUT OF HERE!  CAN'T BREATHE!  UNCLEAN!  EVERYONE... EVERYTHING... IS UNCLEAN!  AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH!</h1>
-            <p>You've finally lost it. You tear off your clothes and dose yourself in hand sanitizer.  You turn towards the forest and run in, screaming incoherently, never to be seen again.  </p>
-        </div> <!-- Dynamically change text? Need <span> if yes -->
-        <!-- If we add stats to show, they should appear in a separate div here -->
- 
-        </br>
-        </div>
 
     <div class="good-ending hide has-text-centered">
         <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
