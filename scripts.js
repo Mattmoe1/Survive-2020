@@ -47,23 +47,23 @@ startBtn.addEventListener('click', function () {
     }, 1000)
  }
  // Restart Button (work in progress)
-document.addEventListener('DOMContentLoaded', () => {
-    const restartBtn = document.getElementById("restart-btn");
+// document.addEventListener('DOMContentLoaded', () => {
+//     const restartBtn = document.getElementById("restart-btn");
 
-restartBtn.addEventListener('click', function (){
-    restartClock();
-    })
-})
- function restartClock() {
-     clearInterval(timeLeft, panicAmount);
-     timeLeft = 120;
-     panicAmount = 0;
+// restartBtn.addEventListener('click', function (){
+//     restartClock();
+//     })
+// })
+//  function restartClock() {
+//      clearInterval(timeLeft, panicAmount);
+//      timeLeft = 120;
+//      panicAmount = 0;
     //  setInterval(function (){
     //      if (restartBtn)
     //      clearInterval(timeLeft = 120)
     //      if (restartBtn)
-    //      clearInterval(panicAmount = 0)
-     }
+    // //      clearInterval(panicAmount = 0)
+    //  }
 // Insult generator (work in progress)
 function wrongAnswer(response) {
     var insultURL = "https://evilinsult.com/generate_insult.php?lang=en&type=json"
