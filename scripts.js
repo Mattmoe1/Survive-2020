@@ -55,13 +55,15 @@ restartBtn.addEventListener('click', function (){
     })
 })
  function restartClock() {
-     setInterval(function (){
-         if (restartBtn)
-         clearInterval(timeLeft = 120)
-         if (restartBtn)
-         clearInterval(panicAmount = 0)
-     })
- }
+     clearInterval(timeLeft, panicAmount);
+     timeLeft = 120;
+     panicAmount = 0;
+    //  setInterval(function (){
+    //      if (restartBtn)
+    //      clearInterval(timeLeft = 120)
+    //      if (restartBtn)
+    //      clearInterval(panicAmount = 0)
+     }
 // Insult generator (work in progress)
 function wrongAnswer(response) {
     var insultURL = "https://evilinsult.com/generate_insult.php?lang=en&type=json"
