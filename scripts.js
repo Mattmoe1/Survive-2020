@@ -15,7 +15,6 @@ const startBtn = document.getElementById('start-btn')
 const musicFast = document.querySelector('fast-music')
 const musicNormal = document.querySelector('normal-music')
 
-
 //Countdown/Timer functions
 document.addEventListener('DOMContentLoaded', () => {
 const startButton = document.getElementById("start-btn");
