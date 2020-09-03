@@ -102,3 +102,11 @@ h1, p, #title {
 .giphy-embed {
     float: left;
 }
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
