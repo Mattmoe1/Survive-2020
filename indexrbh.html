@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 1(Adventure Game) - Survive 2020</title>
     <!-- CSS link-->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <!-- Bulma link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <!--Stylesheet Font-->
@@ -16,11 +16,10 @@
     <title>Survive 2020!</title>
 </head>
 <style>
-    img {
-        float:right;
-    }
+
     body {
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        align-items: center;
     }
     #SLIDE3 {
         margin-left: 5%;
@@ -42,8 +41,7 @@
     }
     h1 {
         text-align: left;
-        float:left;
-        display: flex;
+        text-justify: auto;
     }
     h3 {
         text-align: left;
@@ -75,11 +73,20 @@
     #stepbackcss {
         float:left;
     }
+    #winning {
+        float: left;
+    }
+    #freakout {
+        float: left;
+    }
+    #freakoutepilogue {
+        text-align: left;
+    }
 </style>
 <body>
 
+        <button id="restart" onclick="window.location.reload()">RESTART THE GAME</button>
     <button id="pure" onclick="FrankBR()">GO TO THE BATHROOM</button>
-    <button id="restart" onclick="window.location.reload()">RESTART THE GAME</button>
     <div class="totalcontainer" id="main">
 
         <!-- This is where the gamescreen will dynamically begin -->
@@ -354,7 +361,7 @@
         <div class="choices">
             <h1></h1>
             <div class="question" id="grab item">You have [INSERT NUMBEROFITEMS FUNCTION()] items out of 3.  What do you do next?</div>
-            <form id="getWaterForm"> <input id="getWater" type="submit" text="Get Water" name="accept" class="first-choice" onclick="GetWater()"/> </form>
+            <button class="first-choice" id="waterItem" onclick="GetWater()">Get Water</button>
             <button class="second-choice" id="toiletItem" onclick="GetToiletPaper()">Get Toilet Paper</button>
             <button class="third-choice" id="sanitizerItem" onclick="GetSanitizer()">Get Hand Sanitizer</button>
             <!-- Proceed to slide-4 -->
@@ -732,24 +739,12 @@
 
     <div class="bad-ending hide has-text-centered" id="winner">
         <div class="prompt">
+            <img id="winning" src="winner.gif"/>
             <h1> You made it!  Your choices have lead you down the correct path.  You continue to stay safe.  You wash your hands frequently and for 20 seconds.  You maintain 6 feet social distancing from others.  You wear a mask which covers your mouth and nose when you're out in public.  The future is uncertain, but with good decision making like this you feel you at least have a chance to make it through to the other side of this apocalypse.  Stay safe out there.</h1>
-        </div> <!-- Dynamically change text? Need <span> if yes -->
-        <!-- If we add stats to show, they should appear in a separate div here -->
+        </div> 
         </br>
-        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
     </div>
-
-    <div class="good-ending hide has-text-centered">
-        <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
-        <!-- If we add stats to show, they should appear in a separate div here -->
-    </br>
-        </div>
-    <div class="choice-screen hide has-text-centered">
-        <h1></h1>
-        <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
-    </br>
-    </div>
-
+   
     <div class="container hide has-text-centered" id="ggfreakout">
         <h1 class="title">GAME OVER : FREAK OUT</h1>
             <div class="card">
@@ -768,24 +763,32 @@
 
     <div class="bad-ending hide has-text-centered" id="freakout">
         <div class="prompt">
-            <h1> I CAN'T TAKE IT!  THIS IS TOO MUCH!  TOO MUCH!  I'VE GOT TO GET OUT OF HERE!  CAN'T BREATHE!  UNCLEAN!  EVERYONE... EVERYTHING... IS UNCLEAN!  AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH!</h1>
-            <p>You've finally lost it. You tear off your clothes and dose yourself in hand sanitizer.  You turn towards the forest and run in, screaming incoherently, never to be seen again.  </p>
+            <div id="freakoutepilogue">
+                <p>You've finally lost it. </br>
+                    You tear off your clothes and dose yourself in hand sanitizer.  
+                </br>
+                    You turn towards the forest and run in, screaming incoherently, never to be seen again.  </p>
+                    </div>
+                </br>
+            <h1> I CAN'T TAKE IT! </br> 
+                THIS IS TOO MUCH!  </br>
+                TOO MUCH!  </br>
+                I'VE GOT TO GET OUT OF HERE! </br>
+                CAN'T BREATHE!  </br>
+                UNCLEAN!  </br>
+                EVERYONE... </br>
+                EVERYTHING... </br>
+                IS UNCLEAN!  </br>
+                AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH!</h1>
+                </br>
+                <img id="freakout" src="freakoutending.gif"/>
+
         </div> <!-- Dynamically change text? Need <span> if yes -->
         <!-- If we add stats to show, they should appear in a separate div here -->
         </br>
-        <button class="try-again-btn">Load Checkpoint</button> <!-- Taken to latest save point. Should this button appear/dissapear? Way to if/then and have only one button? To option or not to option...-->
     </div>
-
-    <div class="good-ending hide has-text-centered">
-        <h1></h1> <!-- Dynamically change text? Need <span> if yes -->
-        <!-- If we add stats to show, they should appear in a separate div here -->
     </br>
         </div>
-    <div class="choice-screen hide has-text-centered">
-        <h1></h1>
-        <img id="avatar"> <!-- Need styling to overlay at bottom left corner -->
-    </br>
-    </div>
     <!-- main container close div -->
 </div>
 
