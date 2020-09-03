@@ -41,12 +41,6 @@
 
 </head>
 
-<style>
-    #slide1 {
-        float: right;
-    }
-</style>
-
 <body>
     <!-- The following are samples of how the page will look -->
 <!-- This is a cool page to have as a title page, but is not necessary :()
@@ -363,7 +357,7 @@
                     </div>
                     <div class="tile is-child box" id="scenario-description">
                         <p class="title has-text-centered">You scream hysterically!</p>
-                        <p>You scream, "<span class="insult" id="bus-insult">Insult from the generator</span>!"</p>
+                        <p>You scream, "<span class="insult" id="bus-insult"></span>!"</p>
                         <p>The people at the bus stop turn and run away, horrified. You are now alone on the bus.</p>
                     </div>
                 </div>
@@ -848,13 +842,50 @@
     $(document).ready(function () {
         var infected = false; 
         var generatedInsult = "";
-        var effectiveInsult = false;
+        var persuadedThief = false;
+
+
+        function generateInsult() {
+            var corsAnywhereURL = "https://cors-anywhere.herokuapp.com/";
+            var insultQueryURL = "https://evilinsult.com/generate_insult.php?lang=en";
+
+            return $.ajax({
+                url: corsAnywhereURL + insultQueryURL,
+                method: "GET"
+            })
+        }; 
+
+        function persuadeThief() {
+            if (persuadedThief === true) {
+                return;
+            };
+
+            if (Math.random() < 0.5) {
+                persuadedThief = false;
+            } else {
+                persuadedThief = true;
+            }
+        }
+        
+        function coinTossInfection() {
+            if (infected === true) {
+                return;
+            };
+
+            if (Math.random() < 0.5) {
+                infected = false;
+            } else {
+                infected = true;
+            };
+        }; 
+
+        // function checkPanic() {} // if panic reaches certain point, automatic game-over-freakout
+
 
         $("#start-btn").on("click", function(event) {
             event.preventDefault();
 
-            // Add in function to start timer
-            // Function to keep track of panic
+            // Add in function to start timer and panic
 
             $("#start-screen").removeClass("show");
             $("#start-screen").addClass("hide");
@@ -864,6 +895,7 @@
         });
 
         $("#0-slide-choices").on("click", function(event) {
+            event.preventDefault();
             if (event.target.id === "0-slide-next") {
                 // Function to check panic score and if at certain point - autoloss
                 $("#0-slide").removeClass("show");
@@ -884,6 +916,7 @@
         });
 
         $("#1-slide-choices").on("click", function(event) {
+            event.preventDefault();
             // Remember to add functions to check panic score, autoloss, etc.
             if (event.target.id === "1-slide-bus") {
                 $("#1-slide").removeClass("show");
@@ -899,14 +932,21 @@
         });
 
         $("#1-a-slide-choices").on("click", function(event) {
+            event.preventDefault();
+            coinTossInfection(); // Toss to see if become infected
+            console.log("Infected: " + infected);
             // Remember to add functions to check panic score and autoloss
             if (event.target.id === "1-a-slide-toss") {
                 $("#1-a-slide").removeClass("show");
                 $("#1-a-slide").addClass("hide");
                 $("2-slide").removeClass("hide");
                 $("#2-slide").addClass("show");
-                coinTossInfection(); // Toss to see if become infected
             } else if (event.target.id === "1-a-slide-scream") {
+                generateInsult().then(function(response) {
+                    generatedInsult = response; 
+                    $("#bus-insult").text(generatedInsult);
+                })
+
                 $("#1-a-slide").removeClass("show");
                 $("#1-a-slide").addClass("hide");
                 $("#1-a-a-slide").removeClass("hide");
@@ -920,6 +960,7 @@
         });
 
         $("#1-a-a-slide-next").on("click", function(event) {
+            event.preventDefault();
             $("#1-a-a-slide").removeClass("show");
             $("#1-a-a-slide").addClass("hide");
             $("#2-slide").removeClass("hide");
@@ -927,6 +968,7 @@
         });
 
         $("#1-a-b-slide-next").on("click", function(event) {
+            event.preventDefault();
             $("#1-a-b-slide").removeClass("show");
             $("#1-a-b-slide").addClass("hide");
             $("#2-slide").removeClass("hide");
@@ -934,6 +976,7 @@
         });
 
         $("#grab-first").on("click", function(event) {
+            event.preventDefault();
             if (event.target.id === "2-slide-water" || "2-slide-tp" || "2-slide-sanitizer") {
                 $("#2-slide").removeClass("show");
                 $("#2-slide").addClass("hide");
@@ -944,6 +987,7 @@
         });
 
         $("#grab-second").on("click", function(event) {
+            event.preventDefault();
             if (event.target.id === "3-slide-first" || "3-slide-second") {
                 $("#3-slide").removeClass("show");
                 $("#3-slide").addClass("hide");
@@ -954,6 +998,7 @@
         });
 
         $(".4-slide-choices").on("click", function(event) {
+            event.preventDefault();
             if (event.target.id === "4-slide-approach") {
                 $("#4-slide").removeClass("show");
                 $("#4-slide").addClass("hide");
@@ -968,18 +1013,38 @@
         });
 
         $(".4-a-slide-choices").on("click", function(event) {
-            if (event.target.id === "4-a-slide-insult" || "4-a-slide-cough" || "4-a-slide-beg") {
-                generateInsult();
-                console.log("Calling from the button click:" + generatedInsult);
-                // Function depending on what needs to occur per button. Split up if necessary.
-                $("#4-a-slide").removeClass("show");
-                $("#4-a-slide").addClass("hide");
-                $("#4-a-a-slide").removeClass("hide");
-                $("#4-a-a-slide").addClass("show");
+            event.preventDefault();
+            var persuadedThief = false; // does this have to be an outside fuction that is called? internal? does the variable have to be global too?
+            if (event.target.id === "4-a-slide-insult") {
+                generateInsult().then(function(response) {
+                    generatedInsult = response;
+                    // console.log("Insult: " + generatedInsult);
+                    // pop up to see what is said
+                    persuadeThief();
+                    console.log("Persuaded: " + persuadedThief);
+                    if (persuadedThief === true) {
+                        console.log("Persuaded: " + persuadedThief);
+                        $("#4-a-slide").removeClass("show");
+                        $("#4-a-slide").addClass("hide");
+                        $("#4-a-a-slide").removeClass("hide");
+                        $("#4-a-a-slide").addClass("show");
+                    }
+                });
+            } else if (event.target.id === "4-a-slide-cough" || "4-a-slide-beg") {
+                persuadeThief();
+                console.log("Persuaded: " + persuadedThief);
+                if (persuadedThief === true) {
+                    console.log("Persuaded: " + persuadedThief);
+                    $("#4-a-slide").removeClass("show");
+                    $("#4-a-slide").addClass("hide");
+                    $("#4-a-a-slide").removeClass("hide");
+                    $("#4-a-a-slide").addClass("show");
+                }
             }
         });
 
         $("#4-a-a-slide-next").on("click", function(event) {
+            event.preventDefault();
             $("#4-a-a-slide").removeClass("show");
             $("#4-a-a-slide").addClass("hide");
             $("#5-slide").removeClass("hide");
@@ -987,6 +1052,7 @@
         });
 
         $(".5-slide-choices").on("click", function(event) {
+            event.preventDefault();
             if (event.target.id === "5-slide-steal" || "5-slide-stay" || "5-slide-leave") {
                 $("#5-slide").removeClass("show");
                 $("#5-slide").addClass("hide");
@@ -996,6 +1062,7 @@
         });
 
         $(".6-slide-choices").on("click", function(event) {
+            event.preventDefault();
             if (event.target.id === "6-slide-drive" || "6-slide-bus" || "6-slide-walk") {
                 $("#6-slide").removeClass("show");
                 $("#6-slide").addClass("hide");
@@ -1009,11 +1076,11 @@
         });
 
         
-        $(".restart-btn").on("click", function(event) { // Do this for tutoring!
+        $(".restart-btn").on("click", function(event) { 
             event.preventDefault();
             var allSlidesSansStart = $("#0-slide, #1-slide, #1-a-slide, #1-a-a-slide, #1-a-b-slide, #2-slide, #3-slide, #4-slide, #4-a-slide, #4-a-a-slide, #5-slide, #6-slide, #7-slide, #game-over-loss, #game-over-win, #game-over-freakout");
             allSlidesSansStart.removeClass("show");
-            if (allSlidesSansStart.classList === "hide") { // This might have to be done for each!
+            if (allSlidesSansStart.classList === "hide") { 
                 return;
             } else {
                 allSlidesSansStart.addClass("hide");
@@ -1022,33 +1089,6 @@
             }
             }); 
 
-        function generateInsult() {
-            var corsAnywhereURL = "https://cors-anywhere.herokuapp.com/";
-            var insultQueryURL = "https://evilinsult.com/generate_insult.php?lang=en";
-
-            $.ajax({
-                url: corsAnywhereURL + insultQueryURL,
-                method: "GET"
-            })
-            .then(function(response) {
-                console.log(response);
-                var generatedInsult = response;
-            })
-        };
-
-        generateInsult();
-
-        function coinTossInfection() {
-            if (infected === true) {
-                return;
-            };
-
-            if (Math.random() < 0.5) {
-                infected = false;
-            } else {
-                infected = true;
-            };
-        }; 
     })
         
     </script>
