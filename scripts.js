@@ -86,6 +86,12 @@ function fastSpeed (response) {
 
 
 // RICHARD'S CODE//
+  function FrankBR() {
+        var frankgif = document.createElement("frank");
+        frankgif.setAttribute("src","frankwannabepure.gif")
+        document.getElementById("main").innerHTML = "You approach the bathroom." + ("</br>") +  "You see a trail of a translucent fluid leading to the door." + ("</br>") +  "It looks like something was dragged there." + ("</br>") +  "You open the door and witness a horrifying sight" + ("</br>") + ("</br>") + ("</br>") + ("<img src='frankwannabepure.gif' />") + ("</br>") + ('<button id="stepback" onclick="StepBack()">Step back slowly and leave...</button>"')
+      }
+
 var items = 0;
 function GetWater () {
   if (items == 2) { LastItem () 
