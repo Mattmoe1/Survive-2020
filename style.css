@@ -1,3 +1,23 @@
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    align-items: center;
+}
+
+h1 {
+    text-align:left;
+    text-justify: auto;
+}
+
+h3 {
+    text-align: left;
+    float:left;
+}
+
+button:hover{
+    opacity: .5;
+}
+
 p {
     color: darkred;
 }
@@ -6,65 +26,13 @@ h1, p, #title {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-button:hover{
-    opacity: .5;
-}
-#slide1 {
-    text-align: relative;
-    margin-left: 5%;
-    margin-right: 5%;
-    float: right;
-}
-.title {
-    margin-right: 20%;
-    margin-left: 20%;
-    text-align: center;
-    background: transparent;
-}
-.prompt {
-    text-align: right;
-}
-h1 {
-    text-align:left;
-    text-justify: auto;
-}
-h3 {
-    text-align: left;
-    float:left;
-}
-.restart-btn {
-    float:left;
-    display: flex;
-}
-.try-again-btn {
-    float: left;
-}
-.question {
-    text-align: center;
-}
-#avatar {
-    display: none;
-}
-body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    align-items: center;
-}
-#SLIDE3 {
-    margin-left: 5%;
-    margin-right: 5%;
-    float: right;
-    text-align: absolute;
-    color: aqua;
-}
-.giphy-embed {
-    float: left;
-}
 #pure {
     block-size: 50px;
     background-color: black;
     color: chartreuse;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
 #restart {
     block-size: 50px;
     background-color: black;
@@ -75,12 +43,62 @@ body {
 #stepbackcss {
     float:left;
 }
+
 #winning {
     float: left;
 }
+
 #freakout {
     float: left;
 }
+
 #freakoutepilogue {
     text-align: left;
+}
+
+#slide1 {
+    text-align: relative;
+    margin-left: 5%;
+    margin-right: 5%;
+    float: right;
+}
+
+#avatar {
+    display: none;
+}
+
+#SLIDE3 {
+    margin-left: 5%;
+    margin-right: 5%;
+    float: right;
+    text-align: absolute;
+    color: aqua;
+}
+
+.title {
+    margin-right: 20%;
+    margin-left: 20%;
+    text-align: center;
+    background: transparent;
+}
+
+.prompt {
+    text-align: right;
+}
+
+.restart-btn {
+    float:left;
+    display: flex;
+}
+
+.try-again-btn {
+    float: left;
+}
+
+.question {
+    text-align: center;
+}
+
+.giphy-embed {
+    float: left;
 }
