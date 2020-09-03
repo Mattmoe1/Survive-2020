@@ -238,7 +238,7 @@
                     </figure>
                     <div class="media-content">
                         <div class="content">
-                            <div class="0-slide-choices">
+                            <div id="0-slide-choices">
                                 <button class="button choice-btn" id="0-slide-freak" style="display: block;">Freak the f*** out!</button>
                                 <button class="button choice-btn" id="0-slide-autowin" style="display: block;">Stay home</button>
                                 <button class="button choice-btn" id="0-slide-next" style="display: block;">Get supplies from store</button>
@@ -285,7 +285,7 @@
                     </figure>
                     <div class="media-content">
                         <div class="content">
-                            <div class="1-slide-choices">
+                            <div id="1-slide-choices">
                                 <button class="button choice-btn" id="1-slide-bus" style="display: block;">Take the bus</button>
                                 <button class="button choice-btn" id="1-slide-drive" style="display: block;">Drive there</button>
                                 <button class="button choice-btn" id="1-slide-walk" style="display: block;">Go by foot</button>
@@ -332,7 +332,7 @@
                     </figure>
                     <div class="media-content">
                         <div class="content">
-                            <div class="1-a-choices">
+                            <div id="1-a-slide-choices">
                                 <button class="button choice-btn" id="1-a-slide-scream" style="display: block;">Start screaming hysterically</button>
                                 <button class="button choice-btn" id="1-a-slide-distance" style="display: block;">Move yourself to maintain social distancing</button>
                                 <button class="button choice-btn" id="1-a-slide-toss" style="display: block;">Eh, it's fine. Do nothing</button>
@@ -863,7 +863,7 @@
 
         });
 
-        $(".0-slide-choices").on("click", function(event) {
+        $("#0-slide-choices").on("click", function(event) {
             if (event.target.id === "0-slide-next") {
                 // Function to check panic score and if at certain point - autoloss
                 $("#0-slide").removeClass("show");
@@ -883,13 +883,29 @@
             }
         });
 
-        $(".1-slide-choices").on("click", function(event) {
+        $("#1-slide-choices").on("click", function(event) {
             // Remember to add functions to check panic score, autoloss, etc.
             if (event.target.id === "1-slide-bus") {
                 $("#1-slide").removeClass("show");
                 $("#1-slide").addClass("hide");
                 $("#1-a-slide").removeClass("hide");
                 $("#1-a-slide").addClass("show");
+            } else if (event.target.id === "1-slide-drive" || "1-slide-walk") {
+                $("#1-slide").removeClass("show");
+                $("#1-slide").addClass("hide");
+                $("#2-slide").removeClass("hide");
+                $("#2-slide").addClass("show");
+            } 
+        });
+
+        $("#1-a-slide-choices").on("click", function(event) {
+            // Remember to add functions to check panic score and autoloss
+            if (event.target.id === "1-a-slide-toss") {
+                $("#1-a-slide").removeClass("show");
+                $("#1-a-slide").addClass("hide");
+                $("2-slide").removeClass("hide");
+                $("#2-slide").addClass("show");
+                coinTossInfection(); // Toss to see if become infected
             } else if (event.target.id === "1-a-slide-scream") {
                 $("#1-a-slide").removeClass("show");
                 $("#1-a-slide").addClass("hide");
@@ -901,22 +917,6 @@
                 $("#1-a-b-slide").removeClass("hide");
                 $("#1-a-b-slide").addClass("show");
             }
-        });
-
-        $(".1-a-slide-choices").on("click", function(event) {
-            // Remember to add functions to check panic score and autoloss
-            if (event.target.id === "1-a-slide-toss") {
-                $("#1-a-slide").removeClass("show");
-                $("#1-a-slide").addClass("hide");
-                $("2-slide").removeClass("hide");
-                $("#2-slide").addClass("show");
-                coinTossInfection(); // Toss to see if become infected
-            } else if (event.target.id === "1-slide-drive" || "1-slide-walk") {
-                $("#1-slide").removeClass("show");
-                $("#1-slide").addClass("hide");
-                $("#2-slide").removeClass("hide");
-                $("#2-slide").addClass("show");
-            } 
         });
 
         $("#1-a-a-slide-next").on("click", function(event) {
@@ -969,6 +969,8 @@
 
         $(".4-a-slide-choices").on("click", function(event) {
             if (event.target.id === "4-a-slide-insult" || "4-a-slide-cough" || "4-a-slide-beg") {
+                generateInsult();
+                console.log("Calling from the button click:" + generatedInsult);
                 // Function depending on what needs to occur per button. Split up if necessary.
                 $("#4-a-slide").removeClass("show");
                 $("#4-a-slide").addClass("hide");
@@ -1030,7 +1032,7 @@
             })
             .then(function(response) {
                 console.log(response);
-                generatedInsult = response;
+                var generatedInsult = response;
             })
         };
 
@@ -1048,32 +1050,7 @@
             };
         }; 
     })
-        /*$("#insult-btn").on("click", function() { // NOT WORKING WTFFFFFFF
-            // no API Key necessary for EvilInsult API
-            var corsAnywhereURL = "https://cors-anywhere.herokuapp.com/";
-            var insultQueryURL = "https://evilinsult.com/generate_insult.php?lang=en&type=json";
-
-            $.ajax({
-                url: corsAnywhere + insultQueryURL,
-                method: "GET"
-            })
-            .then(function(response) {
-                console.log("This is the insult response:", response);
-            })
-        });
-
-        function coinTossInfection() {
-            if (infected === true) {
-                return;
-            };
-
-            if (Math.random() < 0.5) {
-                infected = false;
-            } else {
-                intected = true;
-            };
-        };
-    }) */
+        
     </script>
 </body>
 </html>
