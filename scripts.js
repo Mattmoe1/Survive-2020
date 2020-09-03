@@ -84,3 +84,55 @@ function fastSpeed (response) {
     var songURL = ""
 }
 
+
+// RICHARD'S CODE//
+  function FrankBR() {
+        var frankgif = document.createElement("frank");
+        frankgif.setAttribute("src","frankwannabepure.gif")
+        document.getElementById("main").innerHTML = "You approach the bathroom." + ("</br>") +  "You see a trail of a translucent fluid leading to the door." + ("</br>") +  "It looks like something was dragged there." + ("</br>") +  "You open the door and witness a horrifying sight" + ("</br>") + ("</br>") + ("</br>") + ("<img src='frankwannabepure.gif' />") + ("</br>") + ('<button id="stepback" onclick="StepBack()">Step back slowly and leave...</button>"')
+      }
+
+var items = 0;
+function GetWater () {
+  if (items == 2) { LastItem () 
+  } else {
+alert("you have obtained water");
+items++;
+console.log(items);
+document.getElementById('waterItem').style.visibility = 'hidden';
+}
+}
+function GetToiletPaper () {
+  if (items == 2) { LastItem () 
+  } else {
+  alert("you have obtained toilet paper");
+  items++;
+console.log(items);
+document.getElementById('toiletItem').style.visibility = 'hidden';
+}
+}
+function GetSanitizer () {
+  if (items == 2) { LastItem () 
+  } else {
+  alert("you have obtained hand sanitizer");
+  items++;
+  console.log(items);
+  document.getElementById('sanitizerItem').style.visibility = 'hidden';
+}
+}
+
+function StayHome() {
+document.getElementById("main").innerHTML = document.getElementById("winner").innerHTML
+}
+
+//GO TO FREAKOUT ENDING//
+function FreakOut() {
+document.getElementById("main").innerHTML = document.getElementById("freakout").innerHTML
+}
+
+//REFRESH PAGE / RESET ALL //
+function Restart() {
+document.body.innerHTML = document.getElementById("main").innerHTML
+}
+
+// END OF RICHARD'S CODE
