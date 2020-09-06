@@ -1,0 +1,59 @@
+Slide 1
+A 100	0
+B 50	0
+C 5	0
+
+Slide 2 (To the store)
+A 20	+15
+B 10	+10
+C 0	-5
+
+Slide 2A (bus options)
+A 5	-5
+B 10	0
+C 15	0
+
+Slide 3 (1st item)
+A -0	-5
+B -10	-5
+C -5	-5
+D+20	-5  (bathroom)
+
+Slide 4 (2nd item)
+A -0-10	-5
+B -0-10	-5
+
+Slide 5 (final item)
+A 10	0
+B 5	-5
+Slide 5-A (confront)
+A 5/ea	0
+B 5/ea	0
+C 5/ea	0
+
+Slide 5-b (win)
+-20
+
+Slide 6 (Checkout)
+A GG
+B -10	-5
+C 5	0
+
+Slide 7 (return home)
+A 5	+5
+B 10	+10
+C 0	-5
+
+-25 best panic score
+
+75 worst panic score minimum
+
+50 freak out cap
+
+
+Most time lost -35
+
+Least time lost +15
+
+Score = time remaining - panic
+

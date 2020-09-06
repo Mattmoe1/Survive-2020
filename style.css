@@ -1,7 +1,13 @@
+/* font-family: 'Butcherman', cursive;
+font-family: 'Eater', cursive;
+font-family: 'Nosifer', cursive;
+font-family: 'Nothing You Could Do', cursive; */
+
 
 body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Eater', cursive;
     align-items: center;
+    background-color: black;
 }
 
 h1 {
@@ -14,8 +20,19 @@ h3 {
     float:left;
 }
 
+button {
+    opacity: .5;
+    background-color: black;
+    color: red;
+    font-family: 'Eater', cursive;
+}
+
 button:hover{
     opacity: .5;
+    background-color: red;
+    color: black;
+    font-family: 'Eater', cursive;
+
 }
 
 p {
@@ -23,21 +40,21 @@ p {
 }
 
 h1, p, #title {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Eater', cursive;
 }
 
 #pure {
     block-size: 50px;
-    background-color: black;
-    color: chartreuse;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: darkred;
+    font-family: 'Eater', cursive;
+    float: right;
 }
 
 #restart {
     block-size: 50px;
     background-color: black;
     color: hotpink;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Eater', cursive;
 }
 
 #stepbackcss {
@@ -74,7 +91,9 @@ h1, p, #title {
     text-align: absolute;
     color: aqua;
 }
-
+#standby {
+    size: 200px;
+}
 .title {
     margin-right: 20%;
     margin-left: 20%;
@@ -84,6 +103,10 @@ h1, p, #title {
 
 .prompt {
     text-align: right;
+}
+
+.prompt-b {
+    float: inline-end;
 }
 
 .restart-btn {
@@ -109,4 +132,14 @@ h1, p, #title {
 
 .hide {
     display: none;
+}
+
+.title-name {
+    color: darkred;
+    font-size: 130px;
+    margin: -35px;
+    margin-bottom: -105px;
+    font-family: 'Nosifer', cursive;
+    text-align: center;
+    line-height: 135px;
 }
