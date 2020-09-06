@@ -86,14 +86,12 @@
                 </div>
             </header>
         </div>
-
         <div class="hero-body">
             <div class="container has-text-centered">
                 <h1 class="title">Survive 2020</h1>
                 <h2 class="subtitle">When they said no one had 2020 vision, they sure weren't kidding...</h2>
             </div>
         </div>
-
         <div class="hero-foot">
             <nav class="tabs is-boxed is-fullwidth">
                 <div class="container">
@@ -173,6 +171,7 @@
 
     <!-- Each of these next screens should NOT remain in index.html, but should be dynamically generated in JS-->
     <!-- Remain here until styling is complete, please -->
+    <!-- All pages are hidden to be toggled by jquery based on user selection -->
     <section class="section show" id="start-screen">
         <div class="container has-text-centered">
              <div class="tile is-ancestor">
@@ -890,7 +889,7 @@
         </div>
     </section>
 
-
+<!-- jquery and js functions -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script type="text/javascript">
@@ -902,6 +901,8 @@
 
         function generateInsult() {
             var corsAnywhereURL = "https://cors-anywhere.herokuapp.com/";
+
+            // api urls
             var insultQueryURL = "https://evilinsult.com/generate_insult.php?lang=en";
 
             return $.ajax({
@@ -934,14 +935,15 @@
             };
         }; 
 
-        // function checkPanic() {} // if panic reaches certain point, automatic game-over-freakout
+        // **ADD: function checkPanic() {} // if panic reaches certain point, automatic game-over-freakout
 
 
         $("#start-btn").on("click", function(event) {
             event.preventDefault();
 
-            // Add in function to start timer and panic
+            // **ADD: function to start timer and panic
 
+            // hide the start screen and show slide-0
             $("#start-screen").removeClass("show");
             $("#start-screen").addClass("hide");
             $("#0-slide").removeClass("hide");
@@ -951,8 +953,9 @@
 
         $("#0-slide-choices").on("click", function(event) {
             event.preventDefault();
+
             if (event.target.id === "0-slide-next") {
-                // Function to check panic score and if at certain point - autoloss
+                // ** Function to check panic score and if at certain point - autoloss
                 $("#0-slide").removeClass("show");
                 $("#0-slide").addClass("hide");
                 $("#1-slide").removeClass("hide");
@@ -970,9 +973,11 @@
             }
         });
 
+        // hide and show various slides based on the slide options selected
+
         $("#1-slide-choices").on("click", function(event) {
             event.preventDefault();
-            // Remember to add functions to check panic score, autoloss, etc.
+            // ** Remember to add functions to check panic score, autoloss, etc.
             if (event.target.id === "1-slide-bus") {
                 $("#1-slide").removeClass("show");
                 $("#1-slide").addClass("hide");
@@ -990,7 +995,7 @@
             event.preventDefault();
             coinTossInfection(); // Toss to see if become infected
             console.log("Infected: " + infected);
-            // Remember to add functions to check panic score and autoloss
+            // ** Remember to add functions to check panic score and autoloss
             if (event.target.id === "1-a-slide-toss") {
                 $("#1-a-slide").removeClass("show");
                 $("#1-a-slide").addClass("hide");
@@ -1101,7 +1106,7 @@
                 $("#2-slide").addClass("hide");
                 $("#3-slide").removeClass("hide");
                 $("#3-slide").addClass("show");
-                // Function to grab data-item
+                // **ADD: Function to grab data-item
             }
         });
 
@@ -1112,7 +1117,7 @@
                 $("#3-slide").addClass("hide");
                 $("#4-slide").removeClass("hide");
                 $("#4-slide").addClass("show");
-                // Function to grab data-item
+                // **ADD: Function to grab data-item
             }
         });
 
@@ -1224,7 +1229,7 @@
             // Depending on stats, will go to different game over pages; if statements
         });
 
-        
+        // button that takes user back to the start screen
         $(".restart-btn").on("click", function(event) { 
             event.preventDefault();
             var allSlidesSansStart = $("#0-slide, #1-slide, #1-a-slide, #1-a-a-slide, #1-a-b-slide, #2-slide, #3-slide, #4-slide, #4-a-slide, #4-a-a-slide, #5-slide, #6-slide, #7-slide, #game-over-loss, #game-over-win, #game-over-freakout");
