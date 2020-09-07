@@ -151,12 +151,12 @@
                         <div>
                             <p>Panic Meter: <progess class="progress is-danger" 
                                 value="0" 
-                                max="5" id="panic-meter"></progess></p>
+                                max="5" id="panic"></progess></p>
                         </div>
                     </div>
                 </div>
                 <div class="level-right">
-                    <div class="level-item has-text-centered" id="timer-div">
+                    <div class="level-item has-text-centered" id="timer-div"></div>
                         <p>Time Left: <span id="timer"></span></p>
                     </div>
                 </div>
@@ -942,9 +942,42 @@
         $("#start-btn").on("click", function(event) {
             event.preventDefault();
 
-            // **ADD: function to start timer and panic
+            // Add in function to start timer and panic
+        //timer function
+        var sec = 10;
+        var time = setInterval(myTimer, 1000);
 
-            // hide the start screen and show slide-0
+        function myTimer() {
+            document.getElementById('timer').innerHTML = sec;
+            sec--;
+            if (sec == -1) {
+            window.clearInterval(time);
+            1000;
+            sec = 10;
+            alert("Time's Up!!");
+            }
+        // function myStopTimer (){
+        //     clearInterval(time);
+        //     alert("Time out!!");
+        // } 
+    }
+        var panic = 0;
+        var panicUp = setInterval(panicMeter, 1000);
+
+        function panicMeter() {
+            document.getElementById('panic').innerHTML = panic;
+            panic++;
+            if (panic == 75) {
+            clearInterval(panicUp);
+            panic = 0;
+            alert("You freaked out!!");
+            endGame ();
+            }
+        } 
+        //trying to get timer to go back to home page 
+        function endGame() {clearInterval(myTimer,panicMeter);
+
+        }
             $("#start-screen").removeClass("show");
             $("#start-screen").addClass("hide");
             $("#0-slide").removeClass("hide");

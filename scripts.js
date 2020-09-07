@@ -12,38 +12,35 @@ var restartBtn = document.getElementById('restart-btn')
 var againBtn = document.getElementById('try-again-btn')
 var avatarBtn = document.getElementById('avatar-btn')
 const startBtn = document.getElementById('start-btn')
-const musicFast = document.querySelector('fast-music')
-const musicNormal = document.querySelector('normal-music')
-
+var mySound;
 //Countdown/Timer functions
-document.addEventListener('DOMContentLoaded', () => {
-const startButton = document.getElementById("start-btn");
+// document.addEventListener('DOMContentLoaded', () => {
+// const startButton = document.getElementById("start-btn");
 
-startBtn.addEventListener('click', function () {
-    countDown();
-    countUp();
-    normalSpeed();
- })
-})
+// startButton.addEventListener('click', function () {
+//     countDown();
+//     countUp();
+//  })
+// })
  //timer going down (work in progress)
- function countDown() {
-    setInterval(function () {
-        if (timeLeft <= 0) {
-            clearInterval(timeLeft = 0)
-        }
-        timeLeftDisplay.innerHTML = timeLeft
-        timeLeft -= 1
-    }, 1000)
- }
+//  function countDown() {
+//     setInterval(function () {
+//         if (timeLeft <= 0) {
+//             clearInterval(timeLeft = 0)
+//         }
+//         timeLeftDisplay.innerHTML = timeLeft
+//         timeLeft -= 1
+//     }, 1000)
+//  }
  // panic timer going up (work in progress)
  function countUp() {
     setInterval(function () {
-        if (panicAmount >= 200) {
-            clearInterval(panicAmount = 200)
+        if (panicAmount >= 75) {
+            clearInterval(panicAmount = 75)
         }
         panicAmountDisplay.innerHTML = panicAmount
         panicAmount += 1
-    }, 1000)
+    }, 75)
  }
  // Restart Button (work in progress)
 // document.addEventListener('DOMContentLoaded', () => {
@@ -72,16 +69,6 @@ function wrongAnswer(response) {
 //Name Generator API
 function insertName(response) {
     var nameURL = ""
-}
-
-
-//music API (maybe 8bit?)(hard to find music api that will play music in background maybe just use YouTube?)
-function normalSpeed (response) {
-    var songURL ="https://www.youtube.com/embed/qZIpEia9K5k"
-}
-
-function fastSpeed (response) {
-    var songURL = ""
 }
 
 
@@ -123,11 +110,13 @@ function GetSanitizer () {
 
 function StayHome() {
 document.getElementById("main").innerHTML = document.getElementById("winner").innerHTML
+mySound = new sound ("sounds/typing_keyboard.ogg")
 }
 
 //GO TO FREAKOUT ENDING//
 function FreakOut() {
 document.getElementById("main").innerHTML = document.getElementById("freakout").innerHTML
+mySound = new sound ("sounds/human_group_cry_out.ogg")
 }
 
 //REFRESH PAGE / RESET ALL //
@@ -173,10 +162,8 @@ function btnOptions() {
         btn.addClass("choice");
 
     $(".question-container").append(btn);
+})
 }
-
 //function that runs the next feature
 function nextBtn () {
-
 }
-//END OF KYLE's CODE
