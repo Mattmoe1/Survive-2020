@@ -952,10 +952,14 @@
             sec--;
             if (sec == -1) {
             clearInterval(time);
+            sec = 120;
             alert("Time out!!");
-            endGame ();
             }
-        } 
+        // function myStopTimer (){
+        //     clearInterval(time);
+        //     alert("Time out!!");
+        // } 
+    }
         var panic = 0;
         var panicUp = setInterval(panicMeter, 1000);
 
@@ -964,12 +968,13 @@
             panic++;
             if (panic == 75) {
             clearInterval(panicUp);
+            panic = 0;
             alert("You freaked out!!");
             endGame ();
             }
         } 
         //trying to get timer to go back to home page 
-        function endGame() {clearInterval(myTimer);
+        function endGame() {clearInterval(myTimer,panicMeter);
 
         }
             $("#start-screen").removeClass("show");
