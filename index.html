@@ -944,17 +944,17 @@
 
             // Add in function to start timer and panic
         //timer function
-        var sec = 120;
+        var sec = 10;
         var time = setInterval(myTimer, 1000);
 
         function myTimer() {
             document.getElementById('timer').innerHTML = sec;
             sec--;
             if (sec == -1) {
-            clearInterval(time);
+            window.clearInterval(time);
             1000;
-            sec = 120;
-            alert("Time out!!");
+            sec = 10;
+            alert("Time's Up!!");
             }
         // function myStopTimer (){
         //     clearInterval(time);
