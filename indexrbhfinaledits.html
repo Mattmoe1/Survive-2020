@@ -86,12 +86,14 @@
                 </div>
             </header>
         </div>
+
         <div class="hero-body">
             <div class="container has-text-centered">
                 <h1 class="title">Survive 2020</h1>
                 <h2 class="subtitle">When they said no one had 2020 vision, they sure weren't kidding...</h2>
             </div>
         </div>
+
         <div class="hero-foot">
             <nav class="tabs is-boxed is-fullwidth">
                 <div class="container">
@@ -151,12 +153,12 @@
                         <div>
                             <p>Panic Meter: <progess class="progress is-danger" 
                                 value="0" 
-                                max="5" id="panic"></progess></p>
+                                max="5" id="panic-meter"></progess></p>
                         </div>
                     </div>
                 </div>
                 <div class="level-right">
-                    <div class="level-item has-text-centered" id="timer-div"></div>
+                    <div class="level-item has-text-centered" id="timer-div">
                         <p>Time Left: <span id="timer"></span></p>
                     </div>
                 </div>
@@ -171,7 +173,6 @@
 
     <!-- Each of these next screens should NOT remain in index.html, but should be dynamically generated in JS-->
     <!-- Remain here until styling is complete, please -->
-    <!-- All pages are hidden to be toggled by jquery based on user selection -->
     <section class="section show" id="start-screen">
         <div class="container has-text-centered">
              <div class="tile is-ancestor">
@@ -196,32 +197,44 @@
                         </article>
                     </div>
                     <div class="tile is-child box">
-                        <!-- This button should be dynamically generated in JS, after at least 1 on-click event of the avatar-btn (that way, there is an avatar chosen before the game can begin -->
-                        <button class="button" id="start-btn">Start</button> 
+                        <button class="button" id="start-btn">Start</button> <!-- This button should be dynamically generated in JS, after at least 1 on-click event of the avatar-btn (that way, there is an avatar chosen before the game can begin -->
                     </div>
                 </div>
              </div>
         </div>
     </section>
 
-    <section class="section choice-screen hide" id="0-slide">
-        <div class="container">
-            <div class="tile is-ancestor">
-                <div class="tile is-parent">
-                    <div class="tile is-child is-4 box" id="scenario-image">
-                        <article class="media">
-                            <figure class="image is 128x128">
-                                <img src="https://media1.tenor.com/images/0649baecd60c1404ba7214d4129137cc/tenor.gif?itemid=5493650">
-                            </figure>
-                        </article>
-                    </div>
-                    <div class="tile is-child box" id="scenario-description">
-                        <p>You wake up. You're groggy, as though you had a vivid dream but you can't quite remember what it was about.You grab your phone and begin flipping through the news. The first article blares in all caps "BREAKING NEWS!" followed by: "This just in! The COVID-19 virus has just been officially declared a pandemic by the United States. People are advised to stay home. Do not panic. Wash your hands thoroughly and maintain a minimum of 6ft distance from others. People are advised to avoid crowded public areas due to risk of infection. Again, do not panic."</p>
-                        <br>
-                        <p>What are you going to do?</p>
-                    </div>
+<section class="section choice-screen hide" id="0-slide">
+    <div class="container">
+        <div class="tile is-ancestor">
+            <div class="tile is-parent">
+                <div class="tile is-child is-4 box" id="scenario-image">
+                    <article class="media">
+                        <figure class="image is 128x128">
+                            <img src="https://media1.tenor.com/images/0649baecd60c1404ba7214d4129137cc/tenor.gif?itemid=5493650">
+                        </figure>
+                    </article>
+                </div>
+                <div class="tile is-child box" id="scenario-description">
+                    <div class="containerimg2">
+                        <div class="headerimg2">
+                          <h1 class="logoimg2">Hello World</h1>
+                        </div>
+                        <div class="gallery">
+                          
+                        </div>
+                        <a class="load-more" data-img="curated"></a>
+                      </div>
+                    <p>You wake up. You're groggy, as though you had a vivid dream but you can't quite remember what it was about.You grab your phone and begin flipping through the news. The first article blares in all caps "BREAKING NEWS!" followed by: "This just in! The COVID-19 virus has just been officially declared a pandemic by the United States. People are advised to stay home. Do not panic. Wash your hands thoroughly and maintain a minimum of 6ft distance from others. People are advised to avoid crowded public areas due to risk of infection. Again, do not panic."</p>
+                    <br>
+                    <p>What are you going to do?</p>
+                </br>
+                <p>
+ 
+                </p>
                 </div>
             </div>
+        </div>
 
             <div class="container">
                 <article class="media">
@@ -347,7 +360,7 @@
         </div>
     </section>
 
-    <section class="section next-screen hide" id="1-a-a-slide"> <!-- From bus slide, scream choice -->
+    <section class="section next-screen hide" id="1-a-a-slide"> <!-- From bus slide, scream -->
         <div class="container">
             <div class="tile is-ancestor">
                 <div class="tile is-parent">
@@ -374,7 +387,7 @@
         </div>
     </section>
 
-    <section class="section next-screen hide" id="1-a-b-slide"> <!-- From bus slide, social distance choice -->
+    <section class="section next-screen hide" id="1-a-b-slide"> <!-- From bus slide, distance -->
         <div class="container">
             <div class="tile is-ancestor">
                 <div class="tile is-parent">
@@ -430,9 +443,9 @@
                     <div class="media-content">
                         <div class="content">
                             <div class="list" id="grab-first">
-                                <button class="button choice-btn list-btn" id="2-slide-water" data-item="water" style="display: block;">Water</button>
-                                <button class="button choice-btn list-btn" id="2-slide-tp" data-item="tp" style="display: block;">Toilet Paper</button>
-                                <button class="button choice-btn list-btn" id="2-slide-sanitizer" data-item="sanitizer" style="display: block;">Hand Sanitizer</button>
+                                <button class="button choice-btn list-btn"  data-item="water" style="display: block;" id="waterItem" onclick="GetWater()">Water</button>
+                                <button class="button choice-btn list-btn"  data-item="tp" style="display: block;" id="toiletItem" onclick="GetToiletPaper()">Toilet Paper</button>
+                                <button class="button choice-btn list-btn"  data-item="sanitizer" style="display: block;" id="sanitizerItem" onclick="GetSanitizer()">Hand Sanitizer</button>
                             </div>                        
                         </div>
                     </div>
@@ -493,8 +506,8 @@
         </div>
     </section>
 
-    <section class="section choice-screen hide" id="3-slide"> <!-- Second item slide. Have to be within one function to generate? -->
-        <div class="container">
+    <!-- <section class="section choice-screen hide" id="3-slide"> Second item slide. Have to be within one function to generate? -->
+        <!-- <div class="container">
             <div class="tile is-ancestor">
                 <div class="tile is-parent">
                     <div class="tile is-child is-4 box" id="scenario-image">
@@ -523,8 +536,9 @@
                     <div class="media-content">
                         <div class="content">
                             <div class="list" id="grab-second">
-                                <button class="button choice-btn list-btn" id="3-slide-first" style="display: block;"><span id="first-remaining-item">Water/TP/Hand Sanitizer</span></button>
-                                <button class="button choice-btn list-btn" id="3-slide-second" style="display: block;"><span id="second-remaining-item">Water/TP/Hand Sanitizer</span></button>
+                                <button class="button choice-btn list-btn" id="2-slide-water" data-item="water" style="display: block;" id="waterItem" onclick="GetWater()">Water</button>
+                                <button class="button choice-btn list-btn" id="2-slide-tp" data-item="tp" style="display: block;" id="toiletItem" onclick="GetToiletPaper()">Toilet Paper</button>
+                                <button class="button choice-btn list-btn" id="2-slide-sanitizer" data-item="sanitizer" style="display: block;" id="sanitizerItem" onclick="GetSanitizer()">Hand Sanitizer</button>
                             </div>                        
                         </div>
                     </div>
@@ -538,7 +552,7 @@
                 </div> 
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section class="section choice-screen hide" id="4-slide"> <!-- Third item slide. Have to be within one function to generate? -->
         <div class="container">
@@ -890,20 +904,18 @@
         </div>
     </section>
 
-<!-- jquery and js functions -->
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./pexel.js"></script>
     <script type="text/javascript">
     $(document).ready(function () {
         var infected = false; 
         var generatedInsult = "";
         var persuadedThief = false;
 
-
         function generateInsult() {
             var corsAnywhereURL = "https://cors-anywhere.herokuapp.com/";
-
-            // api urls
             var insultQueryURL = "https://evilinsult.com/generate_insult.php?lang=en";
 
             return $.ajax({
@@ -936,48 +948,14 @@
             };
         }; 
 
-        // **ADD: function checkPanic() {} // if panic reaches certain point, automatic game-over-freakout
+        // function checkPanic() {} // if panic reaches certain point, automatic game-over-freakout
 
 
         $("#start-btn").on("click", function(event) {
             event.preventDefault();
 
             // Add in function to start timer and panic
-        //timer function
-        var sec = 10;
-        var time = setInterval(myTimer, 1000);
 
-        function myTimer() {
-            document.getElementById('timer').innerHTML = sec;
-            sec--;
-            if (sec == -1) {
-            window.clearInterval(time);
-            1000;
-            sec = 10;
-            alert("Time's Up!!");
-            }
-        // function myStopTimer (){
-        //     clearInterval(time);
-        //     alert("Time out!!");
-        // } 
-    }
-        var panic = 0;
-        var panicUp = setInterval(panicMeter, 1000);
-
-        function panicMeter() {
-            document.getElementById('panic').innerHTML = panic;
-            panic++;
-            if (panic == 75) {
-            clearInterval(panicUp);
-            panic = 0;
-            alert("You freaked out!!");
-            endGame ();
-            }
-        } 
-        //trying to get timer to go back to home page 
-        function endGame() {clearInterval(myTimer,panicMeter);
-
-        }
             $("#start-screen").removeClass("show");
             $("#start-screen").addClass("hide");
             $("#0-slide").removeClass("hide");
@@ -987,9 +965,8 @@
 
         $("#0-slide-choices").on("click", function(event) {
             event.preventDefault();
-
             if (event.target.id === "0-slide-next") {
-                // ** Function to check panic score and if at certain point - autoloss
+                // Function to check panic score and if at certain point - autoloss
                 $("#0-slide").removeClass("show");
                 $("#0-slide").addClass("hide");
                 $("#1-slide").removeClass("hide");
@@ -1007,11 +984,9 @@
             }
         });
 
-        // hide and show various slides based on the slide options selected
-
         $("#1-slide-choices").on("click", function(event) {
             event.preventDefault();
-            // ** Remember to add functions to check panic score, autoloss, etc.
+            // Remember to add functions to check panic score, autoloss, etc.
             if (event.target.id === "1-slide-bus") {
                 $("#1-slide").removeClass("show");
                 $("#1-slide").addClass("hide");
@@ -1029,7 +1004,7 @@
             event.preventDefault();
             coinTossInfection(); // Toss to see if become infected
             console.log("Infected: " + infected);
-            // ** Remember to add functions to check panic score and autoloss
+            // Remember to add functions to check panic score and autoloss
             if (event.target.id === "1-a-slide-toss") {
                 $("#1-a-slide").removeClass("show");
                 $("#1-a-slide").addClass("hide");
@@ -1132,28 +1107,18 @@
         })
 
 
+        }),
 
-        $("#grab-first").on("click", function(event) {
-            event.preventDefault();
-            if (event.target.id === "2-slide-water" || "2-slide-tp" || "2-slide-sanitizer") {
-                $("#2-slide").removeClass("show");
-                $("#2-slide").addClass("hide");
-                $("#3-slide").removeClass("hide");
-                $("#3-slide").addClass("show");
-                // **ADD: Function to grab data-item
-            }
-        });
-
-        $("#grab-second").on("click", function(event) {
-            event.preventDefault();
-            if (event.target.id === "3-slide-first" || "3-slide-second") {
-                $("#3-slide").removeClass("show");
-                $("#3-slide").addClass("hide");
-                $("#4-slide").removeClass("hide");
-                $("#4-slide").addClass("show");
-                // **ADD: Function to grab data-item
-            }
-        });
+        // $("#grab-second").on("click", function(event) {
+        //     event.preventDefault();
+        //     if (event.target.id === "3-slide-first" || "3-slide-second") {
+        //         $("#3-slide").removeClass("show");
+        //         $("#3-slide").addClass("hide");
+        //         $("#4-slide").removeClass("hide");
+        //         $("#4-slide").addClass("show");
+        //         // Function to grab data-item
+        //     }
+        // });
 
         $(".4-slide-choices").on("click", function(event) {
             event.preventDefault();
@@ -1263,7 +1228,7 @@
             // Depending on stats, will go to different game over pages; if statements
         });
 
-        // button that takes user back to the start screen
+        
         $(".restart-btn").on("click", function(event) { 
             event.preventDefault();
             var allSlidesSansStart = $("#0-slide, #1-slide, #1-a-slide, #1-a-a-slide, #1-a-b-slide, #2-slide, #3-slide, #4-slide, #4-a-slide, #4-a-a-slide, #5-slide, #6-slide, #7-slide, #game-over-loss, #game-over-win, #game-over-freakout");
@@ -1277,8 +1242,51 @@
             }
             }); 
 
-    })
+    
+        //EDITS RBH BUTTON FUNCTIONS VISIBILITY//
+                    var items = 0;
+                    var itemtype = "items Collected: ";
+                    function GetWater () {
+                if (items == 2) { LastItem () 
+                } else {
+                    alert("you have obtained water");
+                    items++;
+                    itemtype = "waterItemType"
+                    console.log(items);
+                    console.log(itemtype);
+                    document.getElementById('waterItem').style.visibility = 'hidden';
+                }}
+                function GetToiletPaper () {
+                if (items == 2) { LastItem () 
+                } else {
+                    alert("you have obtained toilet paper");
+                    items++;
+                    itemtype = "toiletItemType"
+                    console.log(items);
+                    console.log(itemtype);
+                    document.getElementById('toiletItem').style.visibility = 'hidden';
+                }}
+                function GetSanitizer () {
+                if (items == 2) { LastItem () 
+                } else {
+                    alert("you have obtained hand sanitizer");
+                    items++;
+                    itemtype = "sanitezerItemType";
+                    console.log(items);
+                    console.log(itemtype);
+                    document.getElementById('sanitizerItem').style.visibility = 'hidden';
+                }}
+                
+                
+            async function LastItem () {
+                 $("#2-slide").removeClass("show");
+                $("#2-slide").addClass("hide");
+                $("#4-slide").removeClass("hide");
+                $("#4-slide").addClass("show");
+                // Function to grab data-item
+            }
         
+ //EDITS RBH BUTTON FUNCTIONS VISIBILITY//
     </script>
 </body>
 </html>
