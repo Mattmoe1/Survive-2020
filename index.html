@@ -430,9 +430,9 @@
                     <div class="media-content">
                         <div class="content">
                             <div class="list" id="grab-first">
-                                <button class="button choice-btn list-btn" id="2-slide-water" data-item="water" style="display: block;">Water</button>
-                                <button class="button choice-btn list-btn" id="2-slide-tp" data-item="tp" style="display: block;">Toilet Paper</button>
-                                <button class="button choice-btn list-btn" id="2-slide-sanitizer" data-item="sanitizer" style="display: block;">Hand Sanitizer</button>
+                                <button class="button choice-btn list-btn"  data-item="water" style="display: block;" id="waterItem" onclick="GetWater()">Water</button>
+                                <button class="button choice-btn list-btn"  data-item="tp" style="display: block;" id="toiletItem" onclick="GetToiletPaper()">Toilet Paper</button>
+                                <button class="button choice-btn list-btn"  data-item="sanitizer" style="display: block;" id="sanitizerItem" onclick="GetSanitizer()">Hand Sanitizer</button>
                             </div>                        
                         </div>
                     </div>
@@ -1133,27 +1133,18 @@
 
 
 
-        $("#grab-first").on("click", function(event) {
-            event.preventDefault();
-            if (event.target.id === "2-slide-water" || "2-slide-tp" || "2-slide-sanitizer") {
-                $("#2-slide").removeClass("show");
-                $("#2-slide").addClass("hide");
-                $("#3-slide").removeClass("hide");
-                $("#3-slide").addClass("show");
-                // **ADD: Function to grab data-item
-            }
-        });
 
-        $("#grab-second").on("click", function(event) {
-            event.preventDefault();
-            if (event.target.id === "3-slide-first" || "3-slide-second") {
-                $("#3-slide").removeClass("show");
-                $("#3-slide").addClass("hide");
-                $("#4-slide").removeClass("hide");
-                $("#4-slide").addClass("show");
-                // **ADD: Function to grab data-item
-            }
-        });
+
+        // $("#grab-second").on("click", function(event) {
+        //     event.preventDefault();
+        //     if (event.target.id === "3-slide-first" || "3-slide-second") {
+        //         $("#3-slide").removeClass("show");
+        //         $("#3-slide").addClass("hide");
+        //         $("#4-slide").removeClass("hide");
+        //         $("#4-slide").addClass("show");
+        //         // **ADD: Function to grab data-item
+        //     }
+        // });
 
         $(".4-slide-choices").on("click", function(event) {
             event.preventDefault();
@@ -1278,7 +1269,47 @@
             }); 
 
     })
-        
+    var items = 0;
+                    var itemtype = "items Collected: ";
+                    function GetWater () {
+                if (items == 2) { LastItem () 
+                } else {
+                    alert("you have obtained water");
+                    items++;
+                    itemtype = "waterItemType"
+                    console.log(items);
+                    console.log(itemtype);
+                    document.getElementById('waterItem').style.visibility = 'hidden';
+                }}
+                function GetToiletPaper () {
+                if (items == 2) { LastItem () 
+                } else {
+                    alert("you have obtained toilet paper");
+                    items++;
+                    itemtype = "toiletItemType"
+                    console.log(items);
+                    console.log(itemtype);
+                    document.getElementById('toiletItem').style.visibility = 'hidden';
+                }}
+                function GetSanitizer () {
+                if (items == 2) { LastItem () 
+                } else {
+                    alert("you have obtained hand sanitizer");
+                    items++;
+                    itemtype = "sanitezerItemType";
+                    console.log(items);
+                    console.log(itemtype);
+                    document.getElementById('sanitizerItem').style.visibility = 'hidden';
+                }}
+                
+                
+            async function LastItem () {
+                 $("#2-slide").removeClass("show");
+                $("#2-slide").addClass("hide");
+                $("#4-slide").removeClass("hide");
+                $("#4-slide").addClass("show");
+                // Function to grab data-item
+            }
     </script>
 </body>
 </html>
