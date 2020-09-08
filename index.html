@@ -39,71 +39,10 @@
           sizes="16x16" 
           type="image">
 
-    <title>Pandamic Panic - Survive 2020</title>
-
 </head>
 
 <body>
     <!-- The following are samples of how the page will look -->
-<!-- This is a cool page to have as a title page, but is not necessary :()
-    <section class="hero is-danger is-fullheight" id="main"> -->
-        <!-- This is where the gamescreen will begin on load -->
-        <!-- Make is so that on a reload, goes to either #main or lattest save -->
-<!--       <div class="hero-head">
-            <header class="navbar">
-                <div class="container">
-                    <div class="navbar-brand">
-                        <a class="navbar-item">
-                            <img src="./images/covid_icon.png" alt="figure coughing in the face of another">
-                        </a>
-                        <span class="navbar-burger burger" data-target="navbarMenuHeroC">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
-                    </div>
-                    <div id="navbarMenuHeroC" class="navbar-menu">
-                        <div class="navbar-end">
-                            <a class="navbar-item is-active">
-                                Home
-                            </a>
-                            <a class="navbar-item">
-                                Highscores
-                            </a>
-                            <a class="navbar-item">
-                                About
-                            </a>
-                            <span class="navbar-item">
-                                <a class="button is-danger is-inverted">
-                                    <span class="icon">
-                                        <i class="fab fa-github"></i>
-                                    </span>
-                                    <span>Download</span>
-                                </a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </header>
-        </div>
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <h1 class="title">Survive 2020</h1>
-                <h2 class="subtitle">When they said no one had 2020 vision, they sure weren't kidding...</h2>
-            </div>
-        </div>
-        <div class="hero-foot">
-            <nav class="tabs is-boxed is-fullwidth">
-                <div class="container">
-                    <ul>
-                        <li class="is-active"><a>Game Start</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>      
-    </section> 
--->
-
 
     <!-- When not on #main, pages will include the .navbar and .game-progess bar. The actual "screen" section will be dymanically generated. -->
     <!-- if click reset, brings you back to slide 1 -->
@@ -167,10 +106,20 @@
         </div>
     </section>
 
+    <!-- Dynamically appearing modal that shows COVID-19 stats of a random country -->
+    <div class="modal stats-modal" id="stats-modal"> 
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <p class="title has-text-centered">Did you know?</p>
+                <p>In <span id="country-name"></span>, there have been <span id="country-cases"></span> cases of COVID-19 reported since the start of the global pandemic. <span id="country-recovered"></span> people have recovered, and unfortunately, <span id="country-deaths"></span> have died.</p>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
     <!-- Here is where all the pages should generate -->
 
-    <!-- Each of these next screens should NOT remain in index.html, but should be dynamically generated in JS-->
-    <!-- Remain here until styling is complete, please -->
     <!-- All pages are hidden to be toggled by jquery based on user selection -->
     <section class="section show" id="start-screen">
         <div class="container has-text-centered">
@@ -633,15 +582,15 @@
             </div>
         </div>
 
-        <div class="modal" id="4-a-slide-modal"> <!-- Modal for insult and message to populate -->
-            <div class="modal-background"></div>
+        <div class="modal" id="4-a-slide-insult-modal"> <!-- Modal for insult and message to populate -->
+            <div class="modal-background" id="insult-modal-background"></div>
             <div class="modal-content">
                 <div class="box">
                     <p id="4-a-slide-modal-action"></p>
                     <p>It was <span id="effective-ineffective"></span>.</p>
                 </div>
             </div>
-            <button class="modal-close is-large" aria-label="close"></button>
+            <button class="modal-close is-large" aria-label="close" id="insult-modal-close"></button>
         </div>
 
     </section>
@@ -912,6 +861,51 @@
             })
         }; 
 
+        function generateStatsModal() {
+            var getCountriesURL = "https://covid19-api.org/api/countries";
+
+            $("#country-name, #country-cases, #country-recovered, #country-deaths").empty();
+            if ($(".stats-modal").hasClass("is-active") === true) {
+                return;
+            } else {
+                $(".stats-modal").addClass("is-active");
+            }
+
+            $.ajax({
+                url: getCountriesURL,
+                method: "GET"
+            }).then(function(response) {
+                    // console.log(response);
+                    var allCountryInfo = response;
+                    var randomAlpha = Math.floor(Math.random() * Math.floor(allCountryInfo.length)); // Randomize selection of all countries, getting alpha-2                        
+                    var randomString = randomAlpha; // Setting string to same alpha-2, so country name and alpha-2 math
+                    var covid19QueryURL = "https://covid19-api.org/api/status/" + allCountryInfo[randomAlpha].alpha2; 
+                            
+                    return $.ajax({
+                        url: covid19QueryURL,                        
+                        method: "GET"
+                    }).then(function(countryResponse) {                            
+                        console.log("We should be seeing info for country: " + allCountryInfo[randomString].name + " (" + allCountryInfo[randomAlpha].alpha2 + ")");                        
+                        console.log(countryResponse);
+
+                        var countryName = allCountryInfo[randomString].name;
+                        var countryCases = countryResponse.cases.toLocaleString('en-US'); // Using .toLocaleString('en-US') to format numbers
+                        var countryRecovered = countryResponse.recovered.toLocaleString('en-US');
+                        var countryDeaths = countryResponse.deaths.toLocaleString('en-US');
+
+                        $("#country-name").text(countryName);                            
+                        $("#country-cases").text(countryCases); 
+                        $("#country-recovered").text(countryRecovered);
+                        $("#country-deaths").text(countryDeaths);
+                    });
+                });
+            
+        };
+
+        $(".modal-background, .modal-close").on("click", function(event) {
+            $(".stats-modal").removeClass("is-active"); 
+        })
+
         function persuadeThief() {
             if (persuadedThief === true) {
                 return;
@@ -934,18 +928,7 @@
             } else {
                 infected = true;
             };
-        }; 
-
-        // **ADD: function checkPanic() {} // if panic reaches certain point, automatic game-over-freakout
-
-
-        $("#start-btn").on("click", function(event) {
-            event.preventDefault();
-
-            // Add in function to start timer and panic
-        //timer function
-        var sec = 10;
-        var time = setInterval(myTimer, 1000);
+        };
 
         function myTimer() {
             document.getElementById('timer').innerHTML = sec;
@@ -961,8 +944,7 @@
         //     alert("Time out!!");
         // } 
     }
-        var panic = 0;
-        var panicUp = setInterval(panicMeter, 1000);
+        
 
         function panicMeter() {
             document.getElementById('panic').innerHTML = panic;
@@ -978,7 +960,24 @@
         //trying to get timer to go back to home page 
         function endGame() {clearInterval(myTimer,panicMeter);
 
-        }
+        } 
+
+        // **ADD: function checkPanic() {} // if panic reaches certain point, automatic game-over-freakout
+
+
+        $("#start-btn").on("click", function(event) {
+            event.preventDefault();
+
+            // Add in function to start timer and panic
+            //timer function
+            /*var sec = 10;
+            var time = setInterval(myTimer, 1000);
+            var panic = 0;
+            var panicUp = setInterval(panicMeter, 1000);
+
+            myTimer();
+            panicMeter();  */
+                    
             $("#start-screen").removeClass("show");
             $("#start-screen").addClass("hide");
             $("#0-slide").removeClass("hide");
@@ -991,6 +990,7 @@
 
             if (event.target.id === "0-slide-next") {
                 // ** Function to check panic score and if at certain point - autoloss
+                generateStatsModal();
                 $("#0-slide").removeClass("show");
                 $("#0-slide").addClass("hide");
                 $("#1-slide").removeClass("hide");
@@ -1012,6 +1012,7 @@
 
         $("#1-slide-choices").on("click", function(event) {
             event.preventDefault();
+            generateStatsModal();
             // ** Remember to add functions to check panic score, autoloss, etc.
             if (event.target.id === "1-slide-bus") {
                 $("#1-slide").removeClass("show");
@@ -1028,6 +1029,7 @@
 
         $("#1-a-slide-choices").on("click", function(event) {
             event.preventDefault();
+            generateStatsModal();
             coinTossInfection(); // Toss to see if become infected
             console.log("Infected: " + infected);
             // ** Remember to add functions to check panic score and autoloss
@@ -1056,6 +1058,7 @@
 
         $("#1-a-a-slide-next").on("click", function(event) {
             event.preventDefault();
+            generateStatsModal();
             $("#1-a-a-slide").removeClass("show");
             $("#1-a-a-slide").addClass("hide");
             $("#2-slide").removeClass("hide");
@@ -1064,6 +1067,7 @@
 
         $("#1-a-b-slide-next").on("click", function(event) {
             event.preventDefault();
+            generateStatsModal();
             $("#1-a-b-slide").removeClass("show");
             $("#1-a-b-slide").addClass("hide");
             $("#2-slide").removeClass("hide");
@@ -1073,6 +1077,7 @@
         $(".bathroom-btn").on("click", function(event) {
             event.preventDefault();
             var toBathroomSlides = $("#2-slide, #3-slide, #4-slide, #5-slide");
+            generateStatsModal();
             toBathroomSlides.removeClass("show");
             if (toBathroomSlides.classList === "hide") {
                 return;
@@ -1109,6 +1114,7 @@
 
         $("#back-to-store").on("click", function(event) {
             event.preventDefault();
+            generateStatsModal();
             if ($("#back-to-store").data("from") === "from-2-slide") {
                 $("#bathroom-a-slide").removeClass("show");
                 $("#bathroom-a-slide").addClass("hide");
@@ -1149,6 +1155,7 @@
 
         $(".4-slide-choices").on("click", function(event) {
             event.preventDefault();
+            generateStatsModal();
             if (event.target.id === "4-slide-approach") {
                 $("#4-slide").removeClass("show");
                 $("#4-slide").addClass("hide");
@@ -1180,7 +1187,7 @@
                         $("#effective-ineffective").text("ineffective. Try again");
                     }; 
 
-                    $("#4-a-slide-modal").addClass("is-active");
+                    $("#4-a-slide-insult-modal").addClass("is-active");
                 });
             } else if (event.target.id === "4-a-slide-cough") {
                 persuadeThief();
@@ -1195,7 +1202,7 @@
                     $("#effective-ineffective").text("ineffective. Try again");
                     }; 
 
-                $("#4-a-slide-modal").addClass("is-active");
+                $("#4-a-slide-insult-modal").addClass("is-active");
             } else if (event.target.id === "4-a-slide-beg") {
                 persuadeThief();
                 $("#4-a-slide-modal-action").text(`You stagger up to the thief and force yourself to cough and wheeze upon him.`);
@@ -1209,13 +1216,14 @@
                     $("#effective-ineffective").text("ineffective. Try again");
                     }; 
 
-                $("#4-a-slide-modal").addClass("is-active");
+                $("#4-a-slide-insult-modal").addClass("is-active");
             }    
         });
 
-        $(".modal-close").on("click", function(event) {
-            $("#4-a-slide-modal").removeClass("is-active");
-            if (persuadedThief === true) {
+        $("#insult-modal-background, #insult-modal-close").on("click", function(event) {
+            $("#4-a-slide-insult-modal").removeClass("is-active"); 
+            if (persuadedThief === true) { // Link this up with insult-modal
+                generateStatsModal();
                 $("#4-a-slide").removeClass("show");
                 $("#4-a-slide").addClass("hide");
                 $("#4-a-a-slide").removeClass("hide");
@@ -1225,6 +1233,7 @@
 
         $("#4-a-a-slide-next").on("click", function(event) {
             event.preventDefault();
+            generateStatsModal();
             $("#4-a-a-slide").removeClass("show");
             $("#4-a-a-slide").addClass("hide");
             $("#5-slide").removeClass("hide");
@@ -1233,6 +1242,7 @@
 
         $(".5-slide-choices").on("click", function(event) {
             event.preventDefault();
+            generateStatsModal();
             if (event.target.id === "5-slide-steal" || "5-slide-stay" || "5-slide-leave") {
                 $("#5-slide").removeClass("show");
                 $("#5-slide").addClass("hide");
@@ -1243,6 +1253,7 @@
 
         $(".6-slide-choices").on("click", function(event) {
             event.preventDefault();
+            generateStatsModal();
             if (event.target.id === "6-slide-drive" || "6-slide-bus" || "6-slide-walk") {
                 $("#6-slide").removeClass("show");
                 $("#6-slide").addClass("hide");
