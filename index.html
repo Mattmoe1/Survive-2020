@@ -839,7 +839,10 @@
         var infected = false; 
         var generatedInsult = "";
         var persuadedThief = false;
-
+        var sec = 120;
+        var time = setInterval(myTimer, 1000);
+        var panic = 0;
+        var panicUp = setInterval(panicMeter, 1500);
 
         function generateInsult() {
             var corsAnywhereURL = "https://cors-anywhere.herokuapp.com/";
@@ -928,7 +931,7 @@
             if (sec == -1) {
             window.clearInterval(time);
             1000;
-            sec = 10;
+            sec = 120;
             alert("Time's Up!!");
             }
         // function myStopTimer (){
