@@ -1317,6 +1317,64 @@
                 $("#4-slide").addClass("show");
                 // Function to grab data-item
             }
+            var items = 0;
+                    var itemtype = 0;
+                    function GetWater () {
+                if (items == 2) { LastItem () 
+                } else {
+                    alert("you have obtained water");
+                    items++;
+                    itemtype++;
+                    console.log(items);
+                    console.log(itemtype);
+                    document.getElementById('waterItem').style.visibility = 'hidden';
+                }}
+                function GetToiletPaper () {
+                if (items == 2) { LastItem () 
+                } else {
+                    alert("you have obtained toilet paper");
+                    items++;
+                    itemtype++;
+                    itemtype++;
+                    console.log(items);
+                    console.log(itemtype);
+                    document.getElementById('toiletItem').style.visibility = 'hidden';
+                }}
+                function GetSanitizer () {
+                if (items == 2) { LastItem  () 
+                } else {
+                    alert("you have obtained hand sanitizer");
+                    items++;
+                    itemtype++;
+                    itemtype++;
+                    itemtype++;
+                    itemtype++;
+                    console.log(items);
+                    console.log(itemtype);
+                    document.getElementById('sanitizerItem').style.visibility = 'hidden';
+                }}
+                
+                
+            async function LastItem () {
+                Report();
+                 $("#2-slide").removeClass("show");
+                $("#2-slide").addClass("hide");
+                $("#4-slide").removeClass("hide");
+                $("#4-slide").addClass("show");
+                // Function to grab data-item
+            }
+
+            function Report () {
+                console.log(itemtype);
+                if (itemtype == 6) {
+                    alert("You have collected Toilet Paper and Hand Sanitzer")
+                } 
+                else if (itemtype == 3)
+                alert("You have collected Water and Toilet Paper")
+                if (itemtype == 5){
+                    alert("You have collected Water and Hand Sanitizer")
+                   }
+                   }
     </script>
 </body>
 </html>
