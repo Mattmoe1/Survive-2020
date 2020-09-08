@@ -493,8 +493,8 @@
                         </article>
                     </div>
                     <div class="tile is-child box" id="scenario-description">
-                        <p class="title has-text-centered">Final Item</p>
-                        <p>You've grabbed your first two items. You arrive to the location of your final item. You behold a remaining case of <span id="final-item">FINAL ITEM</span>. A person rushes past you and grabs it. You need that <span id="final-item">FINAL ITEM</span></p>
+                        <p class="title has-text-centered">Confrontation</p>
+                        <p>You arrive to the location of the <span id="FINALITEM">FINALITEM</span>. You behold the last remaining case of <span id="FINALITEM">FINALITEM</span>. A person rushes past you and grabs it. You need that <span id="FINALITEM">FINALITEM</span></p>
                         <br>
                         <p>What do you do?</p>
                     </div>
@@ -1356,25 +1356,52 @@
                 
                 
             async function LastItem () {
-                Report();
                  $("#2-slide").removeClass("show");
                 $("#2-slide").addClass("hide");
                 $("#4-slide").removeClass("hide");
                 $("#4-slide").addClass("show");
+                Report();
                 // Function to grab data-item
             }
-
+            var replacementItem = 0;
             function Report () {
+               
                 console.log(itemtype);
                 if (itemtype == 6) {
-                    alert("You have collected Toilet Paper and Hand Sanitzer")
+                    alert("You have collected Toilet Paper and Hand Sanitzer");
+                    replacementItem++;
+                    console.log("replacement 1", replacementItem)
                 } 
                 else if (itemtype == 3)
-                alert("You have collected Water and Toilet Paper")
+                alert("You have collected Water and Toilet Paper");
+                    replacementItem++;
+                    replacementItem++;
+                    console.log("replacement 2", replacementItem)
                 if (itemtype == 5){
                     alert("You have collected Water and Hand Sanitizer")
+                    replacementItem++
+                    replacementItem++
+                    replacementItem++
+                   console.log("replacement 3", replacementItem)
                    }
+                   console.log("replacement 4", replacementItem)
+                FinalItemFunction ();
                    }
+                async function FinalItemFunction () {
+                    if (replacementItem == 3) {
+                   document.getElementById("FINALITEM").innerHTML = "Water";
+
+                   }
+                   else if (replacementItem == 2) {
+                document.getElementById("FINALITEM").innerHTML = "Hand Sanitizer";
+   
+                }
+                if (replacementItem == 5){
+                    document.getElementById("FINALITEM").innerHTML = "Toilet Paper"
+ 
+                }
+            }
+
     </script>
 </body>
 </html>
