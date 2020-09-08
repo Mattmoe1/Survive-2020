@@ -841,6 +841,8 @@
         var persuadedThief = false;
         var sec = 120;
         var time = setInterval(myTimer, 1000);
+        var panic = 0;
+        var panicUp = setInterval(panicMeter, 1500);
 
         function generateInsult() {
             var corsAnywhereURL = "https://cors-anywhere.herokuapp.com/";
