@@ -11,14 +11,14 @@ h1{
 	margin: 0 auto;
 	margin-top: 30px;
 	width: 500px;
-	color: black;
+	color: darkred;
 	text-align: center;
 
 }
 
 #form{
 	height: 100%;	
-	background-color: gray;
+	background-color: black;
 	overflow: hidden;
 	position: relative;
 	
