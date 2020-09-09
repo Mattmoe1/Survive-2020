@@ -21,6 +21,6 @@ Survive 2020 is an interactive text-based game in which the user will navigate t
 ----------
 Design of the webpage is a combination of CSS and Bulma
 
-- APIs: evilInsults, Giphy, Pexel, Covid-19
+- APIs: evilInsults, Giphy, Covid-19
 
 - NAVBAR: The header contains a navbar with Home, About and Download buttons aligned to the left. To the right, is the game icon.
