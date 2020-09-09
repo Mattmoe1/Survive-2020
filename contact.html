@@ -39,9 +39,6 @@ type="image">
                     <a class="navbar-item is-active" href="index.html">
                         Home
                     </a>
-                    <a class="navbar-item view-highscores">
-                        View Highscores
-                    </a>
                     <a class="navbar-item" href="about.html">
                         About
                     </a>
@@ -49,11 +46,11 @@ type="image">
                         Contact
                     </a>
                     <span class="navbar-item">
-                        <a class="button is-danger is-inverted" href="https://github.com/Mattmoe1/Survive-2020" target="_blank">
+                        <a href="https://github.com/Mattmoe1/Survive-2020" target="_blank" class="button is-danger is-inverted">
                             <span class="icon">
                                 <i class="fab fa-github"></i>
                             </span>
-                            <span>Repository</span>
+                            <span>Download</span></a>
                         </a>
                     </span>
                 </div>
@@ -87,14 +84,4 @@ type="image">
 	<input type="submit" value="Send your message!" />
 </form>
 </div>
-<script>
-(function() {
-	var burger = document.querySelector('.burger');
-	var nav = document.querySelector('#'+burger.dataset.target);
-
-	burger.addEventListener('click', function(){
-		burger.classList.toggle('is-active');
-		nav.classList.toggle('is-active');
-	});
-})();</script>
 <script type ="text/javascript" src = "contact.js"></script>
