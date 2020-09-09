@@ -1294,9 +1294,12 @@
             }); 
 
     })
+
+    //Various functions to handle the shopping list items.
     var items = 0;
                     var itemtype = "items Collected: ";
                     function GetWater () {
+                //** Fix: CANNOT USE alert() FUNCTION
                 if (items == 2) { LastItem () 
                 } else {
                     alert("you have obtained water");
@@ -1307,6 +1310,7 @@
                     document.getElementById('waterItem').style.visibility = 'hidden';
                 }}
                 function GetToiletPaper () {
+                //** Fix: CANNOT USE alert() FUNCTION
                 if (items == 2) { LastItem () 
                 } else {
                     alert("you have obtained toilet paper");
@@ -1317,6 +1321,7 @@
                     document.getElementById('toiletItem').style.visibility = 'hidden';
                 }}
                 function GetSanitizer () {
+                //** Fix: CANNOT USE alert() FUNCTION
                 if (items == 2) { LastItem () 
                 } else {
                     alert("you have obtained hand sanitizer");
@@ -1338,6 +1343,7 @@
             var items = 0;
                     var itemtype = 0;
                     function GetWater () {
+                //Fix: CANNOT USE alert() FUNCTION
                 if (items == 2) { LastItem () 
                 } else {
                     alert("you have obtained water");
@@ -1348,6 +1354,7 @@
                     document.getElementById('waterItem').style.visibility = 'hidden';
                 }}
                 function GetToiletPaper () {
+                //Fix: CANNOT USE alert() FUNCTION
                 if (items == 2) { LastItem () 
                 } else {
                     alert("you have obtained toilet paper");
@@ -1359,6 +1366,7 @@
                     document.getElementById('toiletItem').style.visibility = 'hidden';
                 }}
                 function GetSanitizer () {
+                //Fix: CANNOT USE alert() FUNCTION
                 if (items == 2) { LastItem  () 
                 } else {
                     alert("you have obtained hand sanitizer");
@@ -1382,20 +1390,25 @@
                 // Function to grab data-item
             }
             var replacementItem = 0;
+
+            //This function will confirm to the user that they have selected and aquired their item.
             function Report () {
                
                 console.log(itemtype);
+                //Fix: CANNOT USE alert() FUNCTION
                 if (itemtype == 6) {
                     alert("You have collected Toilet Paper and Hand Sanitizer.  Head on over to get Water.");
                     replacementItem++;
                     console.log("replacement 1", replacementItem)
                 } 
                 else if (itemtype == 3)
+                //Fix: CANNOT USE alert() FUNCTION
                 alert("You have collected Water and Toilet Paper.  Head on over to get Hand Sanitizer.");
                     replacementItem++;
                     replacementItem++;
                     console.log("replacement 2", replacementItem)
                 if (itemtype == 5){
+                    //Fix: CANNOT USE alert() FUNCTION
                     alert("You have collected Water and Hand Sanitizer.  Head on over to get Toilet Paper.")
                     replacementItem++
                     replacementItem++
@@ -1403,6 +1416,8 @@
                    console.log("replacement 3", replacementItem)
                    }
                    console.log("replacement 4", replacementItem)
+
+                //This function will narrate which item is the final selected item and continues the gamee.
                 FinalItemFunction ();
                    }
                 function FinalItemFunction () {
@@ -1441,6 +1456,7 @@ $("#gif1").on("click", function () {
           $("#gifAppear1").prepend(gifDiv1);
         }
       });
+
       var gif1b = $(this).attr("data-gif1b");
       var queryURL1b = "https://api.giphy.com/v1/gifs/search?q=" +
         gif1b + "&api_key=DBRAWwObrruaGJNOu68zDwNAqwaxo9ZK&limit=1";
@@ -1491,6 +1507,7 @@ $("#gif2").on("click", function () {
         document.getElementById("winnerslide").innerHTML = '<p class="title has-text-centered">Yay! You Win!</p><p>You made it! Your choices have lead you down the correct path. You continue to stay safe. You wash your hands frequently and for 20 seconds. You maintain 6 feet social distancing from others. You wear a mask which covers your mouth and nose when you are out in public. The future is uncertain, but with good decision making like this you feel you at least have a chance to make it through to the other side of this apocalypse. Stay safe out there.</p>'
     }); 
 });
+
 $("#gif3").on("click", function () {
       var gif3 = $(this).attr("data-gif3");
       var queryURL3 = "https://api.giphy.com/v1/gifs/search?q=" +
