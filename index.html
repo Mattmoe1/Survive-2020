@@ -106,7 +106,7 @@
             <!-- edited front page css -->
             <div class="title-name">
                 <div class="tlbox">
-                    SURVIVE 2<img class="toxicLogo" src="https://i.pinimg.com/originals/2b/d3/08/2bd308ce9c566a69f0bf82fae60f3bd5.gif" width="80" height="80">2<img class="toxicLogo" src="https://i.pinimg.com/originals/2b/d3/08/2bd308ce9c566a69f0bf82fae60f3bd5.gif" width="80" height="80">
+                    SURVIVE 2<img class="toxicLogo" src="https://i.pinimg.com/originals/2b/d3/08/2bd308ce9c566a69f0bf82fae60f3bd5.gif" width="60" height="60">2<img class="toxicLogo" src="https://i.pinimg.com/originals/2b/d3/08/2bd308ce9c566a69f0bf82fae60f3bd5.gif" width="60" height="60">
                     </div>
                 </div>
                 <!-- end of edit  -->
@@ -137,6 +137,14 @@
                          <p>Complete tasks and try to avoid infection as you go about your day in the year 2020. 
                             Take care to make good choices, because dangerous choices can lead to infection and affect your time.</p>
                         <p><em>Need to add rules explaining time, panic meter, etc. </em></p>
+                        <!-- gif test start-->
+                        <button data-animal="cat">meow</button>
+                        <button data-animal="dog">woof</button>
+                        <button data-animal="bird">chirp</button>
+                        
+                        </div>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                        <!-- gif test end-->
                      </div>
                  </div>
              </div>
@@ -597,7 +605,8 @@
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-                                <iframe src="https://giphy.com/embed/Ax1JUM9QI942Y" width="280"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/house-bee-Ax1JUM9QI942Y"></a></p>
+                                <button data-gif1="horror" id="gif1" class="gifReacts">See his reaction</button>
+                                 <div id="gifAppear1"></div>
                             </figure>
                         </article>
                     </div>
@@ -648,6 +657,8 @@
                             <div class="5-slide-choices">
                                 <button class="button choice-btn" id="5-slide-steal" style="display: block;">Nope! Steal the items and run for it.</button>
                                 <button class="button choice-btn" id="5-slide-stay" style="display: block;">You're polite. Stand in queue, checkout, and pay for your items.</button>
+        <!-- <button data-searchedImage="searchedImage" id="searchedImageID">meow</button>
+          -->
                                 <button class="button choice-btn" id="5-slide-leave" style="display: block;">It's too much of a risk. Sigh and go home empty-handed.</button>
                             </div>                        
                         </div>
@@ -810,7 +821,7 @@
                     <div class="tile is-child box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-                                <img src="https://bulma.io/images/placeholders/128x128.png">
+                                <div id="gifs-appear-here"></div>
                             </figure>
                         </article>
                     </div>
@@ -835,8 +846,10 @@
     </section>
 
 <!-- jquery and js functions -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function () {
         var infected = false; 
@@ -1402,6 +1415,32 @@
                 }
             }
 
+// API request for Gif
+// <button class="button choice-btn" id="0-slide-autowin" style="display: block;">Stay home</button>
+$("#gif1").on("click", function () {
+      var gif1 = $(this).attr("data-gif1");
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        gif1 + "&api_key=DBRAWwObrruaGJNOu68zDwNAqwaxo9ZK&limit=1";
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function (response) { 
+        console.log(queryURL);
+        console.log(response);
+        var results = response.data;
+        for (var i = 0; i < results.length; i++) {
+          var gifDiv1 = $("<div>");
+          var rating = results[i].rating;
+          var p = $("<p>");
+          var gifImage1 = $("<img>");
+          gifImage1.attr("src", results[i].images.fixed_height.url);
+          gifImage1.attr("alt", gif1 + " Gif");
+          gifDiv1.append(p);
+          gifDiv1.append(gifImage1);
+          $("#gifAppear1").prepend(gifDiv1);
+        }
+      });
+    });
     </script>
 </body>
 </html>
