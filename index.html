@@ -75,7 +75,7 @@
                                 <span class="icon">
                                     <i class="fab fa-github"></i>
                                 </span>
-                                <span>Repository</span>
+                                <span>Repo</span>
                             </a>
                         </span>
                     </div>
@@ -105,22 +105,21 @@
             
             <div class="title-name">
                 <div class="tlbox">
-                    SURVIVE 
-                </div>
-                <div class="tlbox">
-                    2<img class="toxicLogo" src="https://i.pinimg.com/originals/2b/d3/08/2bd308ce9c566a69f0bf82fae60f3bd5.gif" width="80" height="80">2<img class="toxicLogo" src="https://i.pinimg.com/originals/2b/d3/08/2bd308ce9c566a69f0bf82fae60f3bd5.gif" width="80" height="80">
+                    SURVIVE 2<img class="toxicLogo" src="https://i.pinimg.com/originals/2b/d3/08/2bd308ce9c566a69f0bf82fae60f3bd5.gif" width="60" height="60">2<img class="toxicLogo" src="https://i.pinimg.com/originals/2b/d3/08/2bd308ce9c566a69f0bf82fae60f3bd5.gif" width="60" height="60">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Dynamically appearing modal that shows COVID-19 stats of a random country -->
-    <div class="modal stats-modal" id="stats-modal"> 
+    <!-- Dynamically appearing modal  -->
+    <div class="modal">
         <div class="modal-background"></div>
         <div class="modal-content">
-            <div class="box">
-                <p class="title has-text-centered">Did you know?</p>
-                <p>In <span id="country-name"></span>, there have been <span id="country-cases"></span> cases of COVID-19 reported since the start of the global pandemic. <span id="country-recovered"></span> people have recovered, and unfortunately, <span id="country-deaths"></span> have died.</p>
+            <div class="box" id="generate-modal">
+                <!-- This is where modal content dynamically generate -->
+                <!-- Modal can generate COVID-19 of random country from COVID-19 API -->
+                <!-- Modal can generate insults from EvilInsults API -->
+                <!-- Modal can generate unique responses for player choices -->
             </div>
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
@@ -144,6 +143,10 @@
              <div class="level">
                 <div class="level-item">
                     <input class="input is-rounded" type="text" placeholder="Player Name" id="player-name-input">
+                </div>
+             </div>
+             <div class="level">
+                <div class="level-item">
                     <button class="button" id="start-btn">Start</button> 
                 </div>
             </div>
@@ -199,16 +202,16 @@
                         
                         <article class="media">
                             <figure class="image is 128x128">
-                                <iframe src="https://giphy.com/embed/l6mxLLvfadIQw" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/traffic-bus-speed-l6mxLLvfadIQw"></a></p>
+                                <iframe src="https://giphy.com/embed/l378yBHbYt4xJ3gf6" width="420" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/denofthieves-den-of-thieves-l378yBHbYt4xJ3gf6"></a></p>
                             </figure>
                             <figure class="image is 128x128">
-                                <iframe src="https://giphy.com/embed/5zdrQU2kKxTD5t3Ebs" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/little-regina-hall-movie-5zdrQU2kKxTD5t3Ebs"></a></p>
+                                <iframe src="https://giphy.com/embed/SSij5AVo01MVZ4phnC" width="420" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/thecoolidge-speed-keanu-reeves-SSij5AVo01MVZ4phnC"></a></p>
                             </figure>
                             <figure class="image is 128x128">
-                                <iframe src="https://giphy.com/embed/eBparsknKkEb6dPcv3"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/atlantafx-eBparsknKkEb6dPcv3"></a></p>
+                                <iframe src="https://giphy.com/embed/l2Sqc3POpzkj5r8SQ" width="420" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/run-forrest-gump-l2Sqc3POpzkj5r8SQ"></a></p>
                             </figure>
                             </article>
-                        <p class="title has-text-centered">The Mission</p>
+                        <p class="title has-text-centered" style="font-size:50px">The Mission</p>
                     </div>
                     <div class="tile is-child box" id="scenario-description">
                     </br> </br> </br> </br> </br> </br> </br> </br> </br>
@@ -253,7 +256,7 @@
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-                                <img src="https://giphy.com/embed/JaO3583XpOoCc"> <!-- Src: https://giphy.com/embed/JaO3583XpOoCc -->
+                                <img src="https://lh3.googleusercontent.com/proxy/CjVcmqiTtr3rI1GSScnwOYY4oW5_BSSvAZTyoFil-Hc939-M_huR_u2KlKxg7cbOhfF2T_L3pm59pUjRtnQUgO_lj2RN5-MpyIOQpf5XRCHuISreTSOPAkuuK6no">
                             </figure>
                         </article>
                     </div>
@@ -300,7 +303,7 @@
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-                                <iframe src="https://giphy.com/embed/26tPfb9RY5W3vQqvC" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/ashvsevildead-ruby-ash-vs-evil-dead-lucy-lawless-26tPfb9RY5W3vQqvC">via GIPHY</a></p>
+                                <iframe src="https://giphy.com/embed/26tPfb9RY5W3vQqvC" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/ashvsevildead-ruby-ash-vs-evil-dead-lucy-lawless-26tPfb9RY5W3vQqvC"></a></p>
                             </figure>
                         </article>
                     </div>
@@ -352,9 +355,8 @@
                 <div class="tile is-parent">
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
-                            <div id="gifAppear4"></div>
                             <figure class="image is 128x128">
-                                <iframe src="https://giphy.com/embed/106sef1iucBY52" id="riot" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/action-black-friday-106sef1iucBY52"></a></p>
+                                <div id="gifAppear4"></div>
                             </figure>
                         </article>
                     </div>
@@ -390,8 +392,8 @@
             <div class="level">
                 <div class="level-item has-text-centered">
                     <button class="button restart-btn">Restart</button>
-                    <button data-gif4="fight shop" id="gif4">Watch the Madness!</button>
                     <button class="button bathroom-btn" id="from-2-slide">Go to the Bathroom</button>
+                    <button data-gif4="fight shop" id="gif4">Watch the madness</button>
                 </div> 
             </div>
         </div>
@@ -449,7 +451,7 @@
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-                                <iframe src="https://giphy.com/embed/H1e7kMkB7EbMCphWI5" width="280" height="350" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/TheBoysTV-amazon-prime-the-boys-tv-H1e7kMkB7EbMCphWI5"></a></p>
+                                <iframe src="https://giphy.com/embed/xT0BKxb2NgymF3FJ4c" width="420" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/vrt-eno-echtnietok-winkelkar-xT0BKxb2NgymF3FJ4c"></a></p>
                             </figure>
                         </article>
                     </div>
@@ -466,7 +468,7 @@
                 <article class="media">
                     <figure class="media-left">
                         <p class="image is-64x64" id="avatar">
-                            <iframe src="https://giphy.com/embed/cjtqXT46Nb7VJrJe76" width="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/NoFrillsCA-shop-nofrills-haul-hard-cjtqXT46Nb7VJrJe76"></a></p>
+                            <iframe src="https://giphy.com/embed/cjtqXT46Nb7VJrJe76" width="320" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/NoFrillsCA-shop-nofrills-haul-hard-cjtqXT46Nb7VJrJe76"></a></p>
                         </p>
                     </figure>
                     <div class="media-content">
@@ -496,7 +498,7 @@
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-                                <iframe src="https://giphy.com/embed/TT6fgUhxBWjFC" width="280" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/youtube-fight-store-TT6fgUhxBWjFC"></a></p>
+                                <iframe src="https://giphy.com/embed/TT6fgUhxBWjFC" width="350" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/youtube-fight-store-TT6fgUhxBWjFC"></a></p>
                             </figure>
                         </article>
                     </div>
@@ -534,18 +536,6 @@
                 </div> 
             </div>
         </div>
-
-        <div class="modal" id="3-a-slide-insult-modal"> <!-- Modal for insult and message to populate -->
-            <div class="modal-background" id="insult-modal-background"></div>
-            <div class="modal-content">
-                <div class="box">
-                    <p id="3-a-slide-modal-action"></p>
-                    <p>It was <span id="effective-ineffective"></span>.</p>
-                </div>
-            </div>
-            <button class="modal-close is-large" aria-label="close" id="insult-modal-close"></button>
-        </div>
-
     </section>
 
     <section class="section next-screen hide" id="3-a-a-slide"> <!-- After approach... -->
@@ -585,7 +575,7 @@
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-                                <iframe src="https://giphy.com/embed/JpwW7TUvfGHcVkJkdf" width="280" height="250" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/insecurehbo-hbo-insecure-JpwW7TUvfGHcVkJkdf"></a></p>
+                                <iframe src="https://giphy.com/embed/JpwW7TUvfGHcVkJkdf" width="320" height="280"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/insecurehbo-hbo-insecure-JpwW7TUvfGHcVkJkdf"></a></p>
                             </figure>
                         </article>
                     </div>
@@ -633,7 +623,7 @@
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-                                <iframe src="https://giphy.com/embed/STlklyHaE8NVwD1gni" width="280" heigh="350" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/sad-depressed-sorrow-STlklyHaE8NVwD1gni"></a></p>
+                                <iframe src="https://giphy.com/embed/STlklyHaE8NVwD1gni" width="350" height="350" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/sad-depressed-sorrow-STlklyHaE8NVwD1gni"></a></p>
                             </figure>
                         </article>
                     </div>
