@@ -1,7 +1,10 @@
 # Project-1
 # Survive 2020
 
-https://mattmoe1.github.io/Survive-2020/
+Repo URL: https://github.com/Mattmoe1/Survive-2020.git
+SSH: git@github.com:Mattmoe1/Survive-2020.git
+Website URL: https://mattmoe1.github.io/Survive-2020/
+
 
 # Contributors: Cynthia Garcia, Richard Hall, Matthew Mohondro, Kyle McKinley
 
