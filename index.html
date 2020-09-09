@@ -137,14 +137,6 @@
                          <p>Complete tasks and try to avoid infection as you go about your day in the year 2020. 
                             Take care to make good choices, because dangerous choices can lead to infection and affect your time.</p>
                         <p><em>Need to add rules explaining time, panic meter, etc. </em></p>
-                        <!-- gif test start-->
-                        <button data-animal="cat">meow</button>
-                        <button data-animal="dog">woof</button>
-                        <button data-animal="bird">chirp</button>
-                        
-                        </div>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                        <!-- gif test end-->
                      </div>
                  </div>
              </div>
@@ -407,22 +399,22 @@
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-                                <img src="https://bulma.io/images/placeholders/128x128.png">
+                                <div id="gifAppear3"></div>
                             </figure>
                         </article>
                     </div>
-                    <div class="tile is-child box" id="scenario-description">
-                        <p class="title has-text-centered">You go to the bathroom at the back of the store.</p>
-                        <p>You see a trail of translucent, grimy fluid leading to the door. It looks like drag marks...</p>
-                        <p>You open the door and witness a horrifying sight</p>
+                        <div class="tile is-child box" id="scenario-description"> 
+                            <p class="title has-text-centered">
+                                A Slimey Mystery</p><p>You wander cautiously looking for the bathroom.  You see a sign and walk towards it, but as you head there, you see a trail of some viscous liquid in a continous path as though something were draged.  You arrive at the bathroom and reveal a horrid sight</p>                    
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
         <br>
         <div class="level">
             <div class="level-item has-text-centered">
-                <button class="button" id="bathroom-next">Next</button>
+                <button data-gif3="disgusting hallway" class="button" id="gif3">Open the door</button>
+                <button class="button" id="bathroom-next">Behold</button>
             </div> 
         </div>
     </section>
@@ -432,7 +424,7 @@
             <div class="level">
                 <article class="media">
                     <figure class="image is 128x128">
-                        <img src="/images/frankwannabepure.gif">
+                        <img src="images/frankwannabepure.gif" id="purefrank" >
                     </figure>
                 </article>
             </div>
@@ -516,7 +508,7 @@
                 <article class="media">
                     <figure class="media-left">
                         <p class="image is-64x64" id="avatar">
-                            <iframe src="https://giphy.com/embed/cjtqXT46Nb7VJrJe76" width="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/NoFrillsCA-shop-nofrills-haul-hard-cjtqXT46Nb7VJrJe76"></a></p>
+                            <iframe src="https://giphy.com/embed/cjtqXT46Nb7VJrJe76" width="320" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/NoFrillsCA-shop-nofrills-haul-hard-cjtqXT46Nb7VJrJe76"></a></p>
                         </p>
                     </figure>
                     <div class="media-content">
@@ -605,8 +597,10 @@
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-                                <button data-gif1="horror" id="gif1" class="gifReacts">See his reaction</button>
-                                 <div id="gifAppear1"></div>
+                                <div id="horrorgiflayout">
+                                <div id="gifAppear1"></div>
+                                <div id="gifAppear1b"></div>
+                                </div>
                             </figure>
                         </article>
                     </div>
@@ -620,6 +614,7 @@
         <br>
         <div class="level">
             <div class="level-item has-text-centered">
+                <button data-gif1="horror" data-gif1b="horrified" id="gif1" class="gifReacts" class="button">See his reaction</button>
                 <button class="button" id="4-a-a-slide-next">Next</button>
             </div> 
         </div>
@@ -632,7 +627,7 @@
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-                                <iframe src="https://giphy.com/embed/JpwW7TUvfGHcVkJkdf" width="280"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/insecurehbo-hbo-insecure-JpwW7TUvfGHcVkJkdf"></a></p>
+                                <iframe src="https://giphy.com/embed/JpwW7TUvfGHcVkJkdf" width="320"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/insecurehbo-hbo-insecure-JpwW7TUvfGHcVkJkdf"></a></p>
                             </figure>
                         </article>
                     </div>
@@ -821,18 +816,15 @@
                     <div class="tile is-child box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-                                <div id="gifs-appear-here"></div>
+                                <div id="gifAppear2"></div>
                             </figure>
                         </article>
                     </div>
-                    <div class="tile is-child box" id="stats">
-                        <p>This is where we need ul element to create a stats page</p>
-                    </div>
+
                 </div>
                 <div class="tile is-parent">
-                    <div class="tile is-child box">
-                        <p class="title has-text-centered">Yay! You Win!</p>
-                        <p>You made it! Your choices have lead you down the correct path. You continue to stay safe. You wash your hands frequently and for 20 seconds. You maintain 6 feet social distancing from others. You wear a mask which covers your mouth and nose when you're out in public. The future is uncertain, but with good decision making like this you feel you at least have a chance to make it through to the other side of this apocalypse. Stay safe out there.</p>
+                    <div class="tile is-child box" class="gifReacts" id="winnerslide">
+                        
                     </div>
                 </div>
             </div>
@@ -840,6 +832,7 @@
         <br>
         <div class="level">
             <div class="level-item has-text-centered">
+                <button data-gif2="Congratulations" id="gif2">Result</button>
                 <button class="button restart-btn">Restart</button>
             </div> 
         </div>
@@ -1405,7 +1398,7 @@
                    }
                 function FinalItemFunction () {
                     if (replacementItem == 3) {
-                   document.getElementByCId("FINALITEM").innerHTML = "Water. You behold the last remaining case of Water.  A person rushes past you and grabs it. You need that Water.  Water is life, not getting it would be death.";
+                   document.getElementById("FINALITEM").innerHTML = "Water. You behold the last remaining case of Water.  A person rushes past you and grabs it. You need that Water.  Water is life, not getting it would be death.";
                    }
                    else if (replacementItem == 2) {
                 document.getElementById("FINALITEM").innerHTML = "Hand Sanitizer. You behold the last remaining case of Hand Sanitizer.  A person rushes past you and grabs it. You need that Hand Sanitizer.  How else will you stay pure?!"; 
@@ -1415,8 +1408,7 @@
                 }
             }
 
-// API request for Gif
-// <button class="button choice-btn" id="0-slide-autowin" style="display: block;">Stay home</button>
+//Reaction gif for successful confrontation
 $("#gif1").on("click", function () {
       var gif1 = $(this).attr("data-gif1");
       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -1439,6 +1431,81 @@ $("#gif1").on("click", function () {
           gifDiv1.append(gifImage1);
           $("#gifAppear1").prepend(gifDiv1);
         }
+      });
+      var gif1b = $(this).attr("data-gif1b");
+      var queryURL1b = "https://api.giphy.com/v1/gifs/search?q=" +
+        gif1b + "&api_key=DBRAWwObrruaGJNOu68zDwNAqwaxo9ZK&limit=1";
+      $.ajax({
+        url: queryURL1b,
+        method: "GET"
+      }).then(function (response) { 
+        console.log(queryURL1b);
+        console.log(response);
+        var results = response.data;
+        for (var i = 0; i < results.length; i++) {
+          var gifDiv1b = $("<div>");
+          var rating = results[i].rating;
+          var p = $("<p>");
+          var gifImage1b = $("<img>");
+          gifImage1b.attr("src", results[i].images.fixed_height.url);
+          gifImage1b.attr("alt", gif1 + " Gif");
+          gifDiv1b.append(p);
+          gifDiv1b.append(gifImage1b);
+          $("#gifAppear1b").prepend(gifDiv1b);
+        }
+      });
+    });
+
+//reaction gif to winning result
+$("#gif2").on("click", function () {
+      var gif2 = $(this).attr("data-gif2");
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        gif2 + "&api_key=DBRAWwObrruaGJNOu68zDwNAqwaxo9ZK&limit=1";
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function (response) { 
+        console.log(queryURL);
+        console.log(response);
+        var results = response.data;
+        for (var i = 0; i < results.length; i++) {
+          var gifDiv2 = $("<div>");
+          var rating = results[i].rating;
+          var p = $("<p>");
+          var gifImage2 = $("<img>");
+          gifImage2.attr("src", results[i].images.fixed_height.url);
+          gifImage2.attr("alt", gif2 + " Gif");
+          gifDiv2.append(p);
+          gifDiv2.append(gifImage2);
+          $("#gifAppear2").prepend(gifDiv2);
+        }
+        document.getElementById("winnerslide").innerHTML = '<p class="title has-text-centered">Yay! You Win!</p><p>You made it! Your choices have lead you down the correct path. You continue to stay safe. You wash your hands frequently and for 20 seconds. You maintain 6 feet social distancing from others. You wear a mask which covers your mouth and nose when you are out in public. The future is uncertain, but with good decision making like this you feel you at least have a chance to make it through to the other side of this apocalypse. Stay safe out there.</p>});'
+    }); 
+});
+$("#gif3").on("click", function () {
+      var gif3 = $(this).attr("data-gif3");
+      var queryURL3 = "https://api.giphy.com/v1/gifs/search?q=" +
+        gif3 + "&api_key=DBRAWwObrruaGJNOu68zDwNAqwaxo9ZK&limit=1";
+      $.ajax({
+        url: queryURL3,
+        method: "GET"
+      }).then(function (response) { 
+        console.log(queryURL3);
+        console.log(response);
+        var results = response.data;
+        for (var i = 0; i < results.length; i++) {
+          var gifDiv3 = $("<div>");
+          var rating = results[i].rating;
+          var p = $("<p>");
+          var gifImage3 = $("<img>");
+          gifImage3.attr("src", results[i].images.fixed_height.url);
+          gifImage3.attr("alt", gif3 + " Gif");
+          gifDiv3.append(p);
+          gifDiv3.append(gifImage3);
+          $("#gifAppear3").prepend(gifDiv3);
+        }
+
+        document.getElementById("bathroom-slide-gif").innerHTML = '<div class="tile is-child box" id="scenario-description">                        <p class="title has-text-centered">A Slimey Mystery</p><p>You wander cautiously looking for the bathroom.  You see a sign and walk towards it, but as you head there, you see a trail of some viscous liquid in a continous path as though something were draged.  You arrive at the bathroom and reveal a horrid sight</p>                    </div>'
       });
     });
     </script>
