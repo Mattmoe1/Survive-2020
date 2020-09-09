@@ -8,6 +8,8 @@
      
     <title>Pandemic Panic - Survive 2020</title>
 
+    
+
     <!-- Bulma link -->
     <link rel="stylesheet" 
           href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
@@ -40,9 +42,10 @@
 </head>
 
 <body>
+    <!-- The following are samples of how the page will look -->
 
-    <!-- All "pages" will include the .navbar and .game-progess bar. The actual "screen" section will be dymanically generated. -->
-    <!-- The navigation bar, should remain always on screen -->
+    <!-- When not on #main, pages will include the .navbar and .game-progress bar. The actual "screen" section will be dynamically generated. -->
+    <!-- if click reset, brings you back to slide 1 -->
     <section>
         <header class="navbar">
             <div class="container">
@@ -61,9 +64,6 @@
                         <a class="navbar-item is-active" href="index.html">
                             Home
                         </a>
-                        <a class="navbar-item view-highscores">
-                            View Highscores
-                        </a>
                         <a class="navbar-item" href="about.html">
                             About
                         </a>
@@ -71,11 +71,11 @@
                             Contact
                         </a>
                         <span class="navbar-item">
-                            <a class="button is-danger is-inverted" href="https://github.com/Mattmoe1/Survive-2020" target="_blank">
+                            <a href="https://github.com/Mattmoe1/Survive-2020" target="_blank" class="button is-danger is-inverted">
                                 <span class="icon">
                                     <i class="fab fa-github"></i>
                                 </span>
-                                <span>Repository</span>
+                                <span>Download</span></a>
                             </a>
                         </span>
                     </div>
@@ -83,34 +83,33 @@
             </div>
         </header>
     </section>
+
     
-    <section class="section" id="game-progess">
+    <section class="section" id="game-progress">
         <div class="container">
             <div class="level" id="progress">
                 <div class="level-left">
                     <div class="level-item has-text-centered" id="panic-meter-div">
                         <div>
-                            <p>Panic Meter: <span id="panic"></span></p>
+                            <p>Panic Meter: <progress class="progress is-danger" 
+                                value="0" 
+                                max="5" id="panic"></progress></p>
                         </div>
                     </div>
                 </div>
                 <div class="level-right">
-                    <div class="level-item has-text-centered" id="timer-div">
+                    <div class="level-item has-text-centered" id="timer-div"></div>
                         <p>Time Left: <span id="timer"></span></p>
                     </div>
                 </div>
             </div>
-
-            <br>
-            
+            <!-- edited front page css -->
             <div class="title-name">
                 <div class="tlbox">
-                    SURVIVE 
+                    SURVIVE 2<img class="toxicLogo" src="https://i.pinimg.com/originals/2b/d3/08/2bd308ce9c566a69f0bf82fae60f3bd5.gif" width="60" height="60">2<img class="toxicLogo" src="https://i.pinimg.com/originals/2b/d3/08/2bd308ce9c566a69f0bf82fae60f3bd5.gif" width="60" height="60">
+                    </div>
                 </div>
-                <div class="tlbox">
-                    2<img class="toxicLogo" src="https://i.pinimg.com/originals/2b/d3/08/2bd308ce9c566a69f0bf82fae60f3bd5.gif" width="80" height="80">2<img class="toxicLogo" src="https://i.pinimg.com/originals/2b/d3/08/2bd308ce9c566a69f0bf82fae60f3bd5.gif" width="80" height="80">
-                </div>
-            </div>
+                <!-- end of edit  -->
         </div>
     </section>
 
@@ -135,20 +134,23 @@
                  <div class="tile is-vertical is-parent">
                      <div class="tile is-child box">
                          <p class="title">Can you survive a day in 2020?</p>
-                         <p>In this choose-your-own-adventure game, you will navigate through the 2020 Hellscape at the beginning of <em>the crisis</em>!</em></p>
-                        <p><em>You will be shown a part of the story with each page. At the bottom will be your available options in response to your current circumstance. Beware, choices do have consequences. You must race against the clock before panic kicks in! Choices may increase or decease your Panic Counter.</em></p>
+                         <p>In this choose your own adventure game, you will navigate through the 2020 hellscape at the beginning of THE CRISIS!</p>
+                     </br>
+                         <p> Your Goal:</p>
+                         <p> Reach the end of the adventure within the time limit, without getting infected, or letting your panic meter fill up. </p>
+                     </br>
+                        <p><em>                             
+                            To begin the game, press "Start".  As you progress through the story, you will be given choices to determine your actions.  Choices may carry unseen consequences including time lost, panic gained, or infection.  They will result in a number of failed endings.  You will lose if the timer runs out, the panic meter is filled, or you've made a decision that's caused you to be infected. Make it to the end safe and quickly to survive.</em></p>
                      </div>
                  </div>
              </div>
-             <!-- Level for .start-btn and to capture #player-name-input -->
-             <div class="level">
-                <div class="level-item">
-                    <input class="input is-rounded" type="text" placeholder="Player Name" id="player-name-input">
-                    <button class="button" id="start-btn">Start</button> 
-                </div>
-            </div>
-        </div>
-    </section>
+             <!-- Start button format change -->
+             <div class="tile is-ancestor">
+                <button class="button" id="start-btn">Start</button> <!-- This button should be dynamically generated in JS, after at least 1 on-click event of the avatar-btn (that way, there is an avatar chosen before the game can begin -->
+                <!-- end of button format change -->
+     </div>
+</div>
+</section>
 
     <section class="section choice-screen hide" id="0-slide">
         <div class="container">
@@ -162,7 +164,7 @@
                         </article>
                     </div>
                     <div class="tile is-child box" id="scenario-description">
-                        <p>You wake up. You're groggy, as though you had a vivid dream but you can't quite remember what it was about.You grab your phone and begin flipping through the news. The first article blares in all caps "BREAKING NEWS!" followed by: "This just in! The COVID-19 virus has just been officially declared a pandemic by the United States. People are advised to stay home. Do not panic. Wash your hands thoroughly and maintain a minimum of 6ft distance from others. People are advised to avoid crowded public areas due to risk of infection. Again, do not panic."</p>
+                        <p>You wake up. You're groggy, as though you had a vivid dream but you can't quite remember what it was about.You grab your phone; it's friday, March 13th. You begin flipping through the news. The first article blares in all caps "BREAKING NEWS!" followed by: "This just in! The United States government has just declared a state of emergency as infections of COVID-19 are now revealing themselves in large numbers. People are advised to stay home. Do not panic. Be sure to wash your hands thoroughly and maintain a minimum of 6 feet away from others. People are advised to avoid crowded public areas due to risk of infection. Again, do not panic.  We will continue to report on this story all day as we learn more about new cases across the globe."</p>
                         <br>
                         <p>What are you going to do?</p>
                     </div>
@@ -198,7 +200,6 @@
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">                         
                             <figure class="image is 128x128">
-
                                 <iframe src="https://giphy.com/embed/l378yBHbYt4xJ3gf6" width="420" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/denofthieves-den-of-thieves-l378yBHbYt4xJ3gf6"></a></p>
                             </figure>
                             <figure class="image is 128x128">
@@ -212,14 +213,12 @@
                     </div>
                     <div class="tile is-child box" id="scenario-description">
 
-
                     </br> </br> </br> </br> </br> 
                 </br> </br> </br>
                         <p>You leave your house. You need to pick up supplies</p> 
                            <p> before the stores fill up with people and run out </p> 
                            <p>of goods. The Super CostMart is a 5 minute drive, </p> 
                            <p> a 10 minute bus ride, or a 15 minute walk.</p>
-
 
                         <br>
                         <p>What are you going to do?</p>
@@ -261,13 +260,13 @@
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-                                <img src="https://giphy.com/embed/JaO3583XpOoCc"> <!-- Src: https://giphy.com/embed/JaO3583XpOoCc -->
+                                <img src="https://lh3.googleusercontent.com/proxy/CjVcmqiTtr3rI1GSScnwOYY4oW5_BSSvAZTyoFil-Hc939-M_huR_u2KlKxg7cbOhfF2T_L3pm59pUjRtnQUgO_lj2RN5-MpyIOQpf5XRCHuISreTSOPAkuuK6no">
                             </figure>
                         </article>
                     </div>
                     <div class="tile is-child box" id="scenario-description">
                         <p class="title has-text-centered">The Bus</p>
-                        <p>You get on the bus, it's mostly empty. It comes to a stop. A large gorup of people are about to get on the bus with you.</p>
+                        <p>You get on the bus, it's mostly empty right now. It comes up to the next stop. You see a large group of people about to get on the bus with you.</p>
                         <br>
                         <p>What are you going to do?</p>
                     </div>
@@ -354,13 +353,12 @@
         </div>
     </section>
 
-    <section class="section choice-screen hide" id="2-slide"> <!-- Gather items slide -->
+    <section class="section choice-screen hide" id="2-slide"> <!-- First item slide. Have to be within one function to generate? -->
         <div class="container">
             <div class="tile is-ancestor">
                 <div class="tile is-parent">
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
-                            <div id="gifAppear4"></div>
                             <figure class="image is 128x128">
                                 <div id="gifAppear4"></div>
                             </figure>
@@ -368,10 +366,8 @@
                     </div>
                     <div class="tile is-child box" id="scenario-description">
                         <p class="title has-text-centered">The Arrival</p>
-
                         <p>You make it to the store safe and sound. You hurry inside. The panic has already begun. People are shoving and pushing.  You can smell the desperation in the air.  "Focus" You think to yourself, "What are the three most important items required surviving the apocalypse?  I should grab the most important ones first."</p>
                        
-
                         <br>
                         <p>Grab your items!</p>
                     </div>
@@ -387,17 +383,10 @@
                     </figure>
                     <div class="media-content">
                         <div class="content">
-
                             <div class="list" id="grab-first">
                                 <button class="button choice-btn list-btn" data-item="water" style="display: block;" id="waterItem" onclick="GetWater()">Water</button>
                                 <button class="button choice-btn list-btn" data-item="tp" style="display: block;" id="toiletItem" onclick="GetToiletPaper()">Toilet Paper</button>
                                 <button class="button choice-btn list-btn" data-item="sanitizer" style="display: block;" id="sanitizerItem" onclick="GetSanitizer()">Hand Sanitizer</button>
-
-                            <div class="2-slide-list">
-                                <button class="button choice-btn list-btn"  data-item="water" style="display: block;" id="water-item">Water</button>
-                                <button class="button choice-btn list-btn"  data-item="tp" style="display: block;" id="toilet-item">Toilet Paper</button>
-                                <button class="button choice-btn list-btn"  data-item="sanitizer" style="display: block;" id="sanitizer-item">Hand Sanitizer</button>
-
                             </div>                        
                         </div>
                     </div>
@@ -408,7 +397,6 @@
                 <button data-gif4="fight shop" id="gif4">Watch the madness</button>
                 <div class="level-item has-text-centered">
                     <button class="button restart-btn">Restart</button>
-                    <button data-gif4="fight shop" id="gif4">Watch the Madness!</button>
                     <button class="button bathroom-btn" id="from-2-slide">Go to the Bathroom</button>
                 </div> 
             </div>
@@ -426,18 +414,18 @@
                             </figure>
                         </article>
                     </div>
-                    <div class="tile is-child box" id="scenario-description">
-                        <p class="title has-text-centered">A Slimey Mystery...</p>
-                        <p>You wander cautiously looking for the bathroom.  You see a sign and walk towards it, but as you head there, you see a trail of some viscous liquid in a continous path as though something were draged.  You arrive at the bathroom and reveal a horrid sight...</p>
+                        <div class="tile is-child box" id="scenario-description"> 
+                            <p class="title has-text-centered">
+                                A Slimey Mystery</p><p>You wander cautiously looking for the bathroom.  You see a sign and walk towards it, but as you head there, you see a trail of some viscous liquid in a continous path as though something were draged.  You arrive at the bathroom and reveal a horrid sight</p>                    
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
         <br>
         <div class="level">
             <div class="level-item has-text-centered">
                 <button data-gif3="disgusting hallway" class="button" id="gif3">Open the door</button>
-                <button class="button" id="bathroom-next">Next</button>
+                <button class="button" id="bathroom-next">Behold</button>
             </div> 
         </div>
     </section>
@@ -447,7 +435,7 @@
             <div class="level">
                 <article class="media">
                     <figure class="image is 128x128">
-                        <img src="/images/frankwannabepure.gif" id="purefrank">
+                        <img src="images/frankwannabepure.gif" id="purefrank" >
                     </figure>
                 </article>
             </div>
@@ -460,14 +448,13 @@
         </div>
     </section>
 
-    <section class="section choice-screen hide" id="3-slide"> <!-- Third item slide. Have to be within one function to generate? -->
+    <section class="section choice-screen hide" id="3-slide"> <!-- Second item slide. Have to be within one function to generate? -->
         <div class="container">
             <div class="tile is-ancestor">
                 <div class="tile is-parent">
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-
                                 <iframe src="https://giphy.com/embed/McdZx8R76KJwY"frameBorder="0" width="280" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cheezburger-wtf-home-video-McdZx8R76KJwY"></a></p>
                             </figure>
                         </article>
@@ -516,13 +503,12 @@
                         <article class="media">
                             <figure class="image is 128x128">
                                   <iframe src="https://giphy.com/embed/xT0BKxb2NgymF3FJ4c" width="420" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/vrt-eno-echtnietok-winkelkar-xT0BKxb2NgymF3FJ4c"></a></p
-
                             </figure>
                         </article>
                     </div>
                     <div class="tile is-child box" id="scenario-description">
                         <p class="title has-text-centered">Confrontation</p>
-                        <p>You arrive to the location of the <span class="final-item">final item</span>. You behold the last remaining case of <span class="final-item">final item</span>. Suddenly, a person rushes past you and grabs it. You need that <span class="final-item">final item</span>!</p>
+                        <p>You arrive to the location of the <span id="FINALITEM">FINALITEM. You behold the last remaining case of FINALITEM.  A person rushes past you and grabs it. You need that FINALITEM</span></p>
                         <br>
                         <p>What do you do?</p>
                     </div>
@@ -533,158 +519,14 @@
                 <article class="media">
                     <figure class="media-left">
                         <p class="image is-64x64" id="avatar">
-                            <iframe src="https://giphy.com/embed/cjtqXT46Nb7VJrJe76" width="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/NoFrillsCA-shop-nofrills-haul-hard-cjtqXT46Nb7VJrJe76"></a></p>
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-                            <div class="3-slide-choices">
-                                <button class="button choice-btn list-btn" id="3-slide-approach" style="display: block;">Approach the man, affronted </button>
-                                <button class="button choice-btn list-btn" id="3-slide-away" style="display: block;">Walk away and head to checkout</button>
-                            </div>                        
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <br>
-            <div class="level">
-                <div class="level-item has-text-centered">
-                    <button class="button restart-btn">Restart</button>
-                    <button class="button bathroom-btn" id="from-3-slide">Go to the Bathroom</button>
-                </div> 
-            </div>
-        </div>
-    </section>
-
-    <section class="section choice-screen hide" id="3-a-slide"> <!-- Picked to approach the man -->
-        <div class="container">
-            <div class="tile is-ancestor">
-                <div class="tile is-parent">
-                    <div class="tile is-child is-4 box" id="scenario-image">
-                        <article class="media">
-                            <figure class="image is 128x128">
-                                <iframe src="https://giphy.com/embed/TT6fgUhxBWjFC" width="350" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/youtube-fight-store-TT6fgUhxBWjFC"></a></p>
-
-                            </figure>
-                        </article>
-                    </div>
-                    <div class="tile is-child box" id="scenario-description">
-                        <p class="title has-text-centered">Retrieve Your Things!</p>
-
-                        <p>You walk up to this <em>thief</em> and tap him on the shoulder. He turns around and face you.</p>
-
-                        <br>
-                        <p>What do you do?</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <article class="media">
-                    <figure class="media-left">
-                        <p class="image is-64x64" id="avatar">
-                            <img src="https://bulma.io/images/placeholders/128x128.png">
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-
-                            <div class="4-a-slide-choices">
-                                <button class="button choice-btn list-btn" id="4-a-slide-insult" style="display: block;">Insult him, viciously</button>
-                                <button class="button choice-btn list-btn" id="4-a-slide-cough" style="display: block;">Cough on him, violently</button>
-                                <button class="button choice-btn list-btn" id="4-a-slide-beg" style="display: block;">Beg him, desperately</button>
-
-                            </div>                        
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <br>
-            <div class="level">
-                <div class="level-item has-text-centered">
-                    <button class="button restart-btn">Restart</button>
-                </div> 
-            </div>
-        </div>
-
-        <div class="modal" id="3-a-slide-insult-modal"> <!-- Modal for insult and message to populate -->
-            <div class="modal-background" id="insult-modal-background"></div>
-            <div class="modal-content">
-                <div class="box">
-                    <p id="3-a-slide-modal-action"></p>
-                    <p>It was <span id="effective-ineffective"></span>.</p>
-                </div>
-            </div>
-            <button class="modal-close is-large" aria-label="close" id="insult-modal-close"></button>
-        </div>
-
-    </section>
-
-    <section class="section next-screen hide" id="3-a-a-slide"> <!-- After approach... -->
-        <div class="container">
-            <div class="tile is-ancestor">
-                <div class="tile is-parent">
-                    <div class="tile is-child is-4 box" id="scenario-image">
-                        <article class="media">
-                            <figure class="image is 128x128">
-                                <div id="horrorgiflayout">
-                                    <div id="gifAppear1"></div>
-                                    <div id="gifAppear1b"></div>
-                                </div>
-                            </figure>
-                        </article>
-                    </div>
-                    <div class="tile is-child box" id="scenario-description">
-                        <p class="title has-text-centered">You did it!</p>
-                        <p>The thief is bewildered, disgusted, and terrified of you. He drops the <span class="final-item">final item</span>, runs away, and does not look back.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="level">
-            <div class="level-item has-text-centered">
-                <button data-gif1="horror" data-gif1b="horrified" id="gif1" class="gifReacts" class="button">See his reaction</button>
-                <button class="button" id="3-a-a-slide-next">Next</button>
-            </div> 
-        </div>
-    </section>
-
-    <section class="section choice-screen hide" id="4-slide"> <!-- Checkout slide -->
-        <div class="container">
-            <div class="tile is-ancestor">
-                <div class="tile is-parent">
-                    <div class="tile is-child is-4 box" id="scenario-image">
-                        <article class="media">
-                            <figure class="image is 128x128">
-
-                                <iframe src="https://giphy.com/embed/JpwW7TUvfGHcVkJkdf" width="320" height="280"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/insecurehbo-hbo-insecure-JpwW7TUvfGHcVkJkdf"></a></p>
-
-                            </figure>
-                        </article>
-                    </div>
-                    <div class="tile is-child box" id="scenario-description">
-                        <p class="title has-text-centered">Checkout</p>
-                        <p>You take your items and go to the checkout line. You uncomfortably stand in line until you finally get to the end. The cashier sneezes three times in a row ending it with a long sniffel. 'Allergies,' she says. Your items have been scanned and are ready to go.</p>
-                        <br>
-                        <p>What do you do?</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <article class="media">
-                    <figure class="media-left">
-                        <p class="image is-64x64" id="avatar">
-                            <img src="https://bulma.io/images/placeholders/128x128.png">
+                            <iframe src="https://giphy.com/embed/cjtqXT46Nb7VJrJe76" width="320" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/NoFrillsCA-shop-nofrills-haul-hard-cjtqXT46Nb7VJrJe76"></a></p>
                         </p>
                     </figure>
                     <div class="media-content">
                         <div class="content">
                             <div class="4-slide-choices">
-                                <button class="button choice-btn" id="4-slide-steal" style="display: block;">Nope! Steal the items and run for it.</button>
-                                <button class="button choice-btn" id="4-slide-stay" style="display: block;">You're polite. Stand in queue, checkout, and pay for your items.</button>
-                                <button class="button choice-btn" id="4-slide-leave" style="display: block;">It's too much of a risk. Sigh and go home empty-handed.</button>
+                                <button class="button choice-btn list-btn" id="4-slide-approach" style="display: block;">Approach the man, affronted </button>
+                                <button class="button choice-btn list-btn" id="4-slide-away" style="display: block;">Walk away and head to checkout</button>
                             </div>                        
                         </div>
                     </div>
@@ -700,26 +542,160 @@
         </div>
     </section>
 
-    <section class="section choice-screen hide" id="5-slide"> 
+    <section class="section choice-screen hide" id="4-a-slide"> <!-- Picked to approach the man -->
         <div class="container">
             <div class="tile is-ancestor">
                 <div class="tile is-parent">
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
+                                <iframe src="https://giphy.com/embed/TT6fgUhxBWjFC" width="350" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/youtube-fight-store-TT6fgUhxBWjFC"></a></p>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="tile is-child box" id="scenario-description">
+                        <p class="title has-text-centered">Retrieve Your Things!</p>
+                        <p>You walk up to this <em>thief</em> and tap them on the shoulder. He turns around and faces you.</p>
+                        <br>
+                        <p>What do you do?</p>
+                    </div>
+                </div>
+            </div>
 
+            <div class="container">
+                <article class="media">
+                    <figure class="media-left">
+                        <p class="image is-64x64" id="avatar">
+                            <img src="https://bulma.io/images/placeholders/128x128.png">
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                            <div class="4-a-slide-choices">
+                                <button class="button choice-btn list-btn" id="4-a-slide-insult" style="display: block;">Insult him, viciously</button>
+                                <button class="button choice-btn list-btn" id="4-a-slide-cough" style="display: block;">Cough on him, violently</button>
+                                <button class="button choice-btn list-btn" id="4-a-slide-beg" style="display: block;">Beg him, desperately</button>
+                            </div>                        
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <br>
+            <div class="level">
+                <div class="level-item has-text-centered">
+                    <button class="button restart-btn">Restart</button>
+                </div> 
+            </div>
+        </div>
+
+        <div class="modal" id="4-a-slide-insult-modal"> <!-- Modal for insult and message to populate -->
+            <div class="modal-background" id="insult-modal-background"></div>
+            <div class="modal-content">
+                <div class="box">
+                    <p id="4-a-slide-modal-action"></p>
+                    <p>It was <span id="effective-ineffective"></span>.</p>
+                </div>
+            </div>
+            <button class="modal-close is-large" aria-label="close" id="insult-modal-close"></button>
+        </div>
+
+    </section>
+
+    <section class="section next-screen hide" id="4-a-a-slide"> <!-- After approach... -->
+        <div class="container">
+            <div class="tile is-ancestor">
+                <div class="tile is-parent">
+                    <div class="tile is-child is-4 box" id="scenario-image">
+                        <article class="media">
+                            <figure class="image is 128x128">
+                                <div id="horrorgiflayout">
+                                <div id="gifAppear1"></div>
+                                <div id="gifAppear1b"></div>
+                                </div>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="tile is-child box" id="scenario-description">
+                        <p class="title has-text-centered">You did it!</p>
+                        <p>The thief is disgusted and terrified of you. He drops the <span id="final-item">FINAL ITEM</span>, runs away, and doesn't look back.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="level">
+            <div class="level-item has-text-centered">
+                <button data-gif1="horror" data-gif1b="horrified" id="gif1" class="gifReacts" class="button">See his reaction</button>
+                <button class="button" id="4-a-a-slide-next">Next</button>
+            </div> 
+        </div>
+    </section>
+
+    <section class="section choice-screen hide" id="5-slide"> <!-- Checkout slide -->
+        <div class="container">
+            <div class="tile is-ancestor">
+                <div class="tile is-parent">
+                    <div class="tile is-child is-4 box" id="scenario-image">
+                        <article class="media">
+                            <figure class="image is 128x128">
+                                <iframe src="https://giphy.com/embed/JpwW7TUvfGHcVkJkdf" width="320" height="280"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/insecurehbo-hbo-insecure-JpwW7TUvfGHcVkJkdf"></a></p>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="tile is-child box" id="scenario-description">
+                        <p class="title has-text-centered">Checkout</p>
+                        <p>You take your items and go to the checkout line. You uncomfortably stand in line until you finally get to the end. The cashier sneezes three times in a row ending it with a long sniffle. 'Allergies,' she says. Your items have been scanned and are ready to go.</p>
+                        <br>
+                        <p>What do you do?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <article class="media">
+                    <figure class="media-left">
+                        <p class="image is-64x64" id="avatar">
+                            <img src="https://bulma.io/images/placeholders/128x128.png">
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                            <div class="5-slide-choices">
+                                <button class="button choice-btn" id="5-slide-steal" style="display: block;">Nope! Steal the items and run for it.</button>
+                                <button class="button choice-btn" id="5-slide-stay" style="display: block;">You're polite. Stand in queue, checkout, and pay for your items.</button>
+        <!-- <button data-searchedImage="searchedImage" id="searchedImageID">meow</button>
+          -->
+                                <button class="button choice-btn" id="5-slide-leave" style="display: block;">It's too much of a risk. Sigh and go home empty-handed.</button>
+                            </div>                        
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <br>
+            <div class="level">
+                <div class="level-item has-text-centered">
+                    <button class="button restart-btn">Restart</button>
+                    <button class="button bathroom-btn" id="from-5-slide">Go to the Bathroom</button>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    <section class="section choice-screen hide" id="6-slide"> 
+        <div class="container">
+            <div class="tile is-ancestor">
+                <div class="tile is-parent">
+                    <div class="tile is-child is-4 box" id="scenario-image">
+                        <article class="media">
+                            <figure class="image is 128x128">
                                 <iframe src="https://giphy.com/embed/STlklyHaE8NVwD1gni" width="350" height="350" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/sad-depressed-sorrow-STlklyHaE8NVwD1gni"></a></p>
-
-
                             </figure>
                         </article>
                     </div>
                     <div class="tile is-child box" id="scenario-description">
                         <p class="title has-text-centered">Return Home</p>
-
                         <p>You exit the store. You question your choices. "Did I make the right decisions," you ask. As you look out into the parking lot, you see the horde of people growing.  Cars are swerving around people, honking and shout is rampant. You just want to go home. You can feel the panic creeping on you. It's time to go home.</p>
                        
-
                         <br>
                         <p>How do you get home?</p>
                     </div>
@@ -735,7 +711,7 @@
                     </figure>
                     <div class="media-content">
                         <div class="content">
-                            <div class="5-slide-choices">
+                            <div class="6-slide-choices">
                                 <button class="button choice-btn list-btn" style="display: block;">Drive home</button>
                                 <button class="button choice-btn list-btn" style="display: block;">Take the bus</button>
                                 <button class="button choice-btn list-btn" style="display: block;">Walk home</button>
@@ -753,7 +729,7 @@
         </div>
     </section>
 
-    <section class="section next-screen hide" id="6-slide"> 
+    <section class="section next-screen hide" id="7-slide"> 
         <div class="container">
             <div class="tile is-ancestor">
                 <div class="tile is-parent">
@@ -766,8 +742,7 @@
                     </div>
                     <div class="tile is-child box" id="scenario-description">
                         <p class="title has-text-centered">Home Sweet Home!</p>
-                        <p>You make it back home in one piece! Strangely, you aren't sure you actually accomplished anything today. You sit down on the couch and let out a sigh of relief.</p>
-                        <p>Then, you turn on your favorite streaming service.</p>
+                        <p>You make it back home in one piece! Though strangly, you don't really feel like you've accomplished anything today. You sit down on the couch and let out a sigh of relief as you turn on your favorite streaming service to further escape the day.</p>
                         <br>
                         <p>Well, how did you do?</p>
                     </div>
@@ -777,28 +752,55 @@
         <br>
         <div class="level">
             <div class="level-item has-text-centered">
-                <button class="button" id="6-slide-next">Next</button>
+                <button class="button" id="7-slide-next">Next</button>
             </div> 
         </div>
     </section>
 
-    <section class="section game-over-screen hide" id="game-over-freakout"> <!-- Game over, when panic reaches too high, timer runs out, or freakout-choice -->
+    <section class="section game-over-screen hide" id="game-over-loss">
         <div class="container">
-            <div class="level">
-                <div class="level-item">
-                    <article class="media">
-                        <figure class="image is 128x128">
-                            <iframe src="images/freakoutending.gif" width="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/love-black-and-white-fail-dkuZHIQsslFfy"></a></p>
-                        </figure>
-                    </article>
+            <div class="tile is-ancestor">
+                <div class="tile is-4 is-vertical is-parent">
+                    <div class="tile is-child box" id="scenario-image">
+                        <article class="media">
+                            <figure class="image is 128x128">
+                                <iframe src="https://giphy.com/embed/dkuZHIQsslFfy" width="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/love-black-and-white-fail-dkuZHIQsslFfy"></a></p>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="tile is-child box" id="stats">
+                        <p>This is where we need ul element to create a stats page</p>
+                    </div>
+                </div>
+                <div class="tile is-parent">
+                    <div class="tile is-child box">
+                        <p class="title has-text-centered">Game Over: It's TOO MUCH</p>
+                        <p>You have made poor choices today. Things have not gone as you'd hoped and your future looks grim as a result. Fortunately this was all a dream. Perhaps you'll make better decisions when you wake up</p>
+                    </div>
                 </div>
             </div>
+        </div>
+        <br>
+        <div class="level">
+            <div class="level-item has-text-centered">
+                <button class="button restart-btn">Restart</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section game-over-screen hide" id="game-over-freakout">
+        <div class="container">
             <div class="tile is-ancestor">
-                <div class="tile is-4 is-parent">
+                <div class="tile is-4 is-vertical is-parent">
+                    <div class="tile is-child box" id="scenario-image">
+                        <article class="media">
+                            <figure class="image is 128x128">
+                                <img src="images/freakoutending.gif">
+                            </figure>
+                        </article>
+                    </div>
                     <div class="tile is-child box" id="stats">
-                        <p class="title has-text-centered">SCORE</p>
-                        <p class="subtitle has-text-centered"><span class="score" id="freakout-score"></span></p>
-                        <button class="button view-highscores">View Highscores</button>
+                        <p>This is where we need ul element to create a stats page</p>
                     </div>
                 </div>
                 <div class="tile is-parent">
@@ -819,73 +821,22 @@
         </div>
     </section>
 
-    <section class="section game-over-screen hide" id="game-over-loss"> <!-- Game over, finished game but was exposed and infected at some point -->
+    <section class="section game-over-screen hide" id="game-over-win">
         <div class="container">
-            <div class="level">
-                <div class="level-item">
-                    <article class="media">
-                        <figure class="image is 128x128">
-                            <iframe src="https://giphy.com/embed/dkuZHIQsslFfy" width="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/love-black-and-white-fail-dkuZHIQsslFfy"></a></p>
-                        </figure>
-                    </article>
-                </div>
-            </div>
-
             <div class="tile is-ancestor">
-                <div class="tile is-4 is-parent">
-                    <div class="tile is-child box" id="stats">
-                        <p class="title has-text-centered">SCORE</p>
-                        <p class="subtitle has-text-centered"><span class="score" id="loss-score"></span></p>
-                        <button class="button view-highscores">View Highscores</button>
+                <div class="tile is-4 is-vertical is-parent">
+                    <div class="tile is-child box" id="scenario-image">
+                        <article class="media">
+                            <figure class="image is 128x128">
+                                <div id="gifAppear2"></div>
+                            </figure>
+                        </article>
                     </div>
+
                 </div>
                 <div class="tile is-parent">
-                    <div class="tile is-child box">
-                        <p class="title has-text-centered">Game Over: INFECTED</p>
-                        <p>You have made poor choices today. Things have not gone as you'd hoped and your future looks grim as a result. Fortunately this was all a dream. Perhaps you'll make better decisions when you wake up</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="level">
-            <div class="level-item has-text-centered">
-                <button class="button restart-btn">Restart</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="section game-over-screen hide" id="game-over-win"> <!-- Game over, finished game and managed NOT to get infected -->
-        <div class="container">
-            <div class="level">
-                <div class="level-item">
-                    <article class="media">
-                        <figure class="image is 128x128">
-                            <div id="gifAppear2"></div>
-                        </figure>
-                    </article>
-                </div>
-                <div class="level-item">
-                    <article class="media">
-                        <figure class="image">
-                            <div class="gifReacts" id="winnerslide"></div>
-                        </figure>
-                    </article>
-                </div>
-            </div>
-
-            <div class="tile is-ancestor">
-                <div class="tile is-4 is-parent">
-                    <div class="tile is-child box" id="stats">
-                        <p class="title has-text-centered">SCORE</p>
-                        <p class="subtitle has-text-centered"><span class="score" id="win-score"></span></p>
-                        <button class="button view-highscores">View Highscores</button>
-                    </div>
-                </div>
-                <div class="tile is-parent">
-                    <div class="tile is-child box">
-                        <p class="title has-text-centered">Yay! You Win!</p>
-                        <p>You made it! Your choices have lead you down the correct path. You continue to stay safe. You wash your hands frequently and for 20 seconds. You maintain 6 feet social distancing from others. You wear a mask which covers your mouth and nose when you're out in public. The future is uncertain, but with good decision making like this you feel you at least have a chance to make it through to the other side of this apocalypse. Stay safe out there.</p>
+                    <div class="tile is-child box" class="gifReacts" id="winnerslide">
+                        
                     </div>
                 </div>
             </div>
@@ -899,37 +850,11 @@
         </div>
     </section>
 
-    <section class="section hide" id="highscores-screen">
-        <div class="container">
-            <div class="box" id="highscores-div">
-                <p class="title has-text-centered">Highscores</p>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Player</th>
-                            <th>Score</th>
-                        </tr>
-                    </thead>
-                    <tbody id="highscores-table">
-                        <!-- This is where the highscores will dynamically generate from localStorage -->
-                    </tbody>
-                </table>
-            </div>
-            <div class="level">
-                <div class="level-item has-text-centered">
-                    <button class="button restart-btn">Restart</button>
-                </div> 
-            </div>
-        </div>
-    </section>
-
-    <!-- JavaScript and jQuery -->
+<!-- jquery and js functions -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
- <script src="./scripts.js" type="text/javascript"></script>
-
     <script type="text/javascript">
     $(document).ready(function () {
         var infected = false; 
@@ -1642,6 +1567,5 @@ $("#gif3").on("click", function () {
     })
 
     </script>
-
 </body>
 </html>
