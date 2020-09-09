@@ -22,4 +22,5 @@ if($('#email').val() == "") {
 	stopsubmit=true;
 }
   if(stopsubmit) return false;
-});		
+});
+
