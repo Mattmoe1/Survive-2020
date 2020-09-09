@@ -83,7 +83,10 @@ h1, p, #title {
 #avatar {
     display: none;
 }
-
+.gifReacts {
+    color: black;
+    background-color: white;
+}
 #SLIDE3 {
     margin-left: 5%;
     margin-right: 5%;
@@ -91,8 +94,22 @@ h1, p, #title {
     text-align: absolute;
     color: aqua;
 }
+#purefrank {
+   display: block;
+   margin-left: 200px;
+   margin-right: auto;  
+   width: 1000px;
+   align-items: center;
+   float: right;
+}
 #standby {
     size: 200px;
+}
+#horrorgiflayout {
+    position: relative;
+    display: flex;
+    float: left;
+    background-color: yellow;
 }
 .title {
     margin-right: 20%;
@@ -101,14 +118,33 @@ h1, p, #title {
     background: transparent;
 }
 
+.tlbox {
+position: relative;
+font-size: 100px;
+margin-top: 20px;
+padding-left: -10px;
+
+}
+
 .prompt {
     text-align: right;
 }
-
+.photo1 {
+    float: right;
+    display: flex;
+}
 .prompt-b {
     float: inline-end;
 }
-
+#start-btn {
+    font-size: 50px;
+    padding: -10px;
+    padding-top: -10px;
+    font-weight: 900;
+    margin-right: 40%;
+    margin-left: auto;
+    text-align: center;
+}
 .restart-btn {
     float:left;
     display: flex;
@@ -133,7 +169,10 @@ h1, p, #title {
 .hide {
     display: none;
 }
-
+.the_mission {
+    width: 500px;
+    background-color: aqua;
+}
 .title-name {
     color: darkred;
     font-size: 130px;
@@ -143,3 +182,4 @@ h1, p, #title {
     text-align: center;
     line-height: 135px;
 }
+
