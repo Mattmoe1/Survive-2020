@@ -150,7 +150,7 @@ $(document).ready(function () {
     }
 
     // Generate doctor information from BetterDoctorAPI
-    function generateDoctorInfo() {
+    /* function generateDoctorInfo() {
         var lat = "37.773";
         var lon = "-122.413";
         var location = lat + "%2C" + lon + "%2C100" // in circular (lat,lon,range (miles))
@@ -165,7 +165,7 @@ $(document).ready(function () {
         }).then(function(response) {
             console.log(response);
         })
-    };
+    }; */
 
     // Generate an insult from the Evil Insult API
     function generateInsult() {
@@ -182,14 +182,12 @@ $(document).ready(function () {
 
     // Reset and activate .stats-modal, populating it with a random country's COVID-19 statistics from a COVID-19 API
     function generateStatsModal() {
+        var statsModalTitle = $(`<p class="title has-text-centered">Did you know?</p>`);
+        var statsModalStats = $(`<p>In <span id="country-name"></span>, there have been <span id="country-cases"></span> cases of COVID-19 reported since the start of the global pandemic. <span id="country-recovered"></span> people have recovered, and <span id="country-deaths"></span> have died.</p>`);
         var getCountriesURL = "https://covid19-api.org/api/countries";
 
+        $("#generate-modal").append(statsModalTitle, statsModalStats);
         $("#country-name, #country-cases, #country-recovered, #country-deaths").empty();
-        if ($(".stats-modal").hasClass("is-active") === true) {
-            return;
-        } else {
-            $(".stats-modal").addClass("is-active");
-        }
 
         $.ajax({
             url: getCountriesURL,
@@ -219,12 +217,26 @@ $(document).ready(function () {
                     $("#country-deaths").text(countryDeaths);
                 });
             });
+
+            if ($(".modal").hasClass("is-active") === true) {
+                return;
+            } else {
+                $(".modal").addClass("is-active");
+            }
         
     };
 
     // Removes .is-active from .modal
     $(".modal-background, .modal-close").on("click", function(event) {
-        $(".stats-modal").removeClass("is-active"); 
+        $(".modal").removeClass("is-active"); 
+        $("#generate-modal").empty();
+        if (persuadedThief === true) { 
+            persuadedThief = false;
+            $("#3-a-slide").removeClass("show");
+            $("#3-a-slide").addClass("hide");
+            $("#3-a-a-slide").removeClass("hide");
+            $("#3-a-a-slide").addClass("show"); 
+        }
     })
 
     // 50/50 chance to persuadeThief, called in #3-a-slide to move to next slide
@@ -317,7 +329,7 @@ $(document).ready(function () {
         $("#0-slide").removeClass("hide");
         $("#0-slide").addClass("show");
 
-        generateDoctorInfo();
+        // generateDoctorInfo();
     });
 
     // Player stats change and page toggles to #1-slide, #game-over-win, or #game-over-freakout depending on user choice
@@ -374,7 +386,7 @@ $(document).ready(function () {
         } 
     });
 
-    // Player stats change and page toggles to #1-a-a-slide, #1-a-b-slide, or #2-slide depending on user choice
+    // Player stats change and page toggles to #1-a-a-slide, #1-a-b-slide, or #2-slide cepending on user choice
     $("#1-a-slide-choices").on("click", function(event) {
         event.preventDefault();
         generateStatsModal();
@@ -513,10 +525,13 @@ $(document).ready(function () {
         if (items === 2) {
             lastItem();
         } else {
+            var modalItem = $(`<p>You grab some water.</p>`);
+
             items++;
             itemType++;
-            alert("You grab some water.");
-            document.getElementById('water-item').style.visibility = 'hidden';            
+            document.getElementById('water-item').style.visibility = 'hidden'; 
+            $("#generate-modal").append(modalItem);
+            $(".modal").addClass("is-active");           
         }
     })
 
@@ -526,10 +541,13 @@ $(document).ready(function () {
         if (items === 2) {
             lastItem();
         } else {
+            var modalItem = $(`<p>You grab some toilet paper.</p>`);
+
             items++;
             itemType += 2;
-            alert("You grab some toilet paper.");
-            document.getElementById('toilet-item').style.visibility = 'hidden';            
+            document.getElementById('toilet-item').style.visibility = 'hidden'; 
+            $("#generate-modal").append(modalItem);
+            $(".modal").addClass("is-active");           
         }
     })
 
@@ -539,10 +557,13 @@ $(document).ready(function () {
         if (items === 2) {
             lastItem();
         } else {
+            var modalItem = $(`<p>You grab some hand sanitizer.</p>`)
+
             items++;
             itemType += 4;
-            alert("You grab some hand sanitizer.");
-            document.getElementById('sanitizer-item').style.visibility = 'hidden';            
+            document.getElementById('sanitizer-item').style.visibility = 'hidden'; 
+            $("#generate-modal").append(modalItem);
+            $(".modal").addClass("is-active");
         }
     })
 
@@ -560,17 +581,24 @@ $(document).ready(function () {
     function reportReplacement() {
         // console.log(itemType);
         if (itemType == 6) {
-            alert("You have collected Toilet Paper and Hand Sanitizer.  Head on over to get Water.");
+            var modalItem = $(`<p>You've collected toilet paper and hand sanitizer. Head over to get some water.</p>`);
+            
             replacementItem++;
+            $("#generate-modal").append(modalItem);
+            $(".modal").addClass("is-active");
             // console.log("replacement 1", replacementItem);
         } else if (itemType == 3) {
-            alert("You have collected Water and Toilet Paper.  Head on over to get Hand Sanitizer.");
+            var modalItem = $(`<p>You've collected toilet paper and water. Head over to get some hand sanitizer.</p>`);
+            
             replacementItem += 2;
-            // console.log("replacement 2", replacementItem);
+            $("#generate-modal").append(modalItem);
+            $(".modal").addClass("is-active");
         } else if (itemType == 5) {
-            alert("You have collected Water and Hand Sanitizer.  Head on over to get Toilet Paper.")
+            var modalItem = $(`<p>You've collected hand sanitizer and water. Head over to get some toilet paper.</p>`);
+            
             replacementItem += 3;
-            // console.log("replacement 3", replacementItem);
+            $("#generate-modal").append(modalItem);
+            $(".modal").addClass("is-active");
         }
         
         finalItem();
@@ -586,6 +614,7 @@ $(document).ready(function () {
             $(".final-item").text("toilet paper");
         }
     }
+    
     
     // Player stats change and page toggles to #3-a-slide or #4-slide
     $(".3-slide-choices").on("click", function(event) {
@@ -606,7 +635,7 @@ $(document).ready(function () {
         } 
     });
 
-    // Player stats change and toggle #3-a-slide-insult-modal
+    // Player stats change and generate a modal with choice and effectiveness
     $(".3-a-slide-choices").on("click", function(event) {
         event.preventDefault();
 
@@ -616,62 +645,65 @@ $(document).ready(function () {
         if (event.target.id === "3-a-slide-insult") {
             generateInsult().then(function(response) {
                 generatedInsult = response;
-                persuadeThief();
-                $("#3-a-slide-modal-action").text(`You scream, "` + generatedInsult + `"`);
-                
-                // console.log("Insult: " + generatedInsult);                  
-                // console.log("Persuaded: " + persuadedThief);
-                
-                if (persuadedThief === true) {
-                    $("#effective-ineffective").text("effective");
-                } else {
-                    $("#effective-ineffective").text("ineffective. Try again");
-                }; 
-
-                $("#3-a-slide-insult-modal").addClass("is-active");
+                generateInsultModal();
             });
         } else if (event.target.id === "3-a-slide-cough") {
+            var modalChoice = $(`<p><span class="3-a-slide-choice"></span></p>`);
+            var modalEffectiveness = $(`<p>It was <span class="effective-inffective"></span>.</p>`);
+            
             persuadeThief();
-            $("#3-a-slide-modal-action").text(`You stagger up to the thief and force yourself to cough and wheeze upon him.`);
-                
-            // console.log("Insult: " + generatedInsult);                  
-            // console.log("Persuaded: " + persuadedThief);
+            $("#generate-modal").empty();
+            $("#3-a-slide-action").text(`You stagger up to the thief and force yourself to cough and wheeze upon him.`);
             
             if (persuadedThief === true) {
                 $("#effective-ineffective").text("effective");
             } else {
                 $("#effective-ineffective").text("ineffective. Try again");
-                }; 
+            }; 
 
-            $("#3-a-slide-insult-modal").addClass("is-active");
+            $("#generate-modal").append(modalChoice, modalEffectiveness);
+            $(".modal").addClass("is-active");
         } else if (event.target.id === "3-a-slide-beg") {
+           var modalChoice = $(`<p><span class="3-a-slide-choice"></span></p>`);
+            var modalEffectiveness = $(`<p>It was <span class="effective-inffective"></span>.</p>`);
+            
             persuadeThief();
-            $("#3-a-slide-modal-action").text(`You stagger up to the thief and force yourself to cough and wheeze upon him.`);
-                
-            // console.log("Insult: " + generatedInsult);                  
-            // console.log("Persuaded: " + persuadedThief);
+            $("#generate-modal").empty();
+            $("#3-a-slide-action").text(`You get on your hands and knees on the floor, which is slightly sticky, and beg, hysterical.`);
             
             if (persuadedThief === true) {
                 $("#effective-ineffective").text("effective");
             } else {
                 $("#effective-ineffective").text("ineffective. Try again");
-                }; 
+            }; 
 
-            $("#3-a-slide-insult-modal").addClass("is-active");
+            $("#generate-modal").append(modalChoice, modalEffectiveness);
+            $(".modal").addClass("is-active");
         }    
     });
 
-    // If (persuadedThief === true), then remove .is-active from #3-a-slide-insult-modal and toggle to #3-a-a-slide
-    $("#insult-modal-background, #insult-modal-close").on("click", function(event) {
-        $("#3-a-slide-insult-modal").removeClass("is-active"); 
-        if (persuadedThief === true) { // Link this up with insult-modal
-            generateStatsModal();
-            $("#3-a-slide").removeClass("show");
-            $("#3-a-slide").addClass("hide");
-            $("#3-a-a-slide").removeClass("hide");
-            $("#3-a-a-slide").addClass("show"); 
-        }
-    })
+    // Generates modal of insult from EvilInsult API 
+    function generateInsultModal() {
+        $("#generate-modal").empty();
+        generateInsult().then(function(response) {
+            var insultModalChoice = $(`<p><span class="3-a-slide-choice"></span></p>`);
+            var insultModalEffectiveness = $(`<p>It was <span class="effective-inffective"></span>.</p>`);
+
+            $("#generate-modal").empty();
+            generatedInsult = response;
+            persuadeThief();
+            $("#3-a-slide-action").text(`You scream, "` + generatedInsult + `"`);
+            
+            if (persuadedThief === true) {
+                $("#effective-ineffective").text("effective");
+            } else {
+                $("#effective-ineffective").text("ineffective. Try again");
+            }; 
+
+            $("#generate-modal").append(insultModalChoice, insultModalEffectiveness);
+            $(".modal").addClass("is-active");
+        });
+    };
 
     // Player stats change and toggle to #4-slide
     $("#3-a-a-slide-next").on("click", function(event) {
@@ -869,17 +901,33 @@ $(document).ready(function () {
             $("#gifAppear3").prepend(gifDiv3);
         }
     
-        document.getElementById("bathroom-slide-gif").innerHTML = '<div class="tile is-child box" id="scenario-description">                        <p class="title has-text-centered">A Slimy Mystery</p><p>You wander cautiously looking for the bathroom.  You see a sign and walk towards it, but as you head there, you see a trail of some viscous liquid in a continuous path as though something were dragged.  You arrive at the bathroom and reveal a horrid sight</p>                    </div>'
+        document.getElementById("bathroom-slide-gif").innerHTML = '<div class="tile is-child box" id="scenario-description">                        <p class="title has-text-centered">A Slimey Mystery</p><p>You wander cautiously looking for the bathroom.  You see a sign and walk towards it, but as you head there, you see a trail of some viscous liquid in a continous path as though something were draged.  You arrive at the bathroom and reveal a horrid sight</p>                    </div>'
         });
     });
-    (function() {
-        var burger = document.querySelector('.burger');
-        var nav = document.querySelector('#'+burger.dataset.target);
 
-        burger.addEventListener('click', function(){
-            burger.classList.toggle('is-active');
-            nav.classList.toggle('is-active');
+    $("#gif4").on("click", function () {
+        var gif4 = $(this).attr("data-gif4");
+        var queryURL4 = "https://api.giphy.com/v1/gifs/search?q=" + gif4 + "&api_key=DBRAWwObrruaGJNOu68zDwNAqwaxo9ZK&limit=1";
+
+        $.ajax({
+          url: queryURL4,
+          method: "GET"
+        }).then(function (response) { 
+          // console.log(queryURL4);
+          // console.log(response);
+          var results = response.data;
+          for (var i = 0; i < results.length; i++) {
+            var gifDiv4 = $("<div>");
+            var rating = results[i].rating;
+            var p = $("<p>");
+            var gifImage4 = $("<img>");
+            gifImage4.attr("src", results[i].images.downsized.url);
+            gifImage4.attr("alt", gif4 + " Gif");
+            gifDiv4.append(p);
+            gifDiv4.append(gifImage4);
+            $("#gifAppear4").prepend(gifDiv4);
+          }
         });
-    })();
+      })
 
 })
