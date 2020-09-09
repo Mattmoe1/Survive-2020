@@ -44,7 +44,7 @@
 <body>
     <!-- The following are samples of how the page will look -->
 
-    <!-- When not on #main, pages will include the .navbar and .game-progess bar. The actual "screen" section will be dymanically generated. -->
+    <!-- When not on #main, pages will include the .navbar and .game-progress bar. The actual "screen" section will be dynamically generated. -->
     <!-- if click reset, brings you back to slide 1 -->
     <section>
         <header class="navbar">
@@ -61,10 +61,10 @@
                 </div>
                 <div id="navbarMenuHeroC" class="navbar-menu">
                     <div class="navbar-end">
-                        <a class="navbar-item is-active">
+                        <a class="navbar-item is-active" href="index.html">
                             Home
                         </a>
-                        <a class="navbar-item">
+                        <a class="navbar-item" href="about.html">
                             About
                         </a>
                         <a class="navbar-item" href="contact.html">
@@ -85,15 +85,15 @@
     </section>
 
     
-    <section class="section" id="game-progess">
+    <section class="section" id="game-progress">
         <div class="container">
             <div class="level" id="progress">
                 <div class="level-left">
                     <div class="level-item has-text-centered" id="panic-meter-div">
                         <div>
-                            <p>Panic Meter: <progess class="progress is-danger" 
+                            <p>Panic Meter: <progress class="progress is-danger" 
                                 value="0" 
-                                max="5" id="panic"></progess></p>
+                                max="5" id="panic"></progress></p>
                         </div>
                     </div>
                 </div>
@@ -257,7 +257,7 @@
                     </div>
                     <div class="tile is-child box" id="scenario-description">
                         <p class="title has-text-centered">The Bus</p>
-                        <p>You get on the bus, it's mostly empty. It comes to a stop. A large gorup of people are about to get on the bus with you.</p>
+                        <p>You get on the bus, it's mostly empty. It comes to a stop. A large group of people are about to get on the bus with you.</p>
                         <br>
                         <p>What are you going to do?</p>
                     </div>
@@ -406,7 +406,7 @@
                     <div class="tile is-child box" id="scenario-description">
                         <p class="title has-text-centered">You go to the bathroom at the back of the store.</p>
                         <p>You see a trail of translucent, grimy fluid leading to the door. It looks like drag marks...</p>
-                        <p>You open the door and witness a horryfing sight</p>
+                        <p>You open the door and witness a horrifying sight</p>
                     </div>
                 </div>
             </div>
@@ -629,7 +629,7 @@
                     </div>
                     <div class="tile is-child box" id="scenario-description">
                         <p class="title has-text-centered">Checkout</p>
-                        <p>You take your items and go to the checkout line. You uncomfortably stand in line until you finally get to the end. The cashier sneezes three times in a row ending it with a long sniffel. 'Allergies,' she says. Your items have been scanned and are ready to go.</p>
+                        <p>You take your items and go to the checkout line. You uncomfortably stand in line until you finally get to the end. The cashier sneezes three times in a row ending it with a long sniffle. 'Allergies,' she says. Your items have been scanned and are ready to go.</p>
                         <br>
                         <p>What do you do?</p>
                     </div>
@@ -1306,7 +1306,7 @@
                 } else {
                     alert("you have obtained hand sanitizer");
                     items++;
-                    itemtype = "sanitezerItemType";
+                    itemtype = "sanitizerItemType";
                     console.log(items);
                     console.log(itemtype);
                     document.getElementById('sanitizerItem').style.visibility = 'hidden';
@@ -1371,7 +1371,7 @@
                
                 console.log(itemtype);
                 if (itemtype == 6) {
-                    alert("You have collected Toilet Paper and Hand Sanitzer.  Head on over to get Water.");
+                    alert("You have collected Toilet Paper and Hand Sanitizer.  Head on over to get Water.");
                     replacementItem++;
                     console.log("replacement 1", replacementItem)
                 } 
