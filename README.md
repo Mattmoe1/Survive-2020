@@ -30,3 +30,7 @@ Design of the webpage is a combination of CSS and Bulma
 
 # Screenshots #
 ---------------
+<img src= "images/home.png" width="800">
+<img src= "images/about.png" width="800">
+<img src= "images/contact.png" width="800">
+<img src= "images/highscore.png" width="800">
