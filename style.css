@@ -5,10 +5,9 @@ font-family: 'Nothing You Could Do', cursive; */
 
 
 body {
-    font-family: 'Bangers', cursive;
+    font-family: 'Eater', cursive;
     align-items: center;
     background-color: black;
-    font-size: 25px;
 }
 
 h1 {
@@ -41,7 +40,7 @@ p {
 }
 
 h1, p, #title {
-    font-family: 'Bangers', cursive;
+    font-family: 'Eater', cursive;
 }
 
 #pure {
@@ -183,6 +182,4 @@ padding-left: -10px;
     text-align: center;
     line-height: 135px;
 }
-.container4{
-    float: left;
-}
+
