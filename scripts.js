@@ -374,7 +374,7 @@ $(document).ready(function () {
         } 
     });
 
-    // Player stats change and page toggles to #1-a-a-slide, #1-a-b-slide, or #2-slide cepending on user choice
+    // Player stats change and page toggles to #1-a-a-slide, #1-a-b-slide, or #2-slide depending on user choice
     $("#1-a-slide-choices").on("click", function(event) {
         event.preventDefault();
         generateStatsModal();
@@ -869,8 +869,17 @@ $(document).ready(function () {
             $("#gifAppear3").prepend(gifDiv3);
         }
     
-        document.getElementById("bathroom-slide-gif").innerHTML = '<div class="tile is-child box" id="scenario-description">                        <p class="title has-text-centered">A Slimey Mystery</p><p>You wander cautiously looking for the bathroom.  You see a sign and walk towards it, but as you head there, you see a trail of some viscous liquid in a continous path as though something were draged.  You arrive at the bathroom and reveal a horrid sight</p>                    </div>'
+        document.getElementById("bathroom-slide-gif").innerHTML = '<div class="tile is-child box" id="scenario-description">                        <p class="title has-text-centered">A Slimy Mystery</p><p>You wander cautiously looking for the bathroom.  You see a sign and walk towards it, but as you head there, you see a trail of some viscous liquid in a continuous path as though something were dragged.  You arrive at the bathroom and reveal a horrid sight</p>                    </div>'
         });
     });
+    (function() {
+        var burger = document.querySelector('.burger');
+        var nav = document.querySelector('#'+burger.dataset.target);
+
+        burger.addEventListener('click', function(){
+            burger.classList.toggle('is-active');
+            nav.classList.toggle('is-active');
+        });
+    })();
 
 })
