@@ -8,7 +8,6 @@ body {
     font-family: 'Eater', cursive;
     align-items: center;
     background-color: black;
-    font-size: larger;
 }
 
 h1 {
@@ -42,7 +41,6 @@ p {
 
 h1, p, #title {
     font-family: 'Eater', cursive;
-    font-size: larger;
 }
 
 #pure {
