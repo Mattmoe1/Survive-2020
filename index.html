@@ -29,6 +29,8 @@
     <!-- More fonts! -->
     <link href="https://fonts.googleapis.com/css2?family=Butcherman&family=Eater&family=Nosifer&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
     
+    <!-- More Fonts! -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Bebas+Neue&display=swap" rel="stylesheet">
     <!-- CSS link-->
     <link rel="stylesheet" 
     href="./style.css">
@@ -134,9 +136,8 @@
                  <div class="tile is-vertical is-parent">
                      <div class="tile is-child box">
                          <p class="title">Can you survive a day in 2020?</p>
-                         <p>Complete tasks and try to avoid infection as you go about your day in the year 2020. 
-                            Take care to make good choices, because dangerous choices can lead to infection and affect your time.</p>
-                        <p><em>Need to add rules explaining time, panic meter, etc. </em></p>
+                         <p>In this choose your own adventure game, you will navigate through the 2020 hellscape at the beginning of THE CRISIS!</p>
+                        <p><em>You will be shown a part of the story with each page.  At the bottom will be your available options in response to your current circumstance.  Beware, choices do have consequences.  You must race against the clock before the panic kicks in.  Choices may increase or decrease your Panic Meter. </em></p>
                      </div>
                  </div>
              </div>
@@ -209,7 +210,7 @@
                         <p class="title has-text-centered">The Mission</p>
                     </div>
                     <div class="tile is-child box" id="scenario-description">
-                    </br> </br> </br> </br> </br> </br> </br> 
+                    </br> </br> </br> </br> </br> 
                         <p>You leave your house. The General Mega Market Super Store is a 5 minute drive, a 10 minute bus ride, or a 15 minute walk.</p>
                         <br>
                         <p>What are you going to do?</p>
@@ -230,7 +231,7 @@
                                 <button class="button choice-btn" id="1-slide-bus" style="display: block;">Take the bus</button>
                                 <button class="button choice-btn" id="1-slide-drive" style="display: block;">Drive there</button>
                                 <button class="button choice-btn" id="1-slide-walk" style="display: block;">Go by foot</button>
-                            </div>                        
+                            </div>                      
                         </div>
                     </div>
                 </article>
@@ -350,16 +351,14 @@
                 <div class="tile is-parent">
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
-                            <figure class="image is 128x128">
-                                <iframe src="https://giphy.com/embed/106sef1iucBY52" id="riot" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/action-black-friday-106sef1iucBY52"></a></p>
-                            </figure>
+                            <div id="gifAppear4"></div>
                         </article>
                     </div>
                     <div class="tile is-child box" id="scenario-description">
-                        <p class="title has-text-centered">Arrived at the Store</p>
-                        <p>You make it to the store safe and sound. You hurry inside. The panic has already begun. You think of the three most important items for surviving the apocalypse and decide to head towards the most essential first.</p>
+                        <p class="title has-text-centered">The Arrival</p>
+                        <p>You make it to the store safe and sound. You hurry inside. The panic has already begun. People are shoving and pushing.  You can smell the desperation in the air.  "Focus" You think to yourself, "What are the three most important items required surviving the apocalypse?  I should grab the most important ones first."</p>
                         <br>
-                        <p>What item to you grab first?</p>
+                        <p>Grab your items!</p>
                     </div>
                 </div>
             </div>
@@ -384,6 +383,7 @@
             </div>
             <br>
             <div class="level">
+                <button data-gif4="fight shop" id="gif4">Watch the madness</button>
                 <div class="level-item has-text-centered">
                     <button class="button restart-btn">Restart</button>
                     <button class="button bathroom-btn" id="from-2-slide">Go to the Bathroom</button>
@@ -491,7 +491,7 @@
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-                                <iframe src="https://giphy.com/embed/H1e7kMkB7EbMCphWI5" width="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/TheBoysTV-amazon-prime-the-boys-tv-H1e7kMkB7EbMCphWI5"></a></p>
+                                <iframe src="https://giphy.com/embed/H1e7kMkB7EbMCphWI5" width="280" frameBorder="0" height="350" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/TheBoysTV-amazon-prime-the-boys-tv-H1e7kMkB7EbMCphWI5"></a></p>
                             </figure>
                         </article>
                     </div>
@@ -538,13 +538,13 @@
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-                                <iframe src="https://giphy.com/embed/TT6fgUhxBWjFC" width="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/youtube-fight-store-TT6fgUhxBWjFC"></a></p>
+                                <iframe src="https://giphy.com/embed/TT6fgUhxBWjFC" width="280" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/youtube-fight-store-TT6fgUhxBWjFC"></a></p>
                             </figure>
                         </article>
                     </div>
                     <div class="tile is-child box" id="scenario-description">
                         <p class="title has-text-centered">Retrieve Your Things!</p>
-                        <p>You walk up to this <em>thief</em> and tap them on the shoulder. They turn around and face you.</p>
+                        <p>You walk up to this <em>thief</em> and tap them on the shoulder. He turns around and face you.</p>
                         <br>
                         <p>What do you do?</p>
                     </div>
@@ -627,7 +627,7 @@
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-                                <iframe src="https://giphy.com/embed/JpwW7TUvfGHcVkJkdf" width="320"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/insecurehbo-hbo-insecure-JpwW7TUvfGHcVkJkdf"></a></p>
+                                <iframe src="https://giphy.com/embed/JpwW7TUvfGHcVkJkdf" width="320" height="250"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/insecurehbo-hbo-insecure-JpwW7TUvfGHcVkJkdf"></a></p>
                             </figure>
                         </article>
                     </div>
@@ -677,13 +677,14 @@
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-                                <iframe src="https://giphy.com/embed/STlklyHaE8NVwD1gni" width="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/sad-depressed-sorrow-STlklyHaE8NVwD1gni"></a></p>
+                                <iframe src="https://giphy.com/embed/STlklyHaE8NVwD1gni" width="350" 
+                                height="350" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/sad-depressed-sorrow-STlklyHaE8NVwD1gni"></a></p>
                             </figure>
                         </article>
                     </div>
                     <div class="tile is-child box" id="scenario-description">
                         <p class="title has-text-centered">Return Home</p>
-                        <p>You exit the store. You just want to go home. Every breath you've taken today makes you fear for your life.</p>
+                        <p>You exit the store. You question your choices. "Did I make the right decisions," you ask. As you look out into the parking lot, you see the horde of people growing.  Cars are swerving around people, honking and shout is rampant. You just want to go home. You can feel the panic creeping on you. It's time to go home.</p>
                         <br>
                         <p>How do you get home?</p>
                     </div>
@@ -724,7 +725,7 @@
                     <div class="tile is-child is-4 box" id="scenario-image">
                         <article class="media">
                             <figure class="image is 128x128">
-                                <iframe src="https://giphy.com/embed/J07H2Cuy8Ek16Be4ND" width="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/wtFOCK-skam-wtfock-senne-J07H2Cuy8Ek16Be4ND"></a></p>
+                                <iframe src="https://giphy.com/embed/J07H2Cuy8Ek16Be4ND" width="350" height="250" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/wtFOCK-skam-wtfock-senne-J07H2Cuy8Ek16Be4ND"></a></p>
                             </figure>
                         </article>
                     </div>
@@ -740,7 +741,7 @@
         <br>
         <div class="level">
             <div class="level-item has-text-centered">
-                <button class="button" id="7-slide-next">Next</button>
+                <button class="button" id="7-slide-next">Results</button>
             </div> 
         </div>
     </section>
@@ -1504,10 +1505,34 @@ $("#gif3").on("click", function () {
           gifDiv3.append(gifImage3);
           $("#gifAppear3").prepend(gifDiv3);
         }
-
-        document.getElementById("bathroom-slide-gif").innerHTML = '<div class="tile is-child box" id="scenario-description">                        <p class="title has-text-centered">A Slimey Mystery</p><p>You wander cautiously looking for the bathroom.  You see a sign and walk towards it, but as you head there, you see a trail of some viscous liquid in a continous path as though something were draged.  You arrive at the bathroom and reveal a horrid sight</p>                    </div>'
       });
     });
+    //enter store gifs
+    $("#gif4").on("click", function () {
+      var gif4 = $(this).attr("data-gif4");
+      var queryURL4 = "https://api.giphy.com/v1/gifs/search?q=" +
+        gif4 + "&api_key=DBRAWwObrruaGJNOu68zDwNAqwaxo9ZK&limit=1";
+      $.ajax({
+        url: queryURL4,
+        method: "GET"
+      }).then(function (response) { 
+        console.log(queryURL4);
+        console.log(response);
+        var results = response.data;
+        for (var i = 0; i < results.length; i++) {
+          var gifDiv4 = $("<div>");
+          var rating = results[i].rating;
+          var p = $("<p>");
+          var gifImage4 = $("<img>");
+          gifImage4.attr("src", results[i].images.downsized.url);
+          gifImage4.attr("alt", gif4 + " Gif");
+          gifDiv4.append(p);
+          gifDiv4.append(gifImage4);
+          $("#gifAppear4").prepend(gifDiv4);
+        }
+      });
+    })
+    
     </script>
 </body>
 </html>
