@@ -14,6 +14,13 @@ $(document).ready(function () {
     var playerName = "";
     var itemType = 0;
     var replacementItem = 0;
+    var burger = document.querySelector('.burger');
+    var nav = document.querySelector('#'+burger.dataset.target);
+
+    burger.addEventListener('click', function(){
+        burger.classList.toggle('is-active');
+        nav.classList.toggle('is-active');
+    });
     
     
     $("#timer").text(secondsLeft);
@@ -643,64 +650,61 @@ $(document).ready(function () {
         panic += 5;
         
         if (event.target.id === "3-a-slide-insult") {
-            generateInsult().then(function(response) {
-                generatedInsult = response;
-                generateInsultModal();
-            });
+            generateInsultModal();
         } else if (event.target.id === "3-a-slide-cough") {
             var modalChoice = $(`<p><span class="3-a-slide-choice"></span></p>`);
             var modalEffectiveness = $(`<p>It was <span class="effective-inffective"></span>.</p>`);
             
             persuadeThief();
             $("#generate-modal").empty();
-            $("#3-a-slide-action").text(`You stagger up to the thief and force yourself to cough and wheeze upon him.`);
+            $("#generate-modal").append(modalChoice, modalEffectiveness);
+            $(".3-a-slide-choice").text(`You stagger up to the thief and force yourself to cough and wheeze upon him.`);
             
             if (persuadedThief === true) {
-                $("#effective-ineffective").text("effective");
+                $(".effective-ineffective").text("effective");
             } else {
-                $("#effective-ineffective").text("ineffective. Try again");
+                $(".effective-ineffective").text("ineffective. Try again");
             }; 
 
-            $("#generate-modal").append(modalChoice, modalEffectiveness);
+            
             $(".modal").addClass("is-active");
         } else if (event.target.id === "3-a-slide-beg") {
-           var modalChoice = $(`<p><span class="3-a-slide-choice"></span></p>`);
+            var modalChoice = $(`<p><span class="3-a-slide-choice"></span></p>`);
             var modalEffectiveness = $(`<p>It was <span class="effective-inffective"></span>.</p>`);
             
             persuadeThief();
             $("#generate-modal").empty();
-            $("#3-a-slide-action").text(`You get on your hands and knees on the floor, which is slightly sticky, and beg, hysterical.`);
+            $("#generate-modal").append(modalChoice, modalEffectiveness);
+            $(".3-a-slide-choice").text(`You get on your hands and knees on the floor, which is slightly sticky, and beg, hysterical.`);
             
             if (persuadedThief === true) {
-                $("#effective-ineffective").text("effective");
+                $(".effective-ineffective").text("effective");
             } else {
-                $("#effective-ineffective").text("ineffective. Try again");
+                $(".effective-ineffective").text("ineffective. Try again");
             }; 
-
-            $("#generate-modal").append(modalChoice, modalEffectiveness);
+            
             $(".modal").addClass("is-active");
         }    
     });
 
     // Generates modal of insult from EvilInsult API 
     function generateInsultModal() {
-        $("#generate-modal").empty();
         generateInsult().then(function(response) {
             var insultModalChoice = $(`<p><span class="3-a-slide-choice"></span></p>`);
             var insultModalEffectiveness = $(`<p>It was <span class="effective-inffective"></span>.</p>`);
 
-            $("#generate-modal").empty();
             generatedInsult = response;
+            $("#generate-modal").append(insultModalChoice, insultModalEffectiveness);
+            
             persuadeThief();
-            $("#3-a-slide-action").text(`You scream, "` + generatedInsult + `"`);
+            $(".3-a-slide-choice").text(`You scream, "` + generatedInsult + `"`);
             
             if (persuadedThief === true) {
-                $("#effective-ineffective").text("effective");
+                $(".effective-ineffective").text("effective");
             } else {
-                $("#effective-ineffective").text("ineffective. Try again");
+                $(".effective-ineffective").text("ineffective. Try again");
             }; 
 
-            $("#generate-modal").append(insultModalChoice, insultModalEffectiveness);
             $(".modal").addClass("is-active");
         });
     };
@@ -930,12 +934,3 @@ $(document).ready(function () {
         });
       })
     });
-    (function() {
-        var burger = document.querySelector('.burger');
-        var nav = document.querySelector('#'+burger.dataset.target);
-
-        burger.addEventListener('click', function(){
-            burger.classList.toggle('is-active');
-            nav.classList.toggle('is-active');
-        });
-    })();
