@@ -901,7 +901,7 @@ $(document).ready(function () {
             $("#gifAppear3").prepend(gifDiv3);
         }
     
-        document.getElementById("bathroom-slide-gif").innerHTML = '<div class="tile is-child box" id="scenario-description">                        <p class="title has-text-centered">A Slimey Mystery</p><p>You wander cautiously looking for the bathroom.  You see a sign and walk towards it, but as you head there, you see a trail of some viscous liquid in a continous path as though something were draged.  You arrive at the bathroom and reveal a horrid sight</p>                    </div>'
+        document.getElementById("bathroom-slide-gif").innerHTML = '<div class="tile is-child box" id="scenario-description">                        <p class="title has-text-centered">A Slimy Mystery</p><p>You wander cautiously looking for the bathroom.  You see a sign and walk towards it, but as you head there, you see a trail of some viscous liquid in a continuous path as though something were dragged.  You arrive at the bathroom and reveal a horrid sight</p>                    </div>'
         });
     });
 
