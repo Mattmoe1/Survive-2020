@@ -653,35 +653,37 @@ $(document).ready(function () {
             generateInsultModal();
         } else if (event.target.id === "3-a-slide-cough") {
             var modalChoice = $(`<p><span class="3-a-slide-choice"></span></p>`);
-            var modalEffectiveness = $(`<p>It was <span class="effective-inffective"></span>.</p>`);
+            // var modalEffectiveness = $(`<p>It was <span class="effective-inffective"></span>.</p>`);
             
             persuadeThief();
             $("#generate-modal").empty();
-            $("#generate-modal").append(modalChoice, modalEffectiveness);
+            $("#generate-modal").append(modalChoice);
             $(".3-a-slide-choice").text(`You stagger up to the thief and force yourself to cough and wheeze upon him.`);
             
+            /*
             if (persuadedThief === true) {
                 $(".effective-ineffective").text("effective");
             } else {
                 $(".effective-ineffective").text("ineffective. Try again");
-            }; 
+            }; */
 
             
             $(".modal").addClass("is-active");
         } else if (event.target.id === "3-a-slide-beg") {
             var modalChoice = $(`<p><span class="3-a-slide-choice"></span></p>`);
-            var modalEffectiveness = $(`<p>It was <span class="effective-inffective"></span>.</p>`);
+            // var modalEffectiveness = $(`<p>It was <span class="effective-inffective"></span>.</p>`);
             
             persuadeThief();
             $("#generate-modal").empty();
-            $("#generate-modal").append(modalChoice, modalEffectiveness);
+            $("#generate-modal").append(modalChoice);
             $(".3-a-slide-choice").text(`You get on your hands and knees on the floor, which is slightly sticky, and beg, hysterical.`);
             
+            /*
             if (persuadedThief === true) {
                 $(".effective-ineffective").text("effective");
             } else {
                 $(".effective-ineffective").text("ineffective. Try again");
-            }; 
+            }; */
             
             $(".modal").addClass("is-active");
         }    
@@ -691,19 +693,20 @@ $(document).ready(function () {
     function generateInsultModal() {
         generateInsult().then(function(response) {
             var insultModalChoice = $(`<p><span class="3-a-slide-choice"></span></p>`);
-            var insultModalEffectiveness = $(`<p>It was <span class="effective-inffective"></span>.</p>`);
+            // var insultModalEffectiveness = $(`<p>It was <span class="effective-inffective"></span>.</p>`);
 
             generatedInsult = response;
-            $("#generate-modal").append(insultModalChoice, insultModalEffectiveness);
+            $("#generate-modal").append(insultModalChoice);
             
             persuadeThief();
             $(".3-a-slide-choice").text(`You scream, "` + generatedInsult + `"`);
             
+            /*
             if (persuadedThief === true) {
                 $(".effective-ineffective").text("effective");
             } else {
                 $(".effective-ineffective").text("ineffective. Try again");
-            }; 
+            }; */
 
             $(".modal").addClass("is-active");
         });
