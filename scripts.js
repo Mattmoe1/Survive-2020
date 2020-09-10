@@ -879,7 +879,6 @@ $(document).ready(function () {
             $("#gifAppear2").prepend(gifDiv2);
         }
     
-        document.getElementById("winnerslide").innerHTML = '<p class="title has-text-centered">Yay! You Win!</p><p>You made it! Your choices have lead you down the correct path. You continue to stay safe. You wash your hands frequently and for 20 seconds. You maintain 6 feet social distancing from others. You wear a mask which covers your mouth and nose when you are out in public. The future is uncertain, but with good decision making like this you feel you at least have a chance to make it through to the other side of this apocalypse. Stay safe out there.</p>});'
         }); 
     });
     
