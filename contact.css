@@ -1,0 +1,92 @@
+body, html{
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: 'Eater', cursive;
+}
+h1{
+	font-weight: normal;
+	font-size: 4em;
+	font-family: 'Eater', cursive;
+	margin: 0 auto;
+	margin-top: 30px;
+	width: 500px;
+	color: darkred;
+	text-align: center;
+
+}
+
+#form{
+	height: 100%;	
+	background-color: black;
+	overflow: hidden;
+	position: relative;
+	
+}
+
+form{
+	margin: 0 auto;
+	width: 500px;
+	padding-top: 40px;
+	color: #D1E8E2 ;
+	position: relative;
+	
+	
+}
+
+label, input, textarea{
+	display: block;	
+}
+
+input, textarea{
+	width: 500px;	
+	border: none;
+	border-radius: 20px;
+	outline: none;
+	padding: 10px;
+	font-family: 'Eater', cursive;
+	font-size: 1em;
+	color: #676767;
+	transition: border 0.5s;
+	border: solid 3px darkred;	
+	box-sizing:border-box;
+	
+}
+
+input:focus, textarea:focus{
+	border: solid 3px darkblue;	
+}
+
+textarea{
+	height: 100px;	
+	resize: none; 
+	overflow: auto;
+}
+
+input[type="submit"]{
+	background-color:darkgray;
+	color: #D1E8E2 ;
+	height: 50px;
+	cursor: pointer;
+	margin-top: 30px;
+	font-size: 1.29em;
+	font-family: 'Eater', cursive;
+}
+input[type="submit"]:hover{
+	background-color: darkred;
+	
+}
+
+label{
+	font-size: 1.5em;
+	margin-top: 20px;
+	padding-left: 20px;
+}
+
+.formgroup, .formgroup-active, .formgroup-error{
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-size: 10.5%;
+	width: 566px;
+	padding-top: 2px;
+}

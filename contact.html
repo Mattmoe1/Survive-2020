@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" contents="ie=edge" />
+     
+<title>Pandemic Panic - Survive 2020</title>
+<!--links-->
+<link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Butcherman&family=Eater&family=Nosifer&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="contact.css">
+<link rel="stylesheet"
+href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+crossorigin="anonymous">
+<link rel="icon" 
+href="images/covid_icon.png" 
+sizes="16x16" 
+type="image">
+
+<section>
+    <header class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item">
+                    <img src="./images/covid_icon.png" alt="figure coughing in the face of another">
+                </a>
+                <span class="navbar-burger burger" data-target="navbarMenuHeroC">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </div>
+            <div id="navbarMenuHeroC" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item is-active" href="index.html">
+                        Home
+                    </a>
+                    <a class="navbar-item view-highscores">
+                        View Highscores
+                    </a>
+                    <a class="navbar-item" href="about.html">
+                        About
+                    </a>
+                    <a class="navbar-item" href="contact.html">
+                        Contact
+                    </a>
+                    <span class="navbar-item">
+                        <a class="button is-danger is-inverted" href="https://github.com/Mattmoe1/Survive-2020" target="_blank">
+                            <span class="icon">
+                                <i class="fab fa-github"></i>
+                            </span>
+                            <span>Repo</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+</section>
+<header>
+	<h1>Contact us</h1>
+</header>
+
+<div id="form">
+
+<form id="form" method="post">
+
+<div class="formgroup" id="name-form">
+    <label for="name">Your name*</label>
+    <input type="text" id="name" name="name" />
+</div>
+
+<div class="formgroup" id="email-form">
+    <label for="email">Your e-mail*</label>
+    <input type="email" id="email" name="email" />
+</div>
+
+<div class="formgroup" id="message-form">
+    <label for="message">Your message</label>
+    <textarea id="message" name="message"></textarea>
+</div>
+
+	<input type="submit" value="Send your message!" />
+</form>
+</div>
+<script>   
+ (function() {
+    var burger = document.querySelector('.burger');
+    var nav = document.querySelector('#'+burger.dataset.target);
+
+    burger.addEventListener('click', function(){
+        burger.classList.toggle('is-active');
+        nav.classList.toggle('is-active');
+    });
+    })();</script>
+<script type ="text/javascript" src = "contact.js"></script>

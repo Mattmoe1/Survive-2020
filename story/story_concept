@@ -1,0 +1,62 @@
+1. INTRO
+    Exposition
+        placeholdertitle:"2020_The_Game"
+         User has 3-4 options per "story-slide"
+            "story-slide" (main quest slides)
+        When a user submits a choice, they receive a "response-slide"
+            "response-slide" (unique slide response to particular user input)
+
+2. CALL TO ACTION   [story-slide]
+    User quest: "Survive 2020"
+        User choose to 
+            a. stay home or 
+            b. go out for supplies
+            
+            /*(insert "game-timer" for dramatic effect?)
+            "game-timer" = "panic-meter" 
+            if it runs out = "go-crazy-ENDING?"
+            Completing a task reduces panic by adding time to game-timer*/
+
+3A. stay-home-ENDING
+    "...stay calm and social distance"
+             //game is actually a Covid-safety PSA?//
+
+<[STORY FORMAT]>
+    3B. JOURNEY [story-slide]
+        How to get to the store?
+            a. drive
+            b. bus
+            c. walk
+
+    4A. [response-slide]
+    stuck in traffic;
+    lose (x) seconds;
+
+    4B. [response-slide]
+    scared of people on bus;
+    lose (x+ seconds); [
+        regardless of future choices, receive infected-ENDING];
+
+    4C. [response-slide]
+    time to walk and unwind;
+    gain (x) seconds;
+
+    5. ARRIVAL [story-slide]
+        You've arrived, which items to get first?
+        a, b, c, ...
+<[STORY FORMAT]>
+
+
+
+
+
+[ENDINGS]
+
+go-crazy-ENDING:
+    (run out of time)
+    "...so afraid of others, you ran into the woods never to be seen again"
+
+stay-home-ENDING:
+    (stay home)
+    "...had enough food and supplies to last you until things calmed down"
+

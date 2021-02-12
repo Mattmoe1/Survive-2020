@@ -1,0 +1,185 @@
+/* font-family: 'Butcherman', cursive;
+font-family: 'Eater', cursive;
+font-family: 'Nosifer', cursive;
+font-family: 'Nothing You Could Do', cursive; */
+
+
+body {
+    font-family: 'Eater', cursive;
+    align-items: center;
+    background-color: black;
+}
+
+h1 {
+    text-align:left;
+    text-justify: auto;
+}
+
+h3 {
+    text-align: left;
+    float:left;
+}
+
+button {
+    opacity: .5;
+    background-color: black;
+    color: red;
+    font-family: 'Eater', cursive;
+}
+
+button:hover{
+    opacity: .5;
+    background-color: red;
+    color: black;
+    font-family: 'Eater', cursive;
+
+}
+
+p {
+    color: darkred;
+}
+
+h1, p, #title {
+    font-family: 'Eater', cursive;
+}
+
+#pure {
+    block-size: 50px;
+    color: darkred;
+    font-family: 'Eater', cursive;
+    float: right;
+}
+
+#restart {
+    block-size: 50px;
+    background-color: black;
+    color: hotpink;
+    font-family: 'Eater', cursive;
+}
+
+#stepbackcss {
+    float:left;
+}
+
+#winning {
+    float: left;
+}
+
+#freakout {
+    float: left;
+}
+
+#freakoutepilogue {
+    text-align: left;
+}
+
+#slide1 {
+    text-align: relative;
+    margin-left: 5%;
+    margin-right: 5%;
+    float: right;
+}
+
+#avatar {
+    display: none;
+}
+.gifReacts {
+    color: black;
+    background-color: white;
+}
+#SLIDE3 {
+    margin-left: 5%;
+    margin-right: 5%;
+    float: right;
+    text-align: absolute;
+    color: aqua;
+}
+#purefrank {
+   display: block;
+   margin-left: 200px;
+   margin-right: auto;  
+   width: 1000px;
+   align-items: center;
+   float: right;
+}
+#standby {
+    size: 200px;
+}
+#horrorgiflayout {
+    position: relative;
+    display: flex;
+    float: left;
+    background-color: yellow;
+}
+.title {
+    margin-right: 20%;
+    margin-left: 20%;
+    text-align: center;
+    background: transparent;
+}
+
+.tlbox {
+position: relative;
+font-size: 50px;
+margin-top: 20px;
+padding-left: -10px;
+
+}
+
+.prompt {
+    text-align: right;
+}
+.photo1 {
+    float: right;
+    display: flex;
+}
+.prompt-b {
+    float: inline-end;
+}
+#start-btn {
+    font-size: 50px;
+    padding: -10px;
+    padding-top: -10px;
+    font-weight: 900;
+    margin-right: 40%;
+    margin-left: auto;
+    text-align: center;
+}
+.restart-btn {
+    float:left;
+    display: flex;
+}
+
+.try-again-btn {
+    float: left;
+}
+
+.question {
+    text-align: center;
+}
+
+.giphy-embed {
+    float: left;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+.the_mission {
+    width: 500px;
+    background-color: aqua;
+}
+.title-name {
+    color: darkred;
+    font-size: 130px;
+    margin: -35px;
+    margin-bottom: -105px;
+    font-family: 'Nosifer', cursive;
+    text-align: center;
+    line-height: 135px;
+}
+
